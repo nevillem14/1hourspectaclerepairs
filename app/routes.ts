@@ -7,4 +7,6 @@ export default [
   route("domainLookup", "routes/domainLookup.tsx"),
   route("faq", "routes/faq.tsx"),
   route("pricing", "routes/pricing.tsx"),
+  // Add the catch-all route for 404 pages
+  route("*", "components/notFound.tsx")
 ] satisfies RouteConfig;
