@@ -1,14 +1,14 @@
 import React from "react";
+import DomainChecker from "~/components/DomainChecker";
 
 export default function DomainLookup() {
   return (
     <div className="flex items-center justify-center h-screen">
       {/* Background image: 25% screen height */}
       <div className="relative h-[20vh] md:h-[35vh] w-full">
-        <StaticImage
+        <img
           src="../images/domain-search-background-5.png"
           alt="abstract design background"
-          placeholder="blurred"
           className="w-full h-full object-cover"
         />
         {/* Fade linear gradient at bottom */}
