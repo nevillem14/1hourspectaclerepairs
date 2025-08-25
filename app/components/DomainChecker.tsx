@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const DomainChecker = () => {
   const [domain, setDomain] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [searchCount, setSearchCount] = useState(0);
 
   // Load count from localStorage
@@ -24,30 +22,30 @@ const DomainChecker = () => {
     setLoading(true);
     setResult(""); // clear previous result
 
-    let token = "";
-
-    if (searchCount >= 5) {
-      try {
-        if (recaptchaRef.current) {
-          const recaptchaToken = await recaptchaRef.current.executeAsync();
-          recaptchaRef.current.reset();
-          if (!recaptchaToken) {
-            setResult("❌ reCAPTCHA failed to provide a token");
-            setLoading(false);
-            return;
-          }
-          token = recaptchaToken;
-        } else {
-          setResult("❌ reCAPTCHA not loaded");
-          setLoading(false);
-          return;
-        }
-      } catch {
-        setResult("❌ reCAPTCHA failed or cancelled");
-        setLoading(false);
-        return;
-      }
-    }
+    //removed recaptcha code
+    //let token = "";
+    // if (searchCount >= 5) {
+    //   try {
+    //     if (recaptchaRef.current) {
+    //       const recaptchaToken = await recaptchaRef.current.executeAsync();
+    //       recaptchaRef.current.reset();
+    //       if (!recaptchaToken) {
+    //         setResult("❌ reCAPTCHA failed to provide a token");
+    //         setLoading(false);
+    //         return;
+    //       }
+    //       token = recaptchaToken;
+    //     } else {
+    //       setResult("❌ reCAPTCHA not loaded");
+    //       setLoading(false);
+    //       return;
+    //     }
+    //   } catch {
+    //     setResult("❌ reCAPTCHA failed or cancelled");
+    //     setLoading(false);
+    //     return;
+    //   }
+    // }
 
     try {
       /*const res = await fetch(`http://localhost:5000/check?domain=${domain}`);*/
@@ -56,7 +54,9 @@ const DomainChecker = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ domain, token }),
+        //removed recaptcha
+        //body: JSON.stringify({ domain, token }),
+        body: JSON.stringify({ domain }),
       });
 
       const data = await res.json();
@@ -67,7 +67,8 @@ const DomainChecker = () => {
         setResult(`${data.domain} is available ✅`);
       }
 
-      updateSearchCount();
+      //removed recaptcha code
+      //updateSearchCount();
     } catch {
       setResult("❗ Error checking domain");
     }
@@ -96,13 +97,14 @@ const DomainChecker = () => {
         {loading ? "Checking..." : "Check"}
       </button>
 
-      {searchCount >= 5 && (
+      {/* //removed recaptcha code 
+      searchCount >= 5 && (
         <ReCAPTCHA
           sitekey="6LenPmUrAAAAAPPcEPkOMtko2tIzZw1vX1FcI-Qj"
           size="invisible"
           ref={recaptchaRef}
         />
-      )}
+      )*/}
 
       {/* Spinner */}
       {loading && (
