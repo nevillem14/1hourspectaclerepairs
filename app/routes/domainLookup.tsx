@@ -3,7 +3,7 @@ import DomainChecker from "~/components/DomainChecker";
 
 export default function DomainLookup() {
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="w-screen overflow-hidden text-center mb-8">
       {/* Background image: 25% screen height */}
       <div className="relative h-[20vh] md:h-[35vh] w-full">
         <img
