@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import logo from "../images/wsdxi-logo-2.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +12,7 @@ export default function Navbar() {
         <div className="ml-4 mt-4">
           <Link to="/" className="inline-block">
             <img
-              src={logo}
+              src="/images/wsdxi-logo-2.png"
               alt="Waterfall Software Development 11 logo"
               className="h-8 sm:h-8 origin-top-left hover:scale-250 transition-transform duration-300 ease-in-out"
             />
