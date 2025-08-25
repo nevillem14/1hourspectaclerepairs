@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:flex-grow md:text-center">
             <Link to="/" className="inline-block">
               <img
-                src="/images/davids-arts-and-crafts-logo-white-1.webp"
+                src="/images/wsdxi-logo-2-white.png"
                 alt="Logo"
                 className=" transition-transform duration-300 ease-in-out hover:scale-110"
               />
