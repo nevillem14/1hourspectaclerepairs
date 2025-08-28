@@ -1,15 +1,14 @@
 import { Link } from "react-router";
-import heroImage from "/images/abstract_design_2504.jpg";
 
 export function Hero() {
   return (
     <section className="relative py-16 overflow-hidden text-center md:py-32">
       {/* Background Image (z-index: 0) */}
-      <div className="absolute inset-0 opacity-50 z-0">
+      <div className="absolute inset-0 opacity-20 z-0">
         <img
-          src={heroImage}
+          src="/images/abstract_design_2504.jpg"
           alt="abstract design background"
-          className="w-screen h-full md:h-[640px] object-cover object-left-bottom"
+          className="w-full h-full object-cover"
         />
       </div>
 

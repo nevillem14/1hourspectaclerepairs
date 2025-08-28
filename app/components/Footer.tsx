@@ -4,17 +4,14 @@ import Logo from "~/components/Logo";
 
 export default function Footer() {
   return (
-    <section className="mt-16 bg-gray-800 p-2">
+    <section className="mt-16 bg-black p-2">
       <div className="pt-10 flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between md:gap-0">
         <div className="flex flex-col gap-4 items-center md:items-start">
           <div className="md:flex-grow md:text-center">
-            <Link to="/" className="inline-block">
-              <img
-                src="/images/wsdxi-logo-2-white.png"
-                alt="Logo"
-                className=" transition-transform duration-300 ease-in-out hover:scale-110"
-              />
-            </Link>
+            {/* Logo */}
+            <div className="ml-4 mt-4">
+              <Logo />
+            </div>
           </div>
         </div>
 
