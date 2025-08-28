@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:flex-grow md:text-center">
             {/* Logo */}
             <div className="ml-4 mt-4">
-              <Logo />
+              <Logo className="" />
             </div>
           </div>
         </div>

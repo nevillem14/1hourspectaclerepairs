@@ -1,8 +1,12 @@
 import { Link } from "react-router";
 
-const Logo = () => {
+interface LogoProps {
+  className?: string;
+}
+
+const Logo: React.FC<LogoProps> = ({ className }) => {
   return (
-    <div className="md:flex-grow md:text-center">
+    <div className={`md:flex-grow md:text-center ${className ?? ""}`}>
       <Link to="/" className="inline-block">
         <img
           src="/images/wsdxi-logo-2-white.png"
