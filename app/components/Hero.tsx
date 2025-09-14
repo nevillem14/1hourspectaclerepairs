@@ -22,7 +22,7 @@ export function Hero() {
         </p>
 
         <Link
-          to="/contact"
+          to="/pricing"
           className="inline-block mt-12 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg rounded hover:bg-blue-900 transition"
           role="button"
         >
