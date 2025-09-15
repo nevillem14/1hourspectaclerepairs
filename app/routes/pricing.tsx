@@ -3,19 +3,22 @@ import React from "react";
 
 const packages = [
   {
-    name: "X Package",
+    name: "Radium",
     price: "R599 / mo",
     features: [
-      "1-3 Page Website",
+      "1–3 Page Website",
       "Mobile Responsive",
       "Basic SEO",
       "1 Email Account",
     ],
-    color: "text-blue-600",
-    symbol: "✖",
+    color: "from-green-400 to-green-600",
+    textColor: "text-green-500",
+    symbol: "Ra",
+    number: 88,
+    glow: false,
   },
   {
-    name: "Square Package",
+    name: "Thorium",
     price: "R799 / mo",
     features: [
       "Up to 5 Pages",
@@ -24,11 +27,14 @@ const packages = [
       "3 Email Accounts",
       "Monthly Backup",
     ],
-    color: "text-pink-600",
-    symbol: "■",
+    color: "from-blue-400 to-blue-600",
+    textColor: "text-blue-500",
+    symbol: "Th",
+    number: 90,
+    glow: false,
   },
   {
-    name: "Triangle Package",
+    name: "Uranium",
     price: "R999 / mo",
     features: [
       "Up to 10 Pages",
@@ -37,11 +43,14 @@ const packages = [
       "5 Email Accounts",
       "Weekly Backup",
     ],
-    color: "text-green-600",
-    symbol: "▲",
+    color: "from-yellow-400 to-yellow-600",
+    textColor: "text-yellow-600",
+    symbol: "U",
+    number: 92,
+    glow: true,
   },
   {
-    name: "Circle Package",
+    name: "Plutonium",
     price: "Contact Sales",
     features: [
       "Unlimited Pages",
@@ -50,14 +59,17 @@ const packages = [
       "Unlimited Email Accounts",
       "Daily Backup & Priority Support",
     ],
-    color: "text-purple-600",
-    symbol: "●",
+    color: "from-purple-400 to-purple-600",
+    textColor: "text-purple-600",
+    symbol: "Pu",
+    number: 94,
+    glow: true,
   },
 ];
 
 export default function WebDesignPackages() {
   return (
-    <main className="pt-20 pb-12 bg-gray-50">
+    <main className="pt-20 pb-12 bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-3xl font-bold text-center mb-12">
           Web Design Packages
@@ -67,14 +79,31 @@ export default function WebDesignPackages() {
           {packages.map((pkg) => (
             <div
               key={pkg.name}
-              className="bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center text-center"
+              className={`relative bg-gray-800 rounded-2xl shadow-xl p-6 flex flex-col items-center text-center border-2 border-transparent hover:border-white transition`}
             >
-              <div className={`text-4xl font-bold mb-4 ${pkg.color}`}>
-                {pkg.symbol}
+              {/* Glowing background */}
+              <div
+                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pkg.color} opacity-20 blur-xl ${
+                  pkg.glow ? "animate-pulse-glow" : ""
+                }`}
+              ></div>
+
+              {/* Periodic table style */}
+              <div className="relative w-full h-40 flex flex-col justify-between p-3 border border-gray-700 rounded-xl bg-black/40">
+                <span className="text-sm text-gray-300 text-left">
+                  {pkg.number}
+                </span>
+                <span className={`text-5xl font-bold ${pkg.textColor}`}>
+                  {pkg.symbol}
+                </span>
+                <span className="text-sm text-gray-300 text-right">
+                  {pkg.price}
+                </span>
               </div>
-              <h2 className="text-xl font-semibold mb-2">{pkg.name}</h2>
-              <p className="text-lg font-bold mb-4">{pkg.price}</p>
-              <ul className="text-gray-600 space-y-2 mb-6">
+
+              {/* Package details */}
+              <h2 className="text-xl font-semibold mt-4">{pkg.name}</h2>
+              <ul className="text-gray-300 text-sm space-y-2 mt-4 mb-6">
                 {pkg.features.map((f) => (
                   <li key={f}>✓ {f}</li>
                 ))}
