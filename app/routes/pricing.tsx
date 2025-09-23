@@ -1,7 +1,7 @@
 // File: app/routes/Packages.tsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
+import { CircleCheck } from "lucide-react";
 type PackageType = {
   name: string;
   priceMonthly: string;
@@ -15,33 +15,33 @@ type PackageType = {
 const packages: PackageType[] = [
   {
     name: "Starter",
-    priceMonthly: "R599 / mo",
+    priceMonthly: "R250 / mo",
     priceYearly: "R6,590 / yr",
-    features: ["1–3 pages", "Mobile-friendly", "Basic SEO", "Email support"],
+    features: ["1–4 pages", "Mobile-friendly", "Basic SEO", "Email support"],
     image: "/images/pearl-stone.webp",
   },
   {
     name: "Sapphire",
-    priceMonthly: "R799 / mo",
+    priceMonthly: "R550 / mo",
     priceYearly: "R8,790 / yr",
     features: [
-      "Up to 5 pages",
+      "Up 10 pages",
       "Mobile-friendly",
       "Standard SEO",
-      "Priority support",
+      "Email support",
     ],
     highlight: true,
     image: "/images/sapphire-stone.webp",
   },
   {
     name: "Ruby",
-    priceMonthly: "R999 / mo",
+    priceMonthly: "R950 / mo",
     priceYearly: "R10,990 / yr",
     features: [
-      "Up to 10 pages",
+      "Over 10 pages",
       "Mobile-friendly",
       "Advanced SEO",
-      "WhatsApp support",
+      "Email support",
     ],
     image: "/images/ruby-stone.webp",
   },
@@ -54,7 +54,7 @@ const packages: PackageType[] = [
       "Unlimited pages",
       "Mobile-friendly",
       "Full SEO package",
-      "Dedicated account manager",
+      "And more...",
     ],
     image: "/images/diamond-stone.webp",
   },
@@ -94,6 +94,16 @@ export default function Packages() {
             }`}
           >
             Yearly
+            <span
+              className={`text-sm rounded-sm bg-gray-300 ml-2 px-2 py-1"${
+                billing === "yearly"
+                  ? "bg-gray-900 text-black"
+                  : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              {" "}
+              save up to 15%
+            </span>
           </button>
         </div>
       </div>
@@ -114,7 +124,7 @@ export default function Packages() {
               <img
                 src={pkg.image}
                 alt={pkg.name + " gemstone"}
-                className="w-16 h-16 object-contain"
+                className="h-12 object-contain"
               />
               <h2 className="text-2xl font-semibold text-gray-900">
                 {pkg.name}
@@ -129,7 +139,10 @@ export default function Packages() {
               <ul className="mt-4 space-y-2 text-gray-600">
                 {pkg.features.map((f) => (
                   <li key={f} className="flex items-center">
-                    <span className="mr-2 text-green-500">✔</span> {f}
+                    <span className="mr-2">
+                      <CircleCheck />
+                    </span>{" "}
+                    {f}
                   </li>
                 ))}
               </ul>
