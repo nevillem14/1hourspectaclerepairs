@@ -7,7 +7,7 @@ export default function DomainLookup() {
       {/* Background image: 25% screen height */}
       <div className="relative h-[20vh] md:h-[35vh] w-full">
         <img
-          src="../images/domain-search-background-5.png"
+          src="../images/domain-search-background-5.webp"
           alt="abstract design background"
           className="w-full h-full object-cover"
         />

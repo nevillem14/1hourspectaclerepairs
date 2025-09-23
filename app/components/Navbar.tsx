@@ -34,7 +34,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/images/wsdxi-logo-2.png"
+              src="/images/wsdxi-logo-2.webp"
               alt="Waterfall Software Development 11 logo"
               className="h-8 md:h-12 w-auto"
             />
