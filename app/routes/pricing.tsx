@@ -1,7 +1,7 @@
 // File: app/routes/Packages.tsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, Check } from "lucide-react";
 type PackageType = {
   name: string;
   priceMonthly: string;
@@ -14,16 +14,16 @@ type PackageType = {
 
 const packages: PackageType[] = [
   {
-    name: "Starter",
-    priceMonthly: "R250 / mo",
-    priceYearly: "R6,590 / yr",
+    name: "Tier 1",
+    priceMonthly: "R250",
+    priceYearly: "R200",
     features: ["1–4 pages", "Mobile-friendly", "Basic SEO", "Email support"],
     image: "/images/pearl-stone.webp",
   },
   {
-    name: "Sapphire",
-    priceMonthly: "R550 / mo",
-    priceYearly: "R8,790 / yr",
+    name: "Tier 2",
+    priceMonthly: "R550",
+    priceYearly: "R500",
     features: [
       "Up 10 pages",
       "Mobile-friendly",
@@ -34,9 +34,9 @@ const packages: PackageType[] = [
     image: "/images/sapphire-stone.webp",
   },
   {
-    name: "Ruby",
-    priceMonthly: "R950 / mo",
-    priceYearly: "R10,990 / yr",
+    name: "Tier 3",
+    priceMonthly: "R950",
+    priceYearly: "R800",
     features: [
       "Over 10 pages",
       "Mobile-friendly",
@@ -46,7 +46,7 @@ const packages: PackageType[] = [
     image: "/images/ruby-stone.webp",
   },
   {
-    name: "Diamond",
+    name: "Custom",
     priceMonthly: "Contact Sales",
     priceYearly: "Contact Sales",
     priceContact: true,
@@ -64,7 +64,7 @@ export default function Packages() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
 
   return (
-    <main className="pt-16 pb-24 bg-gray-50">
+    <main className="pt-16 pb-24 bg-white">
       <div className="max-w-5xl mx-auto text-center mb-12 px-4">
         <h1 className="text-4xl font-bold text-gray-900">
           Web Design Packages
@@ -74,38 +74,32 @@ export default function Packages() {
         </p>
 
         {/* Billing Toggle */}
-        <div className="mt-8 flex items-center justify-center space-x-4">
+        <div className="bg-gray-200 rounded-lg mt-8 flex items-center justify-center space-x-4 mx-auto w-fit p-2">
           <button
             onClick={() => setBilling("monthly")}
-            className={`px-4 py-2 rounded-lg font-medium ${
+            className={`px-4 py-2 w-40 rounded-lg font-medium ${
               billing === "monthly"
-                ? "bg-gray-900 text-white"
-                : "bg-gray-200 text-gray-700"
+                ? "bg-white text-black"
+                : "bg-gray-200 text-black"
             }`}
           >
             Monthly
           </button>
           <button
             onClick={() => setBilling("yearly")}
-            className={`px-4 py-2 rounded-lg font-medium ${
+            className={`px-4 py-2 w-40 rounded-lg font-medium ${
               billing === "yearly"
-                ? "bg-gray-900 text-white"
-                : "bg-gray-200 text-gray-700"
+                ? "bg-white text-black"
+                : "bg-gray-200 text-black"
             }`}
           >
             Yearly
-            <span
-              className={`text-sm rounded-sm bg-gray-300 ml-2 px-2 py-1"${
-                billing === "yearly"
-                  ? "bg-gray-900 text-black"
-                  : "bg-gray-200 text-gray-700"
-              }`}
-            >
-              {" "}
-              save up to 15%
-            </span>
           </button>
         </div>
+        <span className="text-sm rounded-sm ml-2 px-2 py-1">
+          {" "}
+          Save up to 15% with Yearly
+        </span>
       </div>
 
       {/* Pricing Grid */}
@@ -116,31 +110,41 @@ export default function Packages() {
             whileHover={{ translateY: -4 }}
             className={`relative rounded-2xl border ${
               pkg.highlight
-                ? "border-blue-500 shadow-lg"
+                ? "border-black border-2 shadow-lg"
                 : "border-gray-200 shadow"
             } bg-white flex flex-col overflow-hidden`}
           >
-            <div className="p-6 flex-grow flex flex-col items-center text-center space-y-4">
-              <img
+            <div className="bg-gray-100 p-6 flex-grow flex flex-col items-center text-center space-y-4">
+              {/*<img
                 src={pkg.image}
                 alt={pkg.name + " gemstone"}
                 className="h-12 object-contain"
-              />
+              />*/}
               <h2 className="text-2xl font-semibold text-gray-900">
                 {pkg.name}
               </h2>
+
               <p className="text-3xl font-bold text-gray-900">
-                {pkg.priceContact
-                  ? "Contact Sales"
-                  : billing === "monthly"
-                    ? pkg.priceMonthly
-                    : pkg.priceYearly}
+                {pkg.priceContact ? (
+                  "Contact Sales"
+                ) : billing === "monthly" ? (
+                  <span>
+                    {pkg.priceMonthly}
+                    <span className="block text-sm">per month</span>
+                  </span>
+                ) : (
+                  <span>
+                    {pkg.priceYearly}
+                    <span className="block text-sm">per month</span>
+                    <span className="block text-sm">billed annually</span>
+                  </span>
+                )}
               </p>
               <ul className="mt-4 space-y-2 text-gray-600">
                 {pkg.features.map((f) => (
                   <li key={f} className="flex items-center">
                     <span className="mr-2">
-                      <CircleCheck />
+                      <Check />
                     </span>{" "}
                     {f}
                   </li>
