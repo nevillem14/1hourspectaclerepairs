@@ -1,6 +1,33 @@
+# macOS system files
 .DS_Store
+
+# Node modules
 /node_modules/
 
-# React Router
-/.react-router/
+# Remix + Vite build artifacts
+/.cache/
 /build/
+/dist/
+
+# Remix router
+/.react-router/
+
+# Environment variables
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Optional: OS junk
+Thumbs.db
+ehthumbs.db
+
+# VSCode settings (optional)
+.vscode/
+
+# Netlify build output (optional, if generated locally)
+.netlify/

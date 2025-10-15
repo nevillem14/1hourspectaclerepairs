@@ -3,8 +3,8 @@ import { Hero } from "~/components/Hero";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "WSDXI" },
-    { name: "description", content: "Waterfall Software Development." },
+    { title: "NEOCCESSORIES" },
+    { name: "description", content: "neoccessories" },
   ];
 }
 
