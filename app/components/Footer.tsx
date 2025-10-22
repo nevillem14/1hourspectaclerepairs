@@ -1,48 +1,153 @@
-// app/components/Footer.tsx
-import { Link } from "react-router";
-import Logo from "~/components/Logo";
+// File: app/components/Footer.tsx
 
-export default function Footer() {
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+import { MapPin } from "lucide-react";
+
+const Footer = () => {
   return (
-    <section className="mt-16 bg-black p-2">
-      <div className="pt-10 flex flex-col items-center gap-8 md:flex-row md:items-start md:justify-between md:gap-0">
-        <div className="flex flex-col gap-4 items-center md:items-start">
-          <div className="md:flex-grow md:text-center">
-            {/* Logo */}
-            <div className="ml-4 mt-4">
-              <Logo className="" />
-            </div>
+    <footer className="bg-black text-gray-100 mt-12 w-full">
+      {/* Top Section */}
+      <div className="max-w-7xl mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Contact Info */}
+        <div className="flex items-center justify-center lg:justify-start">
+          <img
+            src="/images/wsdxi-logo-2-white.png"
+            alt="wsdxi-logo-white-image"
+            className="w-full h-18 object-scale-down rounded-lg"
+          />
+        </div>
+
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+          <ul className="space-y-1">
+            <li>
+              <Link to="/" className="hover:text-yellow-400">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-yellow-400">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:text-yellow-400">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/pricing" className="hover:text-yellow-400">
+                Pricing
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Get In Touch</h3>
+          <p className="mt-2">
+            Phone:{" "}
+            <a className="hover:text-yellow-400" href="tel:+27698197008">
+              +27 69 819 7008
+            </a>
+          </p>
+          <p className="mt-2">
+            Email:{" "}
+            <a
+              className="hover:text-yellow-400"
+              href="mailto:hello@wsdxi.co.za"
+            >
+              hello@wsdxi.co.za{" "}
+              <span className="ml-12">support@wsdxi.co.za</span>
+            </a>
+          </p>
+        </div>
+
+        {/* Social Media */}
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
+          <div className="flex space-x-4 text-xl">
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="hover:text-yellow-400"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-yellow-400"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="hover:text-yellow-400"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-yellow-400"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="hover:text-yellow-400"
+            >
+              <FaYoutube />
+            </a>
           </div>
         </div>
+      </div>
 
-        <div className="flex flex-col gap-4 text-sm text-gray-400 items-center md:items-start">
-          {/*<Link to="/" className="hover:text-blue-600">
-            Home Page
-          </Link>
+      {/* Bottom Section */}
 
-          <Link to="/contact" className="hover:text-blue-600">
-            Contact
-          </Link>
-
-          <Link to="/termsOfUse" className="hover:text-blue-600">
-            Terms of Use
-          </Link>
-
-          <Link to="/privacyPolicy" className="hover:text-blue-600">
-            Privacy Policy
-          </Link>
-
-          <Link to="/how-to-purchase" className="hover:text-blue-600">
-            How to order
-          </Link>*/}
+      <div className="text-white/30 text-sm mx-auto px-4 py-4 border-t border-gray-700">
+        <div className="flex flex-col items-center text-center sm:flex-row sm:justify-center sm:text-left">
+          {/* Copyright */}
+          <div className="flex items-center mb-2 sm:mb-0">
+            <p className="mx-10 sm:mx-0">
+              © {new Date().getFullYear()} All Rights Reserved.
+            </p>
+          </div>
+          <div>
+            <span className="h-5 hidden sm:inline mx-2">|</span>
+          </div>
+          <div className="flex items-center mb-2 sm:mb-0">
+            <p className="mx-10 sm:mx-0">
+              Waterfall Software - Digital Innovation
+            </p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-sm text-gray-400 items-center md:items-start"></div>
       </div>
-      <div className="flex-1 flex flex-col justify-start md:justify-center items-center pt-10">
-        <p className="text-sm">
-          Copyright &copy; 2019 - {new Date().getFullYear()} | WSDXI (Pty) Ltd
-        </p>
-      </div>
-    </section>
+    </footer>
   );
-}
+};
+
+export default Footer;
