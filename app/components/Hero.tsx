@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import RotatingBlock from "./RotatingBlock";
 
 export function Hero() {
   return (
@@ -20,13 +21,12 @@ export function Hero() {
         <p className="text-[clamp(1rem,2vw,1.25rem)] leading-relaxed mt-4 text-gray-700">
           We make it simple — you tell us what you need, and we handle the rest.
         </p>
-
         <Link
           to="/pricing"
           className="inline-block mt-12 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg rounded hover:bg-blue-900 transition"
           role="button"
         >
-          Let’s Get Started
+          Pick a Website Package
         </Link>
       </div>
     </section>
