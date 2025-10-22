@@ -141,7 +141,7 @@ const Footer = () => {
           </div>
           <div className="flex items-center mb-2 sm:mb-0">
             <p className="mx-10 sm:mx-0">
-              Waterfall Software - Digital Innovation
+              Waterfall Software Development - Digital Innovation
             </p>
           </div>
         </div>
