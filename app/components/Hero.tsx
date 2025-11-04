@@ -3,7 +3,7 @@ import RotatingBlock from "./RotatingBlock";
 
 export function Hero() {
   return (
-    <section className="relative py-16 overflow-hidden text-center md:py-32">
+    <section className="relative py-16 overflow-hidden text-center md:py-20">
       {/* Background Image (z-index: 0) */}
       <div className="absolute inset-0 opacity-20 z-0">
         <img
@@ -26,7 +26,7 @@ export function Hero() {
           className="inline-block mt-12 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg rounded hover:bg-blue-900 transition"
           role="button"
         >
-          Pick a Website Package
+          Let's Get Started
         </Link>
       </div>
     </section>

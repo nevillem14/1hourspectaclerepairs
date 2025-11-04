@@ -3,8 +3,8 @@ import { Hero } from "~/components/Hero";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "NEOCCESSORIES" },
-    { name: "description", content: "neoccessories" },
+    { title: "Winter Shadow Designs" },
+    { name: "description", content: "Winter Shadow Designs" },
   ];
 }
 

@@ -128,7 +128,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
 
-      <div className="text-white/30 text-sm mx-auto px-4 py-4 border-t border-gray-700">
+      <div className="text-white/30 text-sm mx-auto px-4 py-4 border-t border-gray-900">
         <div className="flex flex-col items-center text-center sm:flex-row sm:justify-center sm:text-left">
           {/* Copyright */}
           <div className="flex items-center mb-2 sm:mb-0">
@@ -140,9 +140,7 @@ const Footer = () => {
             <span className="h-5 hidden sm:inline mx-2">|</span>
           </div>
           <div className="flex items-center mb-2 sm:mb-0">
-            <p className="mx-10 sm:mx-0">
-              Waterfall Software Development - Digital Innovation
-            </p>
+            <p className="mx-10 sm:mx-0">Winter Shadow Designs</p>
           </div>
         </div>
       </div>

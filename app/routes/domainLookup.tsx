@@ -3,13 +3,13 @@ import DomainChecker from "~/components/DomainChecker";
 
 export default function DomainLookup() {
   return (
-    <div className="w-screen overflow-hidden text-center mb-8">
+    <div className="min-h-screen overflow-hidden text-center mb-8">
       {/* Background image: 25% screen height */}
       <div className="relative h-[20vh] md:h-[35vh] w-full">
         <img
           src="../images/domain-search-background-5.webp"
           alt="abstract design background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover md:border-0 border-1 border-transparent"
         />
         {/* Fade linear gradient at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-8/8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
@@ -21,7 +21,7 @@ export default function DomainLookup() {
 
       {/* Content below the image */}
       <div className="relative -mt-[14vh] md:-mt-[22vh] z-10 max-w-3xl mx-auto px-8 py-8 text-black">
-        <h1 className="text-[clamp(2.5rem,10vw,2.5rem)] font-extrabold mb-4">
+        <h1 className="text-[2.5rem] font-extrabold mb-4">
           Discover your perfect
           <br /> domain name
         </h1>

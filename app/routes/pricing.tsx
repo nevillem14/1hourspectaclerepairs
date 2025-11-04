@@ -17,7 +17,13 @@ const packages: PackageType[] = [
     name: "Tier 1",
     priceMonthly: "R250",
     priceYearly: "R200",
-    features: ["1–4 pages", "Mobile-friendly", "Basic SEO", "Email support"],
+    features: [
+      "1–4 pages",
+      "Mobile-friendly",
+      "Basic SEO",
+      "Email support",
+      "1 Email account",
+    ],
     image: "/images/pearl-stone.webp",
   },
   {
@@ -25,10 +31,11 @@ const packages: PackageType[] = [
     priceMonthly: "R550",
     priceYearly: "R500",
     features: [
-      "Up 10 pages",
+      "Up to 10 pages",
       "Mobile-friendly",
       "Standard SEO",
       "Email support",
+      "1 Email account",
     ],
     highlight: true,
     image: "/images/sapphire-stone.webp",
@@ -42,6 +49,7 @@ const packages: PackageType[] = [
       "Mobile-friendly",
       "Advanced SEO",
       "Email support",
+      "1 Email account",
     ],
     image: "/images/ruby-stone.webp",
   },
@@ -54,6 +62,7 @@ const packages: PackageType[] = [
       "Unlimited pages",
       "Mobile-friendly",
       "Full SEO package",
+      "Email Support",
       "And more...",
     ],
     image: "/images/diamond-stone.webp",
@@ -62,6 +71,10 @@ const packages: PackageType[] = [
 
 export default function Packages() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+  const emailMonthly = 25;
+  const emailMonthlyString = "R" + emailMonthly.toString();
+  const emailAnnual = emailMonthly * 12;
+  const emailAnnualString = "R" + emailAnnual.toString();
 
   return (
     <main className="pt-16 pb-24 bg-white">
@@ -74,7 +87,7 @@ export default function Packages() {
         </p>
 
         {/* Billing Toggle */}
-        <div className="bg-gray-200 rounded-lg mt-8 flex items-center justify-center space-x-4 mx-auto w-fit p-2">
+        <div className="bg-gray-200 rounded-lg mt-8 flex items-center justify-center space-x-4 mx-auto md:w-fit p-2">
           <button
             onClick={() => setBilling("monthly")}
             className={`px-4 py-2 w-40 rounded-lg font-medium ${
@@ -164,6 +177,56 @@ export default function Packages() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="bg-blue-100/50 max-w-5xl mx-auto  my-16 px-4 py-8 rounded-lg">
+        <h1 className="text-4xl font-bold text-center text-gray-900">
+          Get Additional Email Accounts
+        </h1>
+
+        <p className="text-2xl font-bold text-center text-gray-900 mt-10">
+          {emailMonthlyString} per month each paid annually at{" "}
+          {emailAnnualString}
+        </p>
+        <div className="flex justify-center mt-4">
+          <ul className="mt-4 space-y-2 text-gray-600">
+            <li className="flex items-center">
+              <span className="mr-2">
+                <Check />
+              </span>
+              3Gb mailbox
+            </li>
+            <li className="flex items-center">
+              <span className="mr-2">
+                <Check />
+              </span>
+              Access email from anywhere
+            </li>
+            <li className="flex items-center">
+              <span className="mr-2">
+                <Check />
+              </span>
+              Sync email accross all your devices
+            </li>
+            <li className="flex items-center">
+              <span className="mr-2">
+                <Check />
+              </span>
+              Anti Virus
+            </li>
+            <li className="flex items-center">
+              <span className="mr-2">
+                <Check />
+              </span>
+              Anti Spam
+            </li>
+          </ul>
+        </div>
+        <div className="text-center mt-6">
+          <p className="mt-4 text-gray-600">
+            * Email accounts can only be paid annually.
+          </p>
+        </div>
       </div>
     </main>
   );
