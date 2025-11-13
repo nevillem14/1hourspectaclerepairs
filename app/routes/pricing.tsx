@@ -59,13 +59,7 @@ const packages: PackageType[] = [
     priceMonthly: "Contact Sales",
     priceYearly: "Contact Sales",
     priceContact: true,
-    features: [
-      "Unlimited pages",
-      "Mobile-friendly",
-      "Full SEO package",
-      "Email Support",
-      "And more...",
-    ],
+    features: ["Custom features tailored to your needs"],
     image: "/images/diamond-stone.webp",
   },
 ];
@@ -196,14 +190,20 @@ export default function Packages() {
                 )}
               </p>
               <ul className="mt-4 space-y-2 text-gray-600">
-                {pkg.features.map((f) => (
-                  <li key={f} className="flex items-center">
-                    <span className="mr-2">
-                      <Check className="w-5 h-5" />
-                    </span>
-                    {f}
-                  </li>
-                ))}
+                {pkg.features.map((f) =>
+                  pkg.priceContact ? (
+                    <div key={f} className="flex items-center">
+                      {f}
+                    </div>
+                  ) : (
+                    <li key={f} className="flex items-center">
+                      <span className="mr-2">
+                        <Check className="w-5 h-5" />
+                      </span>
+                      {f}
+                    </li>
+                  )
+                )}
               </ul>
             </div>
             <div className="p-6 border-t border-gray-200">
