@@ -45,6 +45,8 @@
     0%, 100% { background: #ef4444; transform: scale(1); }
     50% { background: #dc2626; transform: scale(1.05); }
   }
+
+       
 }
 
 /*style for webpackage cards on pricing*/
@@ -72,6 +74,25 @@
   animation: pulseRed 2s infinite ease-in-out;
 }
 
+/* Animate background gradient for AWS effect */
+@keyframes aws-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-aws-gradient-aws-variantA {
+  background-image: linear-gradient(
+    to bottom,
+    #E3F2FD 0%,
+    #eee5f5 50%,
+    #E8F5E8 100%
+    
+  );
+  background-size: 120% 120%;
+  animation: aws-gradient 12s ease-in-out infinite;
+}
+      
 /* -------------------------
    Button styles
 ------------------------- */
