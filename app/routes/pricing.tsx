@@ -102,6 +102,46 @@ const emailFeatures: EmailFeatureType[] = [
   },
 ];
 
+type BusinessPackageType = {
+  name: string;
+  price: string;
+  duration: string;
+  features: string[];
+  highlight?: boolean;
+  image: string;
+};
+
+const businessPackages: BusinessPackageType[] = [
+  {
+    name: "Company Registration",
+    price: "from R650",
+    duration: "(3-5 days)",
+    features: ["1–4 pages"],
+    image: "/images/diamond-stone.webp",
+  },
+  {
+    name: "Tax Clearance Certificate",
+    price: "from R500",
+    duration: "(1-7 days)",
+    features: ["1–4 pages"],
+    image: "/images/diamond-stone.webp",
+  },
+  {
+    name: "Public Officer Appointment",
+    price: "from R600",
+    duration: "(6-8 weeks)",
+    features: ["1–4 pages"],
+    image: "/images/diamond-stone.webp",
+  },
+  {
+    name: "Benefical Ownership Filing",
+    price: "from R600",
+    duration: "(6-8 weeks)",
+    features: ["1–4 pages"],
+    image: "/images/diamond-stone.webp",
+  },
+];
+
 export default function Packages() {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
   const [openEmailIndex, setOpenEmailIndex] = useState<number | null>(null);
@@ -221,6 +261,7 @@ export default function Packages() {
         ))}
       </div>
 
+      {/*Email Packages */}
       {/*<div className="bg-blue-100/50 max-w-5xl mx-auto  my-16 px-4 py-16 rounded-lg">
       <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg bg-gradient-to-r from-blue-100 via-gray-100/50 to-green-100/80 animate-gradient">*/}
       <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg bg-gradient-to-r animate-aws-gradient-aws-variantA">
@@ -282,6 +323,53 @@ export default function Packages() {
           <button className="bg-gray-800 text-white hover:bg-gray-900 py-2 px-6 rounded-lg font-medium transition">
             Get Started
           </button>
+        </div>
+      </div>
+
+      {/* Business Registration */}
+      <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg bg-blue-100">
+        <h1 className="text-4xl font-bold text-center text-gray-900">
+          Company Registration & Compliance
+        </h1>
+
+        <div className="max-w-6xl mx-auto mt-16 px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {businessPackages.map((pkg) => (
+            <motion.div
+              key={pkg.name}
+              whileHover={{ translateY: -4 }}
+              className={`relative rounded-lg border ${
+                pkg.highlight
+                  ? "border-black border-2 shadow-lg"
+                  : "border-gray-200 shadow"
+              } bg-white flex flex-col overflow-hidden`}
+            >
+              <div className="bg-gray-100 p-6 flex-grow flex flex-col items-center text-center space-y-4">
+                {/*<img
+                src={pkg.image}
+                alt={pkg.name + " gemstone"}
+                className="h-12 object-contain"
+              />*/}
+                <h2 className="text-2xl font-semibold text-gray-800">
+                  {pkg.name}
+                </h2>
+                <p className="text-xl font-bold text-gray-500">
+                  <span>{pkg.price}</span>
+                </p>
+                <p>{pkg.duration}</p>
+              </div>
+              <div className="p-6 border-t border-gray-200">
+                <button
+                  className={`w-full py-2 font-medium rounded-lg ${
+                    pkg.highlight
+                      ? "bg-blue-500 text-white hover:bg-blue-600"
+                      : "bg-gray-800 text-white hover:bg-gray-900"
+                  } transition`}
+                >
+                  {"Contact Sales"}
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </main>

@@ -11,6 +11,9 @@ import {
 } from "react-icons/fa";
 import { MapPin } from "lucide-react";
 
+const contactNumber = "+27718185904";
+const contactNumberDisplay = "+27 71 818 5904";
+
 const Footer = () => {
   return (
     <footer className="bg-black text-gray-100 mt-12 w-full">
@@ -57,8 +60,8 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-2">Get In Touch</h3>
           <p className="mt-2">
             Phone:{" "}
-            <a className="hover:text-yellow-400" href="tel:+27698197008">
-              +27 69 819 7008
+            <a className="hover:text-yellow-400" href={"tel:" + contactNumber}>
+              {contactNumberDisplay}
             </a>
           </p>
           <p className="mt-2">
