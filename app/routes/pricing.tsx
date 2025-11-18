@@ -114,36 +114,36 @@ type BusinessPackageType = {
 const businessPackages: BusinessPackageType[] = [
   {
     name: "Company Registration",
-    price: "from R650",
+    price: "R575",
     duration: "(3-5 days)",
     features: ["1–4 pages"],
     image: "/images/diamond-stone.webp",
   },
   {
     name: "Tax Clearance Certificate",
-    price: "from R500",
+    price: "R500",
     duration: "(1-7 days)",
     features: ["1–4 pages"],
     image: "/images/diamond-stone.webp",
   },
   {
     name: "Public Officer Appointment",
-    price: "from R600",
+    price: "R600",
     duration: "(6-8 weeks)",
     features: ["1–4 pages"],
     image: "/images/diamond-stone.webp",
   },
   {
     name: "Benefical Ownership Filing",
-    price: "from R600",
-    duration: "(6-8 weeks)",
+    price: "R550",
+    duration: "(1-7 days)",
     features: ["1–4 pages"],
     image: "/images/diamond-stone.webp",
   },
 ];
 
 export default function Packages() {
-  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+  const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
   const [openEmailIndex, setOpenEmailIndex] = useState<number | null>(null);
   const emailMonthly = 25;
   const emailMonthlyString = "R" + emailMonthly.toString();
@@ -198,7 +198,7 @@ export default function Packages() {
           <motion.div
             key={pkg.name}
             whileHover={{ translateY: -4 }}
-            className={`relative rounded-2xl border ${
+            className={`relative rounded-lg border ${
               pkg.highlight
                 ? "border-black border-2 shadow-lg"
                 : "border-gray-200 shadow"
@@ -327,8 +327,8 @@ export default function Packages() {
       </div>
 
       {/* Business Registration */}
-      <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg bg-blue-100">
-        <h1 className="text-4xl font-bold text-center text-gray-900">
+      <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg">
+        <h1 className="text-4xl font-bold text-center text-gray-800">
           Company Registration & Compliance
         </h1>
 
@@ -337,26 +337,27 @@ export default function Packages() {
             <motion.div
               key={pkg.name}
               whileHover={{ translateY: -4 }}
-              className={`relative rounded-lg border ${
-                pkg.highlight
-                  ? "border-black border-2 shadow-lg"
-                  : "border-gray-200 shadow"
-              } bg-white flex flex-col overflow-hidden`}
+              className={`relative rounded-lg border-2 bg-white flex flex-col overflow-hidden border-gray-400 shadow-lg shadow-gray-300`}
             >
-              <div className="bg-gray-100 p-6 flex-grow flex flex-col items-center text-center space-y-4">
+              <div className="bg-white p-6 flex-grow flex flex-col items-center text-center space-y-4">
                 {/*<img
                 src={pkg.image}
                 alt={pkg.name + " gemstone"}
                 className="h-12 object-contain"
               />*/}
-                <h2 className="text-2xl font-semibold text-gray-800">
+                <h2 className="text-xl font-extrabold text-gray-900">
                   {pkg.name}
                 </h2>
-                <p className="text-xl font-bold text-gray-500">
-                  <span>{pkg.price}</span>
+                <p className="text-3xl font-bold mt-8 text-gray-500">
+                  <span className="text-sm block">Starts from</span>
+                  <span className="text-gray-800 font-semibold block my-2">
+                    {pkg.price}
+                  </span>
+
+                  <span className="text-sm block">{pkg.duration}</span>
                 </p>
-                <p>{pkg.duration}</p>
               </div>
+              {/*
               <div className="p-6 border-t border-gray-200">
                 <button
                   className={`w-full py-2 font-medium rounded-lg ${
@@ -368,6 +369,7 @@ export default function Packages() {
                   {"Contact Sales"}
                 </button>
               </div>
+              */}
             </motion.div>
           ))}
         </div>
