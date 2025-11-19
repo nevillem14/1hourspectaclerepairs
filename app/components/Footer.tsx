@@ -9,6 +9,9 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+
+import { FaXTwitter } from "react-icons/fa6";
+
 import { MapPin } from "lucide-react";
 
 const contactNumber = "+27718185904";
@@ -105,7 +108,7 @@ const Footer = () => {
               aria-label="Twitter"
               className="hover:text-yellow-400"
             >
-              <FaTwitter />
+              <FaXTwitter />
             </a>
             <a
               href="https://instagram.com"
