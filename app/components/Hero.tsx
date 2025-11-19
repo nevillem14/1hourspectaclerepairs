@@ -7,7 +7,7 @@ export function Hero() {
       {/* Background Image (z-index: 0) */}
       <div className="absolute inset-0 opacity-20 z-0">
         <img
-          src="/images/abstract_design_2504.jpg"
+          src="/images/abstract-design-landing-background.jpg"
           alt="abstract design background"
           className="w-full h-full object-cover"
         />
