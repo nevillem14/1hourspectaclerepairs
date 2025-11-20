@@ -61,22 +61,27 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-semibold mb-2">Get In Touch</h3>
-          <p className="mt-2">
-            Phone:{" "}
-            <a className="hover:text-yellow-400" href={"tel:" + contactNumber}>
-              {contactNumberDisplay}
-            </a>
-          </p>
-          <p className="mt-2">
-            Email:{" "}
-            <a
-              className="hover:text-yellow-400"
-              href="mailto:hello@wsdxi.co.za"
-            >
-              hello@wsdxi.co.za{" "}
-              <span className="ml-12">support@wsdxi.co.za</span>
-            </a>
-          </p>
+          <p className="mt-2 text-lg font-semibold">Phone: </p>
+          <a
+            className="hover:text-yellow-400 block"
+            href={"tel:" + contactNumber}
+          >
+            {contactNumberDisplay}
+          </a>
+
+          <p className="mt-2 text-lg font-semibold">Email: </p>
+          <a
+            className="mt-2 font-normal hover:text-yellow-400 block"
+            href="mailto:hello@wsdxi.co.za"
+          >
+            hello@wsdxi.co.za{" "}
+          </a>
+          <a
+            className="mt-2 font-normal hover:text-yellow-400 block"
+            href="mailto:support@wsdxi.co.za"
+          >
+            support@wsdxi.co.za{" "}
+          </a>
         </div>
 
         {/* Social Media */}

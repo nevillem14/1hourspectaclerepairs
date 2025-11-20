@@ -68,6 +68,7 @@ export default function Home() {
               something social media pages can’t do properly.
             </li>
           </ul>
+
           <p className="w-3/5 mx-auto bg-fuchsia-100 rounded-lg mt-6 p-6 font-medium">
             <strong>In short:</strong> Social media is great for staying visible
             and chatting with customers, but a website is your real online home
