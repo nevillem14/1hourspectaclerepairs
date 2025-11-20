@@ -3,16 +3,26 @@ import RotatingBlock from "./RotatingBlock";
 
 export function Hero() {
   return (
-    <section className="relative py-16 overflow-hidden text-center md:py-20">
-      {/* Background Image (z-index: 0) */}
-      <div className="absolute inset-0 opacity-20 z-0">
+    <section className="relative py-16 overflow-hidden text-center md:py-20 bg-white">
+      {" "}
+      {/* Add a background color to the section itself */}
+      {/* Background Image Container (z-index: 0) */}
+      <div className="absolute inset-0 z-0">
         <img
           src="/images/abstract-design-landing-background.jpg"
           alt="abstract design background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover opacity-20" // Keep original image opacity here
         />
+        {/* GRADIENT OVERLAY */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 100%)",
+          }}
+        ></div>
+        {/* Adjust the rgba values to match your background color (e.g., if bg-gray-100, use rgba(243,244,246,...)) */}
       </div>
-
       {/* Hero Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-8 text-black ">
         <h1 className="text-[clamp(2.5rem,10vw,6rem)] font-extrabold mb-4">
