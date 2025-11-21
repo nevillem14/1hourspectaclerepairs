@@ -57,52 +57,60 @@ const About = () => {
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
           Meet the Team
         </h2>
-        <div className="grid md:grid-cols-2 gap-10">
-          {team.map((member) => (
-            <motion.div
-              key={member.name}
-              whileHover={{ translateY: -8 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200"
-            >
-              <div className="h-64 bg-gray-200 border-2 border-dashed border-gray-300">
-                {/* Replace with real photos */}
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${member.name}&background=1e3a8a&color=fff&size=256`;
-                  }}
-                />
-              </div>
-              <div className="p-6 text-center">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-medium mt-1">{member.role}</p>
-                <p className="text-gray-600 mt-4 leading-relaxed">
-                  {member.bio}
-                </p>
-                {/*<div className="flex justify-center gap-4 mt-6">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-blue-600 transition"
-                  >
-                    <Linkedin className="w-6 h-6" />
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="text-gray-600 hover:text-blue-600 transition"
-                  >
-                    <Mail className="w-6 h-6" />
-                  </a>
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
+            {team.map((member) => (
+              <motion.div
+                key={member.name}
+                whileHover={{ translateY: -8 }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 flex flex-col w-full max-w-md"
+              >
+                {/* BIG Initials Avatar */}
+                <div className="bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center h-64">
+                  <span className="text-white font-bold tracking-wider leading-none text-8xl md:text-9xl">
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")
+                      .toUpperCase()
+                      .slice(0, 3)}
+                  </span>
                 </div>
-                */}
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Text Content */}
+                <div className="p-8 text-center">
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {member.name}
+                  </h3>
+                  <p className="text-blue-600 font-medium mt-2">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600 mt-5 leading-relaxed">
+                    {member.bio}
+                  </p>
+
+                  {/*
+                  <div className="flex justify-center gap-5 mt-8">
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-blue-600 transition"
+                    >
+                      <Linkedin className="w-7 h-7" />
+                    </a>
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="text-gray-500 hover:text-blue-600 transition"
+                    >
+                      <Mail className="w-7 h-7" />
+                    </a>
+                  </div>
+                  */}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
