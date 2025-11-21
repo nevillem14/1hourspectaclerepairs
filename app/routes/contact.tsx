@@ -1,176 +1,185 @@
-import React, { useState } from "react";
+// File: app/routes/contact.tsx
+import React from "react";
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 
-// Main Contact Page Component
-const App = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    message: "",
-  });
-
-  const [status, setStatus] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  // Handles changes to form input fields
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  // Handles form submission
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Basic validation
-    if (!formData.fullName || !formData.email || !formData.message) {
-      setStatus("Please fill out all fields.");
-      return;
-    }
-
-    setIsSubmitting(true);
-    setStatus("Sending...");
-
-    // Simulate an API call
-    try {
-      // In a real application, you would make a fetch or axios call here
-      console.log("Form data to be submitted:", formData);
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate network delay
-      setStatus("Message sent successfully! Thank you.");
-      setFormData({ fullName: "", email: "", message: "" }); // Clear the form
-    } catch (error) {
-      console.error("Submission failed:", error);
-      setStatus("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  // SVG for a send icon
-  const SendIcon = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="ml-2"
-    >
-      <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"></path>
-    </svg>
-  );
-
+export default function Contact() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 font-sans">
-      <div className="w-full max-w-2xl bg-white shadow-xl rounded-2xl p-6 md:p-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-gray-800">
-          Contact Us
-        </h2>
-        <p className="text-center text-gray-600 mb-8">
-          We'd love to hear from you!
+    <main className="pt-16 pb-24 bg-white">
+      {/* Hero */}
+      <div className="max-w-5xl mx-auto text-center px-4 mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+          Get in Touch
+        </h1>
+        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          Have a question or ready to start your project? We’re here to help —
+          fast, friendly replies guaranteed.
         </p>
-
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Full Name field */}
-          <div>
-            <label
-              htmlFor="fullName"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3
-                         focus:border-blue-500 focus:ring-blue-500 outline-none
-                         transition duration-150 ease-in-out"
-            />
-          </div>
-
-          {/* Email field */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3
-                         focus:border-blue-500 focus:ring-blue-500 outline-none
-                         transition duration-150 ease-in-out"
-            />
-          </div>
-
-          {/* Message field */}
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-3
-                         focus:border-blue-500 focus:ring-blue-500 outline-none
-                         transition duration-150 ease-in-out"
-            />
-          </div>
-
-          {/* Submit Button */}
-          <div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`w-full flex justify-center items-center py-3 px-4
-                          border border-transparent rounded-lg shadow-sm
-                          text-base font-medium text-white
-                          ${isSubmitting ? "bg-blue-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}
-                          focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-                          transition duration-150 ease-in-out`}
-            >
-              {isSubmitting ? "Sending..." : "Send Message"}
-              {!isSubmitting && <SendIcon />}
-            </button>
-          </div>
-        </form>
-
-        {/* Status message */}
-        {status && (
-          <p
-            className={`mt-4 text-center text-sm ${status.includes("Success") ? "text-green-600" : "text-red-600"}`}
-          >
-            {status}
-          </p>
-        )}
       </div>
-    </div>
-  );
-};
 
-export default App;
+      {/* Contact Info + Form Section */}
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left: Contact Details */}
+          <div className="space-y-10">
+            <motion.div
+              whileHover={{ translateY: -6 }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
+            >
+              <div className="flex items-start space-x-5">
+                <div className="bg-blue-100 p-4 rounded-full">
+                  <Mail className="w-7 h-7 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Email Us
+                  </h3>
+                  <p className="text-gray-600 mt-2">hello@wsdxi.co.za</p>
+                  <p className="text-sm text-gray-500">
+                    We reply within a few hours
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ translateY: -6 }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
+            >
+              <div className="flex items-start space-x-5">
+                <div className="bg-green-100 p-4 rounded-full">
+                  <Phone className="w-7 h-7 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Call or WhatsApp
+                  </h3>
+                  <p className="text-gray-600 mt-2">+27 67 123 4567</p>
+                  <p className="text-sm text-gray-500">Mon–Fri: 8am – 5pm</p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ translateY: -6 }}
+              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
+            >
+              <div className="flex items-start space-x-5">
+                <div className="bg-purple-100 p-4 rounded-full">
+                  <Clock className="w-7 h-7 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    Working Hours
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Monday – Friday: 8:00 – 17:00
+                  </p>
+                  <p className="text-gray-600">Saturday: 9:00 – 13:00</p>
+                  <p className="text-sm text-gray-500">
+                    Closed on Sundays & public holidays
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right: Contact Form */}
+          <div className="animate-aws-gradient-aws-variantA rounded-2xl p-8 lg:p-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Send Us a Message
+            </h2>
+
+            <form className="space-y-6">
+              <div>
+                <label className="block text-gray-800 font-medium mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-800 font-medium mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-800 font-medium mb-2">
+                  Phone (optional)
+                </label>
+                <input
+                  type="tel"
+                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                  placeholder="+27 82 123 4567"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-800 font-medium mb-2">
+                  Your Message
+                </label>
+                <textarea
+                  rows={5}
+                  required
+                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
+                  placeholder="Tell us about your project or question..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg flex items-center justify-center gap-3 transition"
+              >
+                <Send className="w-5 h-5" />
+                Send Message
+              </button>
+
+              <p className="text-center text-gray-700 text-sm flex items-center justify-center gap-2">
+                <CheckCircle className="w-5 h-5 text-green-500" />
+                We reply to all messages within 2–4 hours during business days
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="max-w-5xl mx-auto my-20 px-4 py-16 rounded-2xl animate-aws-gradient-aws-variantA text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          Ready to Launch Your Website?
+        </h2>
+        <p className="text-lg text-gray-700 mb-8">
+          Let’s get your business online in days, not weeks.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/packages">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition">
+              View Packages
+            </button>
+          </a>
+          <a
+            href="https://wa.me/27671234567"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-lg font-medium transition flex items-center gap-2 mx-auto sm:mx-0">
+              <span>Chat on WhatsApp</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}
