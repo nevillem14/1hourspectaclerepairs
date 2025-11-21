@@ -277,8 +277,8 @@ export default function Packages() {
           Get Additional Email Accounts
         </p>
         <p className="text-2xl font-bold text-center text-gray-900 mt-5">
-          {emailMonthlyString} per month each, paid annually at{" "}
-          {emailAnnualString}
+          {emailMonthlyString} per month each
+          <span className="block"> paid annually at {emailAnnualString}</span>
         </p>
         <div className="max-w-2xl mx-auto mt-8">
           {emailFeatures.map((feature, index) => (

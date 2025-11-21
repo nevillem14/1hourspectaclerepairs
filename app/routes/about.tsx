@@ -7,28 +7,20 @@ import RotatingBlock from "~/components/RotatingBlock";
 
 const team = [
   {
-    name: "Alex Winter",
+    name: "Neville M",
     role: "Founder & Lead Designer",
-    bio: "With over 8 years turning ideas into stunning, high-converting websites, Alex started Winter Shadow Designs to make professional web presence accessible to every South African business.",
-    linkedin: "https://linkedin.com/in/alex-winter",
-    email: "alex@wsdxi.co.za",
-    image: "/images/team/alex.jpg", // replace with real photo
+    bio: "With years of turning ideas into stunning, high-converting websites, Neville started Winter Shadow Designs to make professional web presence accessible to every South African business.",
+    linkedin: "https://linkedin.com/in/neville-moodley",
+    email: "neville@wsdxi.co.za",
+    image: "/images/team/neville.jpg", // replace with real photo
   },
   {
-    name: "Sarah Mokoena",
+    name: "Vuyisile K",
     role: "Client Success Manager",
-    bio: "Sarah makes sure every client feels heard and happy. She’s your go-to person from first chat to launch day and beyond.",
-    linkedin: "https://linkedin.com/in/sarah-mokoena",
-    email: "sarah@wsdxi.co.za",
-    image: "/images/team/sarah.jpg",
-  },
-  {
-    name: "Thabo Nkosi",
-    role: "Senior Developer",
-    bio: "Thabo builds fast, secure and future-proof websites. When he’s not coding, he’s probably teaching the next generation of South African developers.",
-    linkedin: "https://linkedin.com/in/thabo-nkosi",
-    email: "thabo@wsdxi.co.za",
-    image: "/images/team/thabo.jpg",
+    bio: "Vuyisile makes sure every client feels heard and happy. He’s your go-to person from first chat to launch day and beyond.",
+    linkedin: "https://linkedin.com/in/vuisile-khumalo",
+    email: "vuyisile@wsdxi.co.za",
+    image: "/images/team/vuyisile.jpg",
   },
 ];
 
@@ -65,7 +57,7 @@ const About = () => {
         <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
           Meet the Team
         </h2>
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 gap-10">
           {team.map((member) => (
             <motion.div
               key={member.name}
@@ -91,7 +83,7 @@ const About = () => {
                 <p className="text-gray-600 mt-4 leading-relaxed">
                   {member.bio}
                 </p>
-                <div className="flex justify-center gap-4 mt-6">
+                {/*<div className="flex justify-center gap-4 mt-6">
                   <a
                     href={member.linkedin}
                     target="_blank"
@@ -107,6 +99,7 @@ const About = () => {
                     <Mail className="w-6 h-6" />
                   </a>
                 </div>
+                */}
               </div>
             </motion.div>
           ))}
@@ -146,8 +139,8 @@ const About = () => {
         <p className="text-lg text-center text-gray-700 mb-8 max-w-2xl mx-auto">
           Let our team take care of everything. Get in touch today!
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/packages">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/pricing">
             <button className="bg-blue-500 text-white hover:bg-blue-600 py-3 px-8 rounded-lg font-medium transition">
               View Packages
             </button>
