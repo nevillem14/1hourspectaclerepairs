@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
-
+import { SITE_CONFIG } from "~/lib/constants";
 export default function Contact() {
   return (
     <main className="pt-16 pb-24 bg-white">
@@ -34,7 +34,14 @@ export default function Contact() {
                   <h3 className="text-xl font-semibold text-gray-900">
                     Email Us
                   </h3>
-                  <p className="text-gray-600 mt-2">hello@wsdxi.co.za</p>
+                  <p className="text-gray-600 mt-2">
+                    <a
+                      className="mt-2 font-normal hover:text-black block"
+                      href={`mailto:${SITE_CONFIG.emailHello}`}
+                    >
+                      hello@wsdxi.co.za{" "}
+                    </a>
+                  </p>
                   <p className="text-sm text-gray-500">
                     We reply within a few hours
                   </p>
@@ -47,15 +54,51 @@ export default function Contact() {
               className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
             >
               <div className="flex items-start space-x-5">
-                <div className="bg-green-100 p-4 rounded-full">
+                <div className="bg-green-100 p-4 rounded-full flex-shrink-0">
                   <Phone className="w-7 h-7 text-green-600" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h3 className="text-xl font-semibold text-gray-900">
                     Call or WhatsApp
                   </h3>
-                  <p className="text-gray-600 mt-2">+27 67 123 4567</p>
-                  <p className="text-sm text-gray-500">Mon–Fri: 8am – 5pm</p>
+
+                  {/* Phone Number (pretty display) */}
+                  <p className="text-gray-700 font-medium mt-3 text-lg">
+                    {SITE_CONFIG.phoneString}
+                  </p>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    {/* Call Button – only shows on mobile */}
+                    <a
+                      href={`tel:${SITE_CONFIG.phoneNumber}`}
+                      className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg font-medium transition shadow-md "
+                    >
+                      <Phone className="w-5 h-5" />
+                      Call Now
+                    </a>
+
+                    {/* WhatsApp Button – always visible */}
+                    <a
+                      href={SITE_CONFIG.whatsappLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-lg font-medium transition shadow-md"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                      >
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.498.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945l-1.037 3.787 3.875-1.015a11.79 11.79 0 005.64 1.437h.005c6.555 0 11.89-5.335 11.893-11.892A11.821 11.821 0 0020.884 3.088" />
+                      </svg>
+                      WhatsApp
+                    </a>
+                  </div>
+
+                  <p className="text-sm text-gray-500 mt-4">
+                    Mon–Fri: 8am – 5pm | We reply instantly on WhatsApp
+                  </p>
                 </div>
               </div>
             </motion.div>
@@ -164,13 +207,14 @@ export default function Contact() {
           Let’s get your business online in days, not weeks.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/packages">
+          <a href="/pricing">
             <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition">
               View Packages
             </button>
           </a>
+
           <a
-            href="https://wa.me/27671234567"
+            href={`${SITE_CONFIG.whatsappLink}`}
             target="_blank"
             rel="noopener noreferrer"
           >

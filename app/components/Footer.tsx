@@ -13,6 +13,7 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 
 import { MapPin } from "lucide-react";
+import { SITE_CONFIG } from "~/lib/constants";
 
 const contactNumber = "+27718185904";
 const contactNumberDisplay = "+27 71 818 5904";
@@ -64,21 +65,21 @@ const Footer = () => {
           <p className="mt-2 text-lg font-semibold">Phone: </p>
           <a
             className="hover:text-yellow-400 block"
-            href={"tel:" + contactNumber}
+            href={"tel:" + SITE_CONFIG.phoneNumber}
           >
-            {contactNumberDisplay}
+            {SITE_CONFIG.phoneString}
           </a>
 
           <p className="mt-2 text-lg font-semibold">Email: </p>
           <a
             className="mt-2 font-normal hover:text-yellow-400 block"
-            href="mailto:hello@wsdxi.co.za"
+            href={`mailto:${SITE_CONFIG.emailHello}`}
           >
             hello@wsdxi.co.za{" "}
           </a>
           <a
             className="mt-2 font-normal hover:text-yellow-400 block"
-            href="mailto:support@wsdxi.co.za"
+            href={`mailto:${SITE_CONFIG.emailSupport}`}
           >
             support@wsdxi.co.za{" "}
           </a>
