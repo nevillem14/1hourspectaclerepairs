@@ -26,8 +26,8 @@ const Footer = () => {
         {/* Contact Info */}
         <div className="flex items-center justify-center lg:justify-start">
           <img
-            src="/images/wsdxi-logo-2-white.png"
-            alt="wsdxi-logo-white-image"
+            src="/images/wsdxi-logo-white.svg"
+            alt="Winter Shadow Designs Logo"
             className="w-full h-18 object-scale-down rounded-lg"
           />
         </div>

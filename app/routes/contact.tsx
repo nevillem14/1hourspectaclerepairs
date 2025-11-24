@@ -97,7 +97,7 @@ export default function Contact() {
                   </div>
 
                   <p className="text-sm text-gray-500 mt-4">
-                    Mon–Fri: 8am – 5pm | We reply instantly on WhatsApp
+                    Mon–Fri: 8am – 4pm | We may no reply instantly on WhatsApp
                   </p>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function Contact() {
                   </p>
                   <p className="text-gray-600">Saturday: 9:00 – 13:00</p>
                   <p className="text-sm text-gray-500">
-                    Closed on Sundays & public holidays
+                    Closed on Sat, Sun & Public holidays
                   </p>
                 </div>
               </div>
@@ -142,7 +142,18 @@ export default function Contact() {
                   type="text"
                   required
                   className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                  placeholder="John Doe"
+                  placeholder="First and Last Name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-800 font-medium mb-2">
+                  Company Name (optional)
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                  placeholder="Company Name"
                 />
               </div>
 
@@ -191,7 +202,7 @@ export default function Contact() {
 
               <p className="text-center text-gray-700 text-sm flex items-center justify-center gap-2">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                We reply to all messages within 2–4 hours during business days
+                We reply to all messages asap during business days
               </p>
             </form>
           </div>

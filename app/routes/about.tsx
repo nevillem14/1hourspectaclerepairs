@@ -16,7 +16,7 @@ const team = [
   },
   {
     name: "Vuyisile K",
-    role: "Client Success Manager",
+    role: "Founder & Client Success Manager",
     bio: "Vuyisile makes sure every client feels heard and happy. He’s your go-to person from first chat to launch day and beyond.",
     linkedin: "https://linkedin.com/in/vuisile-khumalo",
     email: "vuyisile@wsdxi.co.za",

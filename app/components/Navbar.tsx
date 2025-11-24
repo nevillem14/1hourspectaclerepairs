@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { ChevronDown, Menu, X, ChevronLeft, MapPin, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SITE_CONFIG } from "~/lib/constants";
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -34,9 +35,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/images/wsdxi-logo-2.webp"
-              alt="Waterfall Software Development 11 logo"
-              className="h-8 md:h-12 w-auto"
+              src="/images/wsdxi-logo-black.svg"
+              alt={SITE_CONFIG.name + "logo"}
+              className="h-16 md:h-20 w-auto p-2"
             />
           </Link>
 
