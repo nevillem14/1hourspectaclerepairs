@@ -7,20 +7,20 @@ import RotatingBlock from "~/components/RotatingBlock";
 
 const team = [
   {
-    name: "Neville M",
-    role: "Founder & Lead Designer",
-    bio: "With years of turning ideas into stunning, high-converting websites, Neville started Winter Shadow Designs to make professional web presence accessible to every South African business.",
-    linkedin: "https://linkedin.com/in/neville-moodley",
-    email: "neville@wsdxi.co.za",
-    image: "/images/team/neville.jpg", // replace with real photo
-  },
-  {
     name: "Vuyisile K",
     role: "Founder & Client Success Manager",
     bio: "Vuyisile makes sure every client feels heard and happy. He’s your go-to person from first chat to launch day and beyond.",
     linkedin: "https://linkedin.com/in/vuisile-khumalo",
     email: "vuyisile@wsdxi.co.za",
     image: "/images/team/vuyisile.jpg",
+  },
+  {
+    name: "Neville M",
+    role: "Founder & Lead Designer",
+    bio: "With years of turning ideas into stunning, high-converting websites, Neville started Winter Shadow Designs to make professional web presence accessible to every South African business.",
+    linkedin: "https://linkedin.com/in/neville-moodley",
+    email: "neville@wsdxi.co.za",
+    image: "/images/team/neville.jpg", // replace with real photo
   },
 ];
 
