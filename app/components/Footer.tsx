@@ -34,7 +34,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
+          <h3 className="text-lg font-extralight mb-2">Quick Links</h3>
           <ul className="space-y-1">
             <li>
               <Link to="/" className="hover:text-yellow-400">
@@ -61,8 +61,8 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg font-semibold mb-2">Get In Touch</h3>
-          <p className="mt-2 text-lg font-semibold">Phone: </p>
+          <h3 className="text-lg font-extralight mb-2">Get In Touch</h3>
+          <p className="mt-2 text-lg font-extralight">Phone: </p>
           <a
             className="hover:text-yellow-400 block"
             href={"tel:" + SITE_CONFIG.phoneNumber}
@@ -70,7 +70,7 @@ const Footer = () => {
             {SITE_CONFIG.phoneString}
           </a>
 
-          <p className="mt-2 text-lg font-semibold">Email: </p>
+          <p className="mt-2 text-lg font-extralight">Email: </p>
           <a
             className="mt-2 font-normal hover:text-yellow-400 block"
             href={`mailto:${SITE_CONFIG.emailHello}`}
@@ -87,7 +87,7 @@ const Footer = () => {
 
         {/* Social Media */}
         <div>
-          <h3 className="text-lg font-semibold mb-2">Follow Us</h3>
+          <h3 className="text-lg font-extralight mb-2">Follow Us</h3>
           <div className="flex space-x-4 text-xl">
             <a
               href="https://www.facebook.com"
