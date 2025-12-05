@@ -7,10 +7,13 @@ type PackageType = {
   name: string;
   priceMonthly: string;
   priceYearly: string;
+  description: string;
   priceContact?: boolean;
   features: string[];
   highlight?: boolean;
   image: string;
+  bgHeaderColor: string;
+  headerTextColor: string;
 };
 
 const packages: PackageType[] = [
@@ -18,6 +21,8 @@ const packages: PackageType[] = [
     name: "Tier 1",
     priceMonthly: "R250",
     priceYearly: "R200",
+    description:
+      "Perfect for individuals, startups, or small side projects needing a simple online presence.",
     features: [
       "1–4 pages",
       "Mobile-friendly",
@@ -26,11 +31,15 @@ const packages: PackageType[] = [
       "1 Email account",
     ],
     image: "/images/pearl-stone.webp",
+    bgHeaderColor: "bg-gray-500",
+    headerTextColor: "text-white",
   },
   {
     name: "Tier 2",
     priceMonthly: "R550",
     priceYearly: "R500",
+    description:
+      "Best for growing small businesses, professionals, and local brands that want to stand out.",
     features: [
       "Up to 10 pages",
       "Mobile-friendly",
@@ -40,11 +49,15 @@ const packages: PackageType[] = [
     ],
     highlight: true,
     image: "/images/sapphire-stone.webp",
+    bgHeaderColor: "bg-blue-600",
+    headerTextColor: "text-white",
   },
   {
     name: "Tier 3",
     priceMonthly: "R950",
     priceYearly: "R800",
+    description:
+      "Ideal for established businesses, e-commerce stores, or companies needing maximum visibility.",
     features: [
       "Over 10 pages",
       "Mobile-friendly",
@@ -53,14 +66,20 @@ const packages: PackageType[] = [
       "1 Email account",
     ],
     image: "/images/ruby-stone.webp",
+    bgHeaderColor: "bg-black", // Ruby red
+    headerTextColor: "text-white",
   },
   {
     name: "Custom",
     priceMonthly: "Contact Sales",
     priceYearly: "Contact Sales",
+    description:
+      "For enterprises, complex projects, or unique requirements — fully tailored to your vision.",
     priceContact: true,
     features: ["Custom features tailored to your needs"],
     image: "/images/diamond-stone.webp",
+    bgHeaderColor: "bg-white",
+    headerTextColor: "text-black",
   },
 ];
 
@@ -193,7 +212,7 @@ export default function Packages() {
       </div>
 
       {/* Pricing Grid */}
-      <div className="max-w-6xl mx-auto px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="max-w-6xl mx-auto px-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {packages.map((pkg) => (
           <motion.div
             key={pkg.name}
@@ -204,47 +223,64 @@ export default function Packages() {
                 : "border-gray-200 shadow"
             } bg-white flex flex-col overflow-hidden`}
           >
-            <div className="bg-gray-100 p-6 flex-grow flex flex-col items-center text-center space-y-4">
+            <div className="bg-gray-100 flex-grow flex flex-col items-center text-center space-y-4">
               {/*<img
                 src={pkg.image}
                 alt={pkg.name + " gemstone"}
                 className="h-12 object-contain"
               />*/}
-              <h2 className="text-2xl font-semibold text-gray-900">
-                {pkg.name}
-              </h2>
-              <p className="text-3xl font-bold text-gray-900">
-                {pkg.priceContact ? (
-                  "Contact Sales"
-                ) : billing === "monthly" ? (
-                  <span>
-                    {pkg.priceMonthly}
-                    <span className="block text-sm">per month</span>
-                  </span>
-                ) : (
-                  <span>
-                    {pkg.priceYearly}
-                    <span className="block text-sm">per month</span>
-                    <span className="block text-sm">billed annually</span>
-                  </span>
-                )}
+
+              {/* Colored header with package name */}
+              <div
+                className={`w-full -mx-6 px-6 py-6 ${pkg.bgHeaderColor || "bg-gray-100"}`}
+              >
+                <h2
+                  className={`text-2xl font-bold ${pkg.headerTextColor} drop-shadow-md tracking-wide`}
+                >
+                  {pkg.name}
+                </h2>
+              </div>
+
+              {/* Target audience description */}
+              <p className="text-sm px-4 min-h-[100px] text-gray-600 leading-relaxed">
+                {pkg.description}
               </p>
-              <ul className="mt-4 space-y-2 text-gray-600">
-                {pkg.features.map((f) =>
-                  pkg.priceContact ? (
-                    <div key={f} className="flex items-center">
-                      {f}
-                    </div>
+
+              {/* Price */}
+              <div className=" px-10">
+                <p className="text-3xl font-bold text-gray-900">
+                  {pkg.priceContact ? (
+                    "Contact Sales"
+                  ) : billing === "monthly" ? (
+                    <span>
+                      {pkg.priceMonthly}
+                      <span className="block text-sm">per month</span>
+                    </span>
                   ) : (
-                    <li key={f} className="flex items-center">
-                      <span className="mr-2">
-                        <Check className="w-5 h-5" />
-                      </span>
-                      {f}
-                    </li>
-                  )
-                )}
-              </ul>
+                    <span>
+                      {pkg.priceYearly}
+                      <span className="block text-sm">per month</span>
+                      <span className="block text-sm">billed annually</span>
+                    </span>
+                  )}
+                </p>
+                <ul className="mt-4 py-4 space-y-2 text-gray-600">
+                  {pkg.features.map((f) =>
+                    pkg.priceContact ? (
+                      <div key={f} className="flex items-center">
+                        {f}
+                      </div>
+                    ) : (
+                      <li key={f} className="flex items-center">
+                        <span className="mr-2">
+                          <Check className="w-5 h-5" />
+                        </span>
+                        {f}
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
             </div>
             <div className="p-6 border-t border-gray-200">
               <button
