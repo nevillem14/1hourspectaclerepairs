@@ -17,7 +17,7 @@ const team = [
   {
     name: "Neville M",
     role: "Founder & Lead Designer",
-    bio: "With years of turning ideas into stunning, high-converting websites, Neville started Winter Shadow Designs to make professional web presence accessible to every South African business.",
+    bio: "With years of turning ideas into stunning, high-converting websites, we started Winter Shadow Designs to make professional web presence accessible to every South African business.",
     linkedin: "https://linkedin.com/in/neville-moodley",
     email: "neville@wsdxi.co.za",
     image: "/images/team/neville.jpg", // replace with real photo
