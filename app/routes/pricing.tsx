@@ -363,7 +363,8 @@ export default function Packages() {
       </div>
 
       {/* Business Registration */}
-      <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg">
+
+      <div className="bg-gray-50 max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg">
         <h1 className="text-4xl font-bold text-center text-gray-800">
           Company Registration & Compliance
         </h1>

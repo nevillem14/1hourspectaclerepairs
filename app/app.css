@@ -105,6 +105,48 @@
   animation: aws-gradient 12s ease-in-out infinite;
 }
 
+@layer utilities {
+  .bg-soft-radials {
+    background-image:
+      radial-gradient(circle at 30% 70%, rgba(173, 216, 230, 0.35), transparent 60%),
+      radial-gradient(circle at 70% 30%, rgba(255, 182, 193, 0.4), transparent 60%);
+  }
+}
+
+/*lavender blush left flow*/
+.bg-lavender-flow {
+    background: linear-gradient(
+      315deg,
+      #E1BEE7 0%,
+      #F3E5F5 20%,
+      #FCE4EC 40%,
+      #FFF0F5 60%,
+      #F8BBD9 80%,
+      #E1BEE7 100%
+    );
+    
+    }
+
+    .bg-aurora-dream-corner-whispers {
+    background:
+      radial-gradient(ellipse 85% 65% at 8% 8%, rgba(175, 109, 255, 0.42), transparent 60%),
+      radial-gradient(ellipse 75% 60% at 75% 35%, rgba(255, 235, 170, 0.55), transparent 62%),
+      radial-gradient(ellipse 70% 60% at 15% 80%, rgba(255, 100, 180, 0.40), transparent 62%),
+      radial-gradient(ellipse 70% 60% at 92% 92%, rgba(120, 190, 255, 0.45), transparent 62%),
+      linear-gradient(180deg, #f7eaff 0%, #fde2ea 100%);
+  }
+
+  .bg-purple-glow-top {
+    background: #ffffff;
+    background-image: radial-gradient(
+      circle at top center,
+      rgba(173, 109, 244, 0.5),
+      transparent 70%
+    );
+    background-repeat: no-repeat;
+    filter: blur(80px);
+  }
+
 /* -------------------------
    Button styles
 ------------------------- */
