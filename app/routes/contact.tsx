@@ -43,7 +43,7 @@ export default function Contact() {
                     </a>
                   </p>
                   <p className="text-sm text-gray-500">
-                    We reply within a few hours
+                    We reply asap on email during business days
                   </p>
                 </div>
               </div>
@@ -97,7 +97,10 @@ export default function Contact() {
                   </div>
 
                   <p className="text-sm text-gray-500 mt-4">
-                    Mon–Fri: 8am – 4pm | We may no reply instantly on WhatsApp
+                    Mon–Fri: 8am – 4pm
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    We reply asap on WhatsApp during business days
                   </p>
                 </div>
               </div>
@@ -118,7 +121,6 @@ export default function Contact() {
                   <p className="text-gray-600 mt-2">
                     Monday – Friday: 8:00 – 17:00
                   </p>
-                  <p className="text-gray-600">Saturday: 9:00 – 13:00</p>
                   <p className="text-sm text-gray-500">
                     Closed on Sat, Sun & Public holidays
                   </p>

@@ -12,4 +12,8 @@ export const SITE_CONFIG = {
   whatsappLink: "https://wa.me/27718185904",
   address: "Durban, South Africa",
   workingHours: "Mon–Fri: 8am–4pm | Sat: Closed | Sun: Closed",
+  instagramLink: "https://www.instagram.com/wsdxi/",
+  facebookLink: "https://www.facebook.com/wsdxi/",
+  twitterLink: "https://twitter.com/wsdxi",
+  linkedInLink: "https://www.linkedin.com/company/wsdxi/",
 } as const;
