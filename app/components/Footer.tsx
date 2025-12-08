@@ -2,18 +2,10 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
-
-import { FaXTwitter } from "react-icons/fa6";
 
 import { MapPin } from "lucide-react";
 import { SITE_CONFIG } from "~/lib/constants";
+import SocialBar from "~/components/Social/SocialBar";
 
 const contactNumber = "+27718185904";
 const contactNumberDisplay = "+27 71 818 5904";
@@ -88,52 +80,9 @@ const Footer = () => {
         {/* Social Media */}
         <div>
           <h3 className="text-lg font-extralight mb-2">Follow Us</h3>
+
           <div className="flex space-x-4 text-xl">
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="hover:text-yellow-400"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-yellow-400"
-            >
-              <FaLinkedinIn />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="hover:text-yellow-400"
-            >
-              <FaXTwitter />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="hover:text-yellow-400"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-              className="hover:text-yellow-400"
-            >
-              <FaYoutube />
-            </a>
+            <SocialBar />
           </div>
         </div>
       </div>

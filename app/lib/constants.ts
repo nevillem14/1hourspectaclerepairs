@@ -1,4 +1,5 @@
 // File: app/lib/constants.ts  
+export type SocialPlatform = "facebook"  | "linkedin" | "twitter" | "instagram" | "youtube";
 
 export const SITE_CONFIG = {
   name: "Winter Shadow Designs",
@@ -12,8 +13,14 @@ export const SITE_CONFIG = {
   whatsappLink: "https://wa.me/27718185904",
   address: "Durban, South Africa",
   workingHours: "Mon–Fri: 8am–4pm | Sat: Closed | Sun: Closed",
-  instagramLink: "https://www.instagram.com/wsdxi/",
-  facebookLink: "https://www.facebook.com/wsdxi/",
-  twitterLink: "https://twitter.com/wsdxi",
-  linkedInLink: "https://www.linkedin.com/company/wsdxi/",
+  
+  // ✅ Social links grouped
+  socialLinks: {
+    facebook: { link: "https://www.facebook.com/wsdxi/", active: false },
+    linkedin: { link: "https://www.linkedin.com/wsdxi/", active: false },
+    twitter: { link: "https://x.com/wsdxi43", active: false },
+    instagram: { link: "https://www.instagram.com/wsdxi/", active: false },
+    youtube: { link: "https://www.youtube.com/wsdxi/", active: false },
+  } as const,
+  
 } as const;
