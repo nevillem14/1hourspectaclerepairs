@@ -1,10 +1,47 @@
 import type { Route } from "./+types/home";
 import { Hero } from "~/components/Hero";
 
-export function meta({}: Route.MetaArgs) {
+export function meta() {
   return [
-    { title: "Winter Shadow Designs" },
-    { name: "description", content: "Winter Shadow Designs" },
+    { title: "Winter Shadow Designs — Launch Your Professional Website" },
+    {
+      name: "description",
+      content:
+        "Winter Shadow Designs helps South African businesses launch fast, mobile-friendly websites with full ownership, scalable features and professional support.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Winter Shadow Designs, web design South Africa, website development, affordable websites, small business web design, SEO friendly websites, startup web design ZA",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    // OpenGraph
+    {
+      property: "og:title",
+      content: "Winter Shadow Designs — Launch Your Website",
+    },
+    {
+      property: "og:description",
+      content:
+        "We build websites that give businesses their own online home — not just social media pages — with SEO, scalability and full control.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" }, // replace if you have a real image
+
+    // Twitter card
+    { name: "twitter:card", content: "summary_large_image" },
+    {
+      name: "twitter:title",
+      content: "Winter Shadow Designs — Launch Your Website",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Professional, affordable website solutions for South African businesses — built by Winter Shadow Designs.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
   ];
 }
 

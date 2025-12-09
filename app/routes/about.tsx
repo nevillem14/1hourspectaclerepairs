@@ -5,6 +5,42 @@ import { motion } from "framer-motion";
 import { Check, Linkedin, Mail } from "lucide-react";
 import RotatingBlock from "~/components/RotatingBlock";
 
+export function meta() {
+  return [
+    { title: "About Us — Winter Shadow Designs" },
+    {
+      name: "description",
+      content:
+        "Meet the team behind Winter Shadow Designs — passionate web designers committed to making website creation simple, affordable and effective for South African businesses.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Winter Shadow Designs team, about Winter Shadow Designs, web agency South Africa, small business website support, web design studio ZA",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    { property: "og:title", content: "About — Winter Shadow Designs" },
+    {
+      property: "og:description",
+      content:
+        "Learn how Winter Shadow Designs empowers small businesses to establish a professional online presence with custom websites and full-service support.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za/about" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "About — Winter Shadow Designs" },
+    {
+      name: "twitter:description",
+      content:
+        "Get to know the founders of Winter Shadow Designs and how we make building websites easy for South African businesses.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+  ];
+}
+
 const team = [
   {
     name: "Vuyisile K",

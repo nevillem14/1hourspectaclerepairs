@@ -1,6 +1,42 @@
 import React from "react";
 import DomainChecker from "~/components/DomainChecker";
 
+export function meta() {
+  return [
+    { title: "Domain Lookup — Winter Shadow Designs" },
+    {
+      name: "description",
+      content:
+        "Use Winter Shadow Designs’ domain lookup tool to check availability of your desired domain name before registering your online presence.",
+    },
+    {
+      name: "keywords",
+      content:
+        "domain lookup South Africa, check domain availability, Winter Shadow Designs domain lookup, .co.za domain search, register domain ZA",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    { property: "og:title", content: "Domain Lookup — Winter Shadow Designs" },
+    {
+      property: "og:description",
+      content:
+        "Find the perfect domain for your business with our easy domain lookup tool — get your brand online with Winter Shadow Designs.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za/domainlookup" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Domain Lookup — Winter Shadow Designs" },
+    {
+      name: "twitter:description",
+      content:
+        "Check if your desired domain name is available using Winter Shadow Designs’ domain lookup feature before launch.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+  ];
+}
+
 export default function DomainLookup() {
   return (
     <div className="min-h-screen overflow-hidden text-center mb-8">

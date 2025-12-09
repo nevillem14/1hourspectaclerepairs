@@ -3,6 +3,43 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { SITE_CONFIG } from "~/lib/constants";
+
+export function meta() {
+  return [
+    { title: "Contact — Winter Shadow Designs" },
+    {
+      name: "description",
+      content:
+        "Get in touch with Winter Shadow Designs to start building your website — contact via email, WhatsApp or phone for a fast response.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Winter Shadow Designs contact, web design contact ZA, request quote website design, get in touch web agency South Africa",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    { property: "og:title", content: "Contact — Winter Shadow Designs" },
+    {
+      property: "og:description",
+      content:
+        "Ready to launch your website? Contact Winter Shadow Designs today — we reply fast to quotes, questions and support requests.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za/contact" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Contact — Winter Shadow Designs" },
+    {
+      name: "twitter:description",
+      content:
+        "Have questions or ready to start your project? Reach out to Winter Shadow Designs via email, phone or WhatsApp.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+  ];
+}
+
 export default function Contact() {
   return (
     <main className="pt-16 pb-24 bg-white">
@@ -118,8 +155,8 @@ export default function Contact() {
                   <h3 className="text-xl font-semibold text-gray-900">
                     Working Hours
                   </h3>
-                  <p className="text-gray-600 mt-2">
-                    Monday – Friday: 8:00 – 17:00
+                  <p className="text-sm text-gray-600 mt-2">
+                    Mon–Fri: 8am – 4pm
                   </p>
                   <p className="text-sm text-gray-500">
                     Closed on Sat, Sun & Public holidays
@@ -212,7 +249,7 @@ export default function Contact() {
       </div>
 
       {/* CTA Section */}
-      <div className="max-w-5xl mx-auto my-20 px-4 py-16 rounded-2xl animate-aws-gradient-aws-variantA text-center">
+      <div className="max-w-5xl mx-auto mt-20 px-4 py-8 md:rounded-2xl text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
           Ready to Launch Your Website?
         </h2>

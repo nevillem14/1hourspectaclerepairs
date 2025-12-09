@@ -3,6 +3,42 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
 
+export function meta() {
+  return [
+    { title: "Pricing Plans — Winter Shadow Designs" },
+    {
+      name: "description",
+      content:
+        "Check out Winter Shadow Designs’ flexible web design packages — from affordable starter sites to advanced business websites with full SEO and email support.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Winter Shadow Designs pricing, website packages South Africa, affordable web design, web design plans ZA, SME website pricing",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    { property: "og:title", content: "Pricing — Winter Shadow Designs" },
+    {
+      property: "og:description",
+      content:
+        "Choose a website package that fits your business — from simple sites to advanced, scalable web solutions.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za/pricing" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Pricing — Winter Shadow Designs" },
+    {
+      name: "twitter:description",
+      content:
+        "Explore our website design packages and pick one that fits your budget and business size.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+  ];
+}
+
 type PackageType = {
   name: string;
   priceMonthly: string;

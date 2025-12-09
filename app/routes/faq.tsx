@@ -3,6 +3,42 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
+export function meta() {
+  return [
+    { title: "FAQ — Winter Shadow Designs" },
+    {
+      name: "description",
+      content:
+        "Find answers to common questions about web design packages, SEO, hosting, domains, email support and payment plans from Winter Shadow Designs.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Winter Shadow Designs FAQ, web design questions, website hosting FAQ, domain registration FAQ, small business website FAQ",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    { property: "og:title", content: "FAQ — Winter Shadow Designs" },
+    {
+      property: "og:description",
+      content:
+        "Get clarity on our services, packages, hosting, domains and support — everything you need to know when building your website with us.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za/faq" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "FAQ — Winter Shadow Designs" },
+    {
+      name: "twitter:description",
+      content:
+        "Got questions about website packages, domains or support? We have the answers at Winter Shadow Designs.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+  ];
+}
+
 type FAQType = {
   question: string;
   answer: string;
