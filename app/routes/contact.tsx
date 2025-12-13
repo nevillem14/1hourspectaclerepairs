@@ -4,6 +4,42 @@ import { Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SITE_CONFIG } from "~/lib/constants";
 
+export function meta() {
+  return [
+    { title: "Contact — Winter Shadow Designs" },
+    {
+      name: "description",
+      content:
+        "Get in touch with Winter Shadow Designs to start building your website — contact via email, WhatsApp or phone for a fast response.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Winter Shadow Designs contact, web design contact ZA, request quote website design, get in touch web agency South Africa",
+    },
+    { name: "author", content: "Winter Shadow Designs" },
+
+    { property: "og:title", content: "Contact — Winter Shadow Designs" },
+    {
+      property: "og:description",
+      content:
+        "Ready to launch your website? Contact Winter Shadow Designs today — we reply fast to quotes, questions and support requests.",
+    },
+    { property: "og:url", content: "https://wsdxi.co.za/contact" },
+    { property: "og:type", content: "website" },
+    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "Contact — Winter Shadow Designs" },
+    {
+      name: "twitter:description",
+      content:
+        "Have questions or ready to start your project? Reach out to Winter Shadow Designs via email, phone or WhatsApp.",
+    },
+    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+  ];
+}
+
 export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
@@ -35,6 +71,7 @@ export default function ContactForm() {
       setStatus("success");
       form.reset();
     } catch {
+      console.error("error");
       setStatus("error");
     }
   };
@@ -249,7 +286,10 @@ export default function ContactForm() {
               </button>
 
               {status === "success" && (
-                <p className="text-center text-green-600 flex items-center justify-center gap-2 mt-4">
+                <p
+                  className="text-center text-green-600 flex items-center justify-center gap-2 mt-4"
+                  aria-live="polite"
+                >
                   <CheckCircle className="w-5 h-5" />
                   Your message was sent! We’ll get back to you during business
                   hours.
