@@ -172,12 +172,47 @@ export default function Contact() {
               Send Us a Message
             </h2>
 
-            <form className="space-y-6">
+            <form
+              className="space-y-6"
+              onSubmit={async (e) => {
+                e.preventDefault();
+
+                const form = e.currentTarget as HTMLFormElement;
+
+                const formData = new FormData(form);
+                const payload = {
+                  name: formData.get("name")?.toString() ?? "",
+                  company: formData.get("company")?.toString() ?? "",
+                  email: formData.get("email")?.toString() ?? "",
+                  phone: formData.get("phone")?.toString() ?? "",
+                  message: formData.get("message")?.toString() ?? "",
+                };
+
+                try {
+                  const res = await fetch(
+                    "/.netlify/functions/send-contact-email",
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify(payload),
+                    }
+                  );
+
+                  if (!res.ok) throw new Error("Failed");
+
+                  alert("Message sent successfully!");
+                  form.reset();
+                } catch {
+                  alert("Something went wrong. Please try again.");
+                }
+              }}
+            >
               <div>
                 <label className="block text-gray-800 font-medium mb-2">
                   Your Name
                 </label>
                 <input
+                  name="name"
                   type="text"
                   required
                   className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
@@ -190,6 +225,7 @@ export default function Contact() {
                   Company Name (optional)
                 </label>
                 <input
+                  name="company"
                   type="text"
                   className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
                   placeholder="Company Name"
@@ -201,6 +237,7 @@ export default function Contact() {
                   Email Address
                 </label>
                 <input
+                  name="email"
                   type="email"
                   required
                   className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
@@ -213,6 +250,7 @@ export default function Contact() {
                   Phone (optional)
                 </label>
                 <input
+                  name="phone"
                   type="tel"
                   className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
                   placeholder="+27 82 123 4567"
@@ -224,6 +262,7 @@ export default function Contact() {
                   Your Message
                 </label>
                 <textarea
+                  name="message"
                   rows={5}
                   required
                   className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"

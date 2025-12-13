@@ -1,6 +1,23 @@
 [build]
-command = "react-router build"
-publish = "build/client"
+  command = "react-router build"
+  publish = "build/client"  # Matches your client-side build output
+  environment = { NODE_VERSION = "24" }  # Recommended for modern Node projects
 
 [dev]
-command = "react-router dev"
+  command = "react-router dev"
+  publish = "build/client"  # Directory for local dev server
+  #port = 3000               # Avoid port conflicts during local dev
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
