@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   emailSupport: "support@wsdxi.co.za",
   phoneNumber: "+27718185904",
   phoneString: "+27 71 818 5904",
-  whatsapp: "27671234567", // no + or spaces
+  whatsappString: "+27 71 818 5904", 
   whatsappLink: "https://wa.me/27718185904",
   address: "Durban, South Africa",
   workingHours: "Mon–Fri: 8am–4pm | Sat: Closed | Sun: Closed",
