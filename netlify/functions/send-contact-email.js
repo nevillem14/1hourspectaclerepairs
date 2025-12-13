@@ -1,8 +1,7 @@
-import type { Handler } from "@netlify/functions";
+import { Handler } from "@netlify/functions";
 import nodemailer from "nodemailer";
 
-export const handler: Handler = async (event) => {
-
+export const Handler = async (event) => {
   // ✅ Allow preflight
   if (event.httpMethod === "OPTIONS") {
     return {
@@ -15,13 +14,15 @@ export const handler: Handler = async (event) => {
       body: "",
     };
   }
-  
+
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method Not Allowed" };
   }
 
   try {
-    const { name, company, email, phone, message } = JSON.parse(event.body || "{}");
+    const { name, company, email, phone, message } = JSON.parse(
+      event.body || "{}"
+    );
 
     if (!name || !email || !message) {
       return { statusCode: 400, body: "Missing required fields" };
