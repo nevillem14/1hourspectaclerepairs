@@ -2,26 +2,38 @@ import type { Handler } from "@netlify/functions";
 import nodemailer from "nodemailer";
 
 export const handler: Handler = async (event) => {
-  console.log("HTTP METHOD:", event.httpMethod);
 
-  // Always return OK for non-POST (no 405 anymore)
-  if (event.httpMethod !== "POST") {
+  // ✅ Allow preflight
+  if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
-      body: JSON.stringify({ ok: true, method: event.httpMethod }),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+      },
+      body: "",
     };
+  }
+  
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
   }
 
   try {
     const { name, company, email, phone, message } = JSON.parse(event.body || "{}");
 
+    if (!name || !email || !message) {
+      return { statusCode: 400, body: "Missing required fields" };
+    }
+
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
       secure: false,
       auth: {
-        user: process.env.SMTP_USER!,
-        pass: process.env.SMTP_PASS!,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
 
@@ -30,13 +42,13 @@ export const handler: Handler = async (event) => {
       to: "hello@wsdxi.co.za",
       replyTo: email,
       subject: "New Contact Form Submission",
-      text: `
-Name: ${name}
-Company: ${company}
-Email: ${email}
-Phone: ${phone}
-Message:
-${message}
+      html: `
+        <h3>New message from wsdxi.co.za</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Company:</strong> ${company || "-"}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || "-"}</p>
+        <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
       `,
     });
 
