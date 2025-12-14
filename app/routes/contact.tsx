@@ -4,17 +4,6 @@ import { Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SITE_CONFIG } from "~/lib/constants";
 
-useEffect(() => {
-  const script = document.createElement("script");
-  script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
-  script.async = true;
-  document.body.appendChild(script);
-
-  return () => {
-    document.body.removeChild(script);
-  };
-}, []);
-
 export function meta() {
   return [
     { title: "Contact — Winter Shadow Designs" },
@@ -55,21 +44,31 @@ export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
 
   const isBrowser = typeof window !== "undefined";
 
+  useEffect(() => {
+    if (!isBrowser) return;
+
+    const script = document.createElement("script");
+    script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.onload = () => setRecaptchaReady(true);
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, [isBrowser]);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!isBrowser) return; // 🔒 SSR guard
+    if (!isBrowser || !recaptchaReady) return;
 
     setStatus("sending");
 
     try {
-      if (!window.grecaptcha) {
-        throw new Error("reCAPTCHA not loaded");
-      }
-
       const recaptchaToken = await new Promise<string>((resolve, reject) => {
         window.grecaptcha.ready(() => {
           window.grecaptcha
@@ -108,6 +107,8 @@ export default function ContactForm() {
       setStatus("error");
     }
   };
+
+  if (!isBrowser) return null; // SSR-safe
 
   return (
     <main className="pt-16 pb-24 bg-white">
