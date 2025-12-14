@@ -1,11 +1,10 @@
 // File: app/components/Footer.tsx
-
-import React from "react";
 import { Link } from "react-router-dom";
 
 import { MapPin } from "lucide-react";
 import { SITE_CONFIG } from "~/lib/constants";
 import SocialBar from "~/components/Social/SocialBar";
+import RecaptchaNotice from "~/components/recaptcha/RecaptchaNotice";
 
 const contactNumber = "+27718185904";
 const contactNumberDisplay = "+27 71 818 5904";
@@ -84,11 +83,13 @@ const Footer = () => {
           <div className="flex space-x-4 text-xl">
             <SocialBar />
           </div>
+          <div className="justify-end-safe">
+            <RecaptchaNotice />
+          </div>
         </div>
       </div>
 
       {/* Bottom Section */}
-
       <div className="text-white/30 text-sm mx-auto px-4 py-4 border-t border-gray-900">
         <div className="flex flex-col items-center text-center sm:flex-row sm:justify-center sm:text-left">
           {/* Copyright */}

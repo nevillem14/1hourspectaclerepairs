@@ -194,6 +194,15 @@
 /* -------------------------
    Global
 ------------------------- */
+
+/* RECAPTCHA HIDE - ADD THIS HERE */
+.grecaptcha-badge {
+    visibility: hidden; 
+    /* Use visibility: hidden instead of display: none 
+       to maintain compliance while hiding the visual element. */
+}
+/* END RECAPTCHA HIDE */
+
 html,
 body {
   @apply bg-white dark:bg-gray-950;

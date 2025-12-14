@@ -1,6 +1,5 @@
 // File: app/routes/about.tsx
 
-import React from "react";
 import { motion } from "framer-motion";
 import { Check, Linkedin, Mail } from "lucide-react";
 import RotatingBlock from "~/components/RotatingBlock";

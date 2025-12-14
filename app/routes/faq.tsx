@@ -1,5 +1,5 @@
 // File: app/routes/FAQ.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 

@@ -1,5 +1,4 @@
 // File: app/routes/domainlookup.tsx
-import React from "react";
 import { motion } from "framer-motion";
 import { Search, Globe, CheckCircle } from "lucide-react";
 import DomainChecker from "~/components/DomainChecker";
