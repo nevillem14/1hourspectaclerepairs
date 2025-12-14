@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SITE_CONFIG } from "~/lib/constants";
+
+useEffect(() => {
+  const script = document.createElement("script");
+  script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
+  script.async = true;
+  document.body.appendChild(script);
+
+  return () => {
+    document.body.removeChild(script);
+  };
+}, []);
 
 export function meta() {
   return [
@@ -51,12 +62,24 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    const recaptchaToken = await new Promise<string>((resolve) => {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+            action: "contact_form",
+          })
+          .then(resolve);
+      });
+    });
+
     const payload = {
       name: formData.get("name")?.toString() ?? "",
       company: formData.get("company")?.toString() ?? "",
       email: formData.get("email")?.toString() ?? "",
       phone: formData.get("phone")?.toString() ?? "",
       message: formData.get("message")?.toString() ?? "",
+      recaptchaToken,
     };
 
     try {
