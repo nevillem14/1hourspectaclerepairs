@@ -56,33 +56,43 @@ export default function ContactForm() {
     "idle" | "sending" | "success" | "error"
   >("idle");
 
+  const isBrowser = typeof window !== "undefined";
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!isBrowser) return; // 🔒 SSR guard
+
     setStatus("sending");
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const recaptchaToken = await new Promise<string>((resolve) => {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha
-          .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
-            action: "contact_form",
-          })
-          .then(resolve);
-      });
-    });
-
-    const payload = {
-      name: formData.get("name")?.toString() ?? "",
-      company: formData.get("company")?.toString() ?? "",
-      email: formData.get("email")?.toString() ?? "",
-      phone: formData.get("phone")?.toString() ?? "",
-      message: formData.get("message")?.toString() ?? "",
-      recaptchaToken,
-    };
-
     try {
+      if (!window.grecaptcha) {
+        throw new Error("reCAPTCHA not loaded");
+      }
+
+      const recaptchaToken = await new Promise<string>((resolve, reject) => {
+        window.grecaptcha.ready(() => {
+          window.grecaptcha
+            .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+              action: "contact_form",
+            })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      const payload = {
+        name: formData.get("name")?.toString() ?? "",
+        company: formData.get("company")?.toString() ?? "",
+        email: formData.get("email")?.toString() ?? "",
+        phone: formData.get("phone")?.toString() ?? "",
+        message: formData.get("message")?.toString() ?? "",
+        recaptchaToken,
+      };
+
       const res = await fetch("/.netlify/functions/send-contact-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -93,8 +103,8 @@ export default function ContactForm() {
 
       setStatus("success");
       form.reset();
-    } catch {
-      console.error("error");
+    } catch (err) {
+      console.error(err);
       setStatus("error");
     }
   };
