@@ -69,6 +69,9 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
+      const form = e.currentTarget as HTMLFormElement; // ✅ cast to HTMLFormElement
+      const formData = new FormData(form);
+
       const recaptchaToken = await new Promise<string>((resolve, reject) => {
         window.grecaptcha.ready(() => {
           window.grecaptcha
@@ -79,9 +82,6 @@ export default function ContactForm() {
             .catch(reject);
         });
       });
-
-      const form = e.currentTarget;
-      const formData = new FormData(form);
 
       const payload = {
         name: formData.get("name")?.toString() ?? "",
