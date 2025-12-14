@@ -46,9 +46,14 @@ export default function ContactForm() {
   >("idle");
   const [recaptchaReady, setRecaptchaReady] = useState(false);
 
+  const [mounted, setMounted] = useState(false); // <-- NEW STATE
+
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
+    // Only run this once on the client
+    setMounted(true); // <-- Set mounted to true when the component mounts
+
     if (!isBrowser) return;
 
     const script = document.createElement("script");
@@ -246,7 +251,7 @@ export default function ContactForm() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Send Us a Message
             </h2>
-            {isBrowser && (
+            {mounted ? (
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-gray-800 font-medium mb-2">
@@ -337,6 +342,11 @@ export default function ContactForm() {
                   </p>
                 )}
               </form>
+            ) : (
+              // Render a placeholder on the server and during initial hydration
+              <div className="h-[500px] w-full bg-gray-50 animate-pulse rounded-lg flex items-center justify-center text-gray-400">
+                Loading form...
+              </div>
             )}
           </div>
         </div>
