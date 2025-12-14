@@ -69,7 +69,9 @@ export default function ContactForm() {
     setStatus("sending");
 
     try {
-      const form = e.currentTarget as HTMLFormElement; // ✅ cast to HTMLFormElement
+      const form = e.target as HTMLFormElement;
+      if (!form || form.tagName !== "FORM") throw new Error("Form not found");
+
       const formData = new FormData(form);
 
       const recaptchaToken = await new Promise<string>((resolve, reject) => {
@@ -98,7 +100,7 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error("Failed");
+      if (!res.ok) throw new Error("Failed to send message");
 
       setStatus("success");
       form.reset();
@@ -107,8 +109,6 @@ export default function ContactForm() {
       setStatus("error");
     }
   };
-
-  if (!isBrowser) return null; // SSR-safe
 
   return (
     <main className="pt-16 pb-24 bg-white">
@@ -246,96 +246,98 @@ export default function ContactForm() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Send Us a Message
             </h2>
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label className="block text-gray-800 font-medium mb-2">
-                  Your Name
-                </label>
-                <input
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                  placeholder="First and Last Name"
-                />
-              </div>
+            {isBrowser && (
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div>
+                  <label className="block text-gray-800 font-medium mb-2">
+                    Your Name
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    required
+                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    placeholder="First and Last Name"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-800 font-medium mb-2">
-                  Company Name (optional)
-                </label>
-                <input
-                  name="company"
-                  type="text"
-                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                  placeholder="Company Name"
-                />
-              </div>
+                <div>
+                  <label className="block text-gray-800 font-medium mb-2">
+                    Company Name (optional)
+                  </label>
+                  <input
+                    name="company"
+                    type="text"
+                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    placeholder="Company Name"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-800 font-medium mb-2">
-                  Email Address
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                  placeholder="john@example.com"
-                />
-              </div>
+                <div>
+                  <label className="block text-gray-800 font-medium mb-2">
+                    Email Address
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    required
+                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    placeholder="john@example.com"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-800 font-medium mb-2">
-                  Phone (optional)
-                </label>
-                <input
-                  name="phone"
-                  type="tel"
-                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                  placeholder="+27 82 123 4567"
-                />
-              </div>
+                <div>
+                  <label className="block text-gray-800 font-medium mb-2">
+                    Phone (optional)
+                  </label>
+                  <input
+                    name="phone"
+                    type="tel"
+                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    placeholder="+27 82 123 4567"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-gray-800 font-medium mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
-                  placeholder="Tell us about your project or question..."
-                />
-              </div>
+                <div>
+                  <label className="block text-gray-800 font-medium mb-2">
+                    Your Message
+                  </label>
+                  <textarea
+                    name="message"
+                    rows={5}
+                    required
+                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
+                    placeholder="Tell us about your project or question..."
+                  />
+                </div>
 
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg flex items-center justify-center gap-3 transition"
-                disabled={status === "sending"}
-              >
-                <Send className="w-5 h-5" />
-                {status === "sending" ? "Sending..." : "Send Message"}
-              </button>
-
-              {status === "success" && (
-                <p
-                  className="text-center text-green-600 flex items-center justify-center gap-2 mt-4"
-                  aria-live="polite"
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg flex items-center justify-center gap-3 transition"
+                  disabled={status === "sending"}
                 >
-                  <CheckCircle className="w-5 h-5" />
-                  Your message was sent! We’ll get back to you during business
-                  hours.
-                </p>
-              )}
+                  <Send className="w-5 h-5" />
+                  {status === "sending" ? "Sending..." : "Send Message"}
+                </button>
 
-              {status === "error" && (
-                <p className="text-center text-red-600 mt-4">
-                  Oops! Something went wrong. Please try again later.
-                </p>
-              )}
-            </form>
+                {status === "success" && (
+                  <p
+                    className="text-center text-green-600 flex items-center justify-center gap-2 mt-4"
+                    aria-live="polite"
+                  >
+                    <CheckCircle className="w-5 h-5" />
+                    Your message was sent! We’ll get back to you during business
+                    hours.
+                  </p>
+                )}
+
+                {status === "error" && (
+                  <p className="text-center text-red-600 mt-4">
+                    Oops! Something went wrong. Please try again later.
+                  </p>
+                )}
+              </form>
+            )}
           </div>
         </div>
       </div>
