@@ -87,9 +87,7 @@ export const handler = async (event) => {
 
     // Create transporter with Gmail SMTP
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: true,
+      service: "gmail",
       auth: {
         user: process.env.SMTP_USER, // e.g. wsdxi43@gmail.com
         pass: process.env.SMTP_PASS, // Gmail App Password
