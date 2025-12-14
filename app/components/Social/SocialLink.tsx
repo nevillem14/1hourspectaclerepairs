@@ -14,7 +14,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const ICONS: Record<SocialPlatform, React.ReactElement> = {
   facebook: <FaFacebookF />,
   linkedin: <FaLinkedinIn />,
-  twitter: <FaXTwitter />,
+  x: <FaXTwitter />,
   instagram: <FaInstagram />,
   youtube: <FaYoutube />,
 };
