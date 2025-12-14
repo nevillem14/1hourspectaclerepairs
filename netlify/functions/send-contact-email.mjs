@@ -54,7 +54,7 @@ export const handler = async (event) => {
     }
 
     // 🔐 Verify reCAPTCHA v3
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    const recaptchaSecret = process.env.SITE_RECAPTCHA_SECRET;
     if (!recaptchaSecret) {
       console.error("Missing RECAPTCHA_SECRET_KEY");
       return {
