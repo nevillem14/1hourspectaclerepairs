@@ -1,19 +1,17 @@
-import type { Handler } from "@netlify/functions";
 import nodemailer from "nodemailer";
 
 const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minute
 const RATE_LIMIT_MAX = 5; // max 5 requests per IP per minute
 
 // Simple in-memory rate limit (OK for low traffic sites)
-const rateLimitMap = new Map<string, number[]>();
+/** @type {Map<string, number[]>} */
+const rateLimitMap = new Map();
 
-function isRateLimited(ip: string) {
+function isRateLimited(ip) {
   const now = Date.now();
   const timestamps = rateLimitMap.get(ip) ?? [];
 
-  const recent = timestamps.filter(
-    (t) => now - t < RATE_LIMIT_WINDOW_MS
-  );
+  const recent = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
 
   recent.push(now);
   rateLimitMap.set(ip, recent);
@@ -21,7 +19,7 @@ function isRateLimited(ip: string) {
   return recent.length > RATE_LIMIT_MAX;
 }
 
-export const handler: Handler = async (event) => {
+export const handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -44,14 +42,9 @@ export const handler: Handler = async (event) => {
       };
     }
 
-    const {
-      name,
-      company,
-      email,
-      phone,
-      message,
-      recaptchaToken,
-    } = JSON.parse(event.body || "{}");
+    const { name, company, email, phone, message, recaptchaToken } = JSON.parse(
+      event.body || "{}"
+    );
 
     if (!name || !email || !message || !recaptchaToken) {
       return {
@@ -61,7 +54,14 @@ export const handler: Handler = async (event) => {
     }
 
     // 🔐 Verify reCAPTCHA v3
-    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY!;
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!recaptchaSecret) {
+      console.error("Missing RECAPTCHA_SECRET_KEY");
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: "Server misconfiguration" }),
+      };
+    }
     const verifyRes = await fetch(
       "https://www.google.com/recaptcha/api/siteverify",
       {
