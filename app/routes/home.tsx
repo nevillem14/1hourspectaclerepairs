@@ -99,7 +99,7 @@ export default function Home() {
               store, booking system, menu or portfolio whenever you’re ready –
               something social media pages can’t do properly.
             </li>
-            <li className=" mx-auto bg-fuchsia-100 p-4 rounded-lg shadow-2xl font-medium border border-fuchsia-200 border-l-4 border-l-fuchsia-600">
+            <li className=" mx-auto bg-fuchsia-100 p-4 rounded-lg shadow-2xl font-medium border border-fuchsia-300 border-l-4 border-l-fuchsia-600">
               <strong>In short – </strong> Social media is great for staying
               visible and chatting with customers, but a website is your real
               online home and the foundation every serious business needs.

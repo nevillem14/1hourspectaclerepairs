@@ -311,6 +311,7 @@ export default function ContactForm() {
                     name="message"
                     rows={5}
                     required
+                    maxLength={5000}
                     className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
                     placeholder="Tell us about your project or question..."
                   />
