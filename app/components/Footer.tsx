@@ -83,7 +83,7 @@ const Footer = () => {
           <div className="flex space-x-4 text-xl">
             <SocialBar />
           </div>
-          <div className="justify-end-safe">
+          <div className="items-start mt-4">
             <RecaptchaNotice />
           </div>
         </div>
