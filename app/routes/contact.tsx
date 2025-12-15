@@ -326,6 +326,11 @@ export default function ContactForm() {
                   {status === "sending" ? "Sending..." : "Send Message"}
                 </button>
 
+                <p className="text-center text-gray-700 text-sm flex items-center justify-center gap-2">
+                  <CheckCircle className="w-5 h-5 text-green-500" />
+                  We reply to all messages asap during business days
+                </p>
+
                 {status === "success" && (
                   <p
                     className="text-center text-green-600 flex items-center justify-center gap-2 mt-4"
