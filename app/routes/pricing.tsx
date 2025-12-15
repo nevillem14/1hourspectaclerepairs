@@ -210,7 +210,7 @@ export default function Packages() {
   };
 
   return (
-    <main className="pt-16 pb-24 bg-white">
+    <main className="pt-16 bg-white">
       <div className="max-w-5xl mx-auto text-center mb-12 px-4">
         <h1 className="text-4xl font-bold text-gray-900">
           Web Design Packages
@@ -410,7 +410,7 @@ export default function Packages() {
             <motion.div
               key={pkg.name}
               whileHover={{ translateY: -4 }}
-              className={`relative rounded-lg border-2 bg-white flex flex-col overflow-hidden border-gray-400 shadow-lg shadow-gray-300`}
+              className={`relative rounded-lg border-1 bg-white flex flex-col overflow-hidden border-gray-400 shadow-lg shadow-gray-300`}
             >
               <div className="bg-white p-6 flex-grow flex flex-col items-center text-center space-y-4">
                 {/*<img

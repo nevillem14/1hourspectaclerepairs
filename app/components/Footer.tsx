@@ -11,11 +11,11 @@ const contactNumberDisplay = "+27 71 818 5904";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-100 mt-12 w-full">
+    <footer className="bg-black text-gray-100 mt-2 md:mt-12 w-full">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Contact Info */}
-        <div className="flex items-center justify-center lg:justify-start">
+        <div className="flex items-start">
           <img
             src="/images/wsdxi-logo-white.svg"
             alt="Winter Shadow Designs Logo"
