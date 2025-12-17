@@ -319,15 +319,17 @@ export default function Packages() {
               </div>
             </div>
             <div className="p-6 border-t border-gray-200">
-              <button
-                className={`w-full py-2 font-medium rounded-lg ${
-                  pkg.highlight
-                    ? "bg-blue-500 text-white hover:bg-blue-600"
-                    : "bg-gray-800 text-white hover:bg-gray-900"
-                } transition`}
-              >
-                {pkg.priceContact ? "Contact Sales" : "Get Started"}
-              </button>
+              <a href="/contact">
+                <button
+                  className={`w-full py-2 font-medium rounded-lg ${
+                    pkg.highlight
+                      ? "bg-blue-500 text-white hover:bg-blue-600"
+                      : "bg-gray-800 text-white hover:bg-gray-900"
+                  } transition`}
+                >
+                  {pkg.priceContact ? "Contact Sales" : "Get Started"}
+                </button>
+              </a>
             </div>
           </motion.div>
         ))}
@@ -392,9 +394,11 @@ export default function Packages() {
           </p>
         </div>
         <div className="flex justify-center mt-6">
-          <button className="bg-gray-800 text-white hover:bg-gray-900 py-2 px-6 rounded-lg font-medium transition">
-            Get Started
-          </button>
+          <a href="/contact">
+            <button className="bg-gray-800 text-white hover:bg-gray-900 py-2 px-6 rounded-lg font-medium transition">
+              Get Started
+            </button>
+          </a>
         </div>
       </div>
 
