@@ -211,10 +211,20 @@ export default function Packages() {
 
   return (
     <main className="pt-16 bg-white">
-      <div className="max-w-5xl mx-auto text-center mb-12 px-4">
-        <h1 className="text-4xl font-bold text-gray-900">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto text-center mb-12 px-4"
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold text-gray-900"
+        >
           Web Design Packages
-        </h1>
+        </motion.h1>
         <p className="mt-4 text-lg text-gray-600">
           Pick a plan that aligns with your needs. Upgrade anytime.
         </p>
@@ -245,10 +255,15 @@ export default function Packages() {
         <span className="text-sm rounded-sm ml-2 px-2 py-1">
           Save up to 15% with Yearly
         </span>
-      </div>
+      </motion.div>
 
       {/* Pricing Grid */}
-      <div className="max-w-6xl mx-auto px-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-6xl mx-auto px-4 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+      >
         {packages.map((pkg) => (
           <motion.div
             key={pkg.name}
@@ -333,7 +348,7 @@ export default function Packages() {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/*Email Packages */}
       {/*<div className="bg-blue-100/50 max-w-5xl mx-auto  my-16 px-4 py-16 rounded-lg">
@@ -405,9 +420,14 @@ export default function Packages() {
       {/* Business Registration */}
 
       <div className="bg-gray-50 max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg">
-        <h1 className="text-4xl font-bold text-center text-gray-800">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold text-center text-gray-800"
+        >
           Company Registration & Compliance
-        </h1>
+        </motion.h1>
 
         <div className="max-w-6xl mx-auto mt-16 px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {businessPackages.map((pkg) => (
