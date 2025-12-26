@@ -28,7 +28,7 @@ export function meta() {
     },
     { property: "og:url", content: "https://wsdxi.co.za" },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" }, // replace if you have a real image
+    { property: "og:image", content: "/images/wsdxi-og-facebook-1200x648.png" }, // replace if you have a real image
 
     // Twitter card
     { name: "twitter:card", content: "summary_large_image" },
