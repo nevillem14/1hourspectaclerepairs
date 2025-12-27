@@ -2,6 +2,9 @@ import type { Route } from "./+types/home";
 import { Hero } from "~/components/Hero";
 
 export function meta() {
+  const siteUrl = "https://wsdxi.co.za";
+  const ogImageUrl = `${siteUrl}/images/wsdxi-og-facebook-1200x648.png`;
+
   return [
     { title: "Winter Shadow Designs — Launch Your Professional Website" },
     {
@@ -26,9 +29,9 @@ export function meta() {
       content:
         "We build websites that give businesses their own online home — not just social media pages — with SEO, scalability and full control.",
     },
-    { property: "og:url", content: "https://wsdxi.co.za" },
+    { property: "og:url", content: siteUrl },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "/images/wsdxi-og-facebook-1200x648.png" }, // replace if you have a real image
+    { property: "og:image", content: ogImageUrl },
 
     // Twitter card
     { name: "twitter:card", content: "summary_large_image" },
@@ -41,7 +44,7 @@ export function meta() {
       content:
         "Professional, affordable website solutions for South African businesses — built by Winter Shadow Designs.",
     },
-    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+    { name: "twitter:image", content: ogImageUrl },
   ];
 }
 
