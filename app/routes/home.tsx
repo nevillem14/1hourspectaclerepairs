@@ -10,39 +10,40 @@ export function meta() {
     {
       name: "description",
       content:
-        "Winter Shadow Designs helps South African businesses launch fast, mobile-friendly websites with full ownership, scalable features and professional support.",
+        "Winter Shadow Designs helps South African businesses launch fast, mobile-friendly websites with professional email and full business compliance support.",
     },
     {
       name: "keywords",
       content:
-        "Winter Shadow Designs, web design South Africa, website development, affordable websites, small business web design, SEO friendly websites, startup web design ZA",
+        "Winter Shadow Designs, web design South Africa, website development, affordable websites, CIPC registration, business email, SEO friendly websites, startup web design ZA",
     },
     { name: "author", content: "Winter Shadow Designs" },
 
-    // OpenGraph
+    // OpenGraph (Facebook, LinkedIn)
     {
       property: "og:title",
-      content: "Winter Shadow Designs — Launch Your Website",
+      content:
+        "Winter Shadow Designs — Professional Web & Compliance Solutions",
     },
     {
       property: "og:description",
       content:
-        "We build websites that give businesses their own online home — not just social media pages — with SEO, scalability and full control.",
+        "Establish your business online with professional web design, custom email, and CIPC compliance. Simple, stress-free, and built for South African entrepreneurs.",
     },
     { property: "og:url", content: siteUrl },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImageUrl },
 
-    // Twitter card
+    // Twitter Card
     { name: "twitter:card", content: "summary_large_image" },
     {
       name: "twitter:title",
-      content: "Winter Shadow Designs — Launch Your Website",
+      content: "Winter Shadow Designs — Launch Your Business Online",
     },
     {
       name: "twitter:description",
       content:
-        "Professional, affordable website solutions for South African businesses — built by Winter Shadow Designs.",
+        "Professional and affordable web solutions for South African businesses. We handle the tech so you can focus on growth.",
     },
     { name: "twitter:image", content: ogImageUrl },
   ];
