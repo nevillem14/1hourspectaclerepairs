@@ -13,6 +13,19 @@ import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 import { Toaster } from "react-hot-toast";
 
+export function meta() {
+  return [
+    { title: "Winter Shadow Designs" },
+    { property: "og:site_name", content: "Winter Shadow Designs" },
+    { property: "og:locale", content: "en_ZA" }, // Specifically targets the SA market
+    // Default image if a specific page doesn't provide one
+    {
+      property: "og:image",
+      content: "https://wsdxi.co.za/images/wsdxi-og-default-share-1200x630.jpg",
+    },
+  ];
+}
+
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
@@ -76,14 +89,17 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <Layout>
+      {/*Wrapped in layout: Keeps the site's look even when an error happens*/}
+      <main className="pt-16 p-4 container mx-auto text-center">
+        <h1 className="text-4xl font-bold text-gray-900">{message}</h1>
+        <p className="mt-4 text-lg text-gray-600">{details}</p>
+        {stack && (
+          <pre className="mt-8 w-full p-4 overflow-x-auto bg-gray-100 rounded text-left">
+            <code>{stack}</code>
+          </pre>
+        )}
+      </main>
+    </Layout>
   );
 }

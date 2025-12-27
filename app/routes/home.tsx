@@ -3,7 +3,7 @@ import { Hero } from "~/components/Hero";
 
 export function meta() {
   const siteUrl = "https://wsdxi.co.za";
-  const ogImageUrl = `${siteUrl}/images/wsdxi-og-facebook-1200x648.png`;
+  const ogImageUrl = `${siteUrl}/images/wsdxi-og-facebook-1200x630.jpg`;
 
   return [
     { title: "Winter Shadow Designs — Launch Your Professional Website" },
