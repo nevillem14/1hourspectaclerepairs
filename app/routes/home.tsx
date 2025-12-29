@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { Hero } from "~/components/Hero";
+import { motion } from "framer-motion";
 
 export function meta() {
   const siteUrl = "https://wsdxi.co.za";
@@ -57,10 +58,20 @@ export default function Home() {
       </section>
 
       <section className="bg-gray-50 py-8 md:py-16">
-        <div className="md:w-3/5 mx-auto text-left">
-          <h2 className="text-2xl p-4 md:text-3xl text-center md:text-left font-bold text-gray-900 mb-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="md:w-3/5 mx-auto text-left"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl p-4 md:text-3xl text-center md:text-left font-bold text-gray-900 mb-6"
+          >
             Why do I need a website when I can use social media?
-          </h2>
+          </motion.h2>
           <div className="p-6 pt-0 text-lg text-center md:text-left text-gray-600 leading-relaxed">
             <p className="mb-4 ">
               A website is your own piece of the internet that you fully control
@@ -69,10 +80,15 @@ export default function Home() {
           </div>
 
           <div className="p-6 pt-0 text-gray-600 leading-relaxed">
-            <p className="mb-4 text-lg font-semibold ">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="mb-4 text-lg font-semibold "
+            >
               Here’s why a proper website still beats relying only on Facebook,
               Instagram or TikTok:
-            </p>
+            </motion.p>
             <ul className="space-y-6 ">
               <li className="items-start p-4 border border-gray-300 rounded-lg shadow-md border-l-4 border-l-blue-600 ">
                 <strong>You own it</strong> – Platforms can change rules, limit
@@ -111,7 +127,7 @@ export default function Home() {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </section>
     </>
   );

@@ -64,18 +64,33 @@ const About = () => {
   return (
     <main className="pt-16 pb-24 bg-white">
       {/* Hero Section */}
-      <div className="max-w-5xl mx-auto text-center mb-12 px-4">
-        <h1 className="text-4xl font-bold text-gray-900">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto text-center mb-12 px-4"
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold text-gray-900"
+        >
           About {`${SITE_CONFIG.name}`}
-        </h1>
+        </motion.h1>
         <p className="mt-4 text-lg text-gray-600">
           We make getting your business online simple and stress-free.
         </p>
-      </div>
+      </motion.div>
 
       {/* Company Overview */}
       <div className="max-w-5xl mx-auto px-4 py-16">
-        <div className="bg-gray-100 rounded-lg p-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-gray-100 rounded-lg p-8 text-center"
+        >
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Who We Are</h2>
           <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
             At {`${SITE_CONFIG.name}`}, we're passionate about empowering small
@@ -85,7 +100,7 @@ const About = () => {
             custom web design solutions that are affordable, fast, and tailored
             to your needs.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Team Section */}

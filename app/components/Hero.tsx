@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import RotatingBlock from "./RotatingBlock";
+import { motion } from "framer-motion";
 
 export function Hero() {
   return (
@@ -24,10 +25,20 @@ export function Hero() {
         {/* Adjust the rgba values to match your background color (e.g., if bg-gray-100, use rgba(243,244,246,...)) */}
       </div>
       {/* Hero Content */}
-      <div className="relative z-10 max-w-3xl mx-auto px-8 text-black ">
-        <h1 className="text-[clamp(2.5rem,10vw,6rem)] font-extrabold mb-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 max-w-3xl mx-auto px-8 text-black "
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-[clamp(2.5rem,10vw,6rem)] font-extrabold mb-4"
+        >
           Ready to Launch Your Website?
-        </h1>
+        </motion.h1>
         <p className="text-[clamp(1rem,2vw,1.25rem)] leading-relaxed mt-4 text-gray-700">
           We make it simple — you tell us what you need, and we handle the rest.
         </p>
@@ -38,7 +49,7 @@ export function Hero() {
         >
           Let's Get Started
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 }
