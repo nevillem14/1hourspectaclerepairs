@@ -102,7 +102,7 @@ const Footer = () => {
             <span className="h-5 hidden sm:inline mx-2">|</span>
           </div>
           <div className="flex items-center mb-2 sm:mb-0">
-            <p className="mx-10 sm:mx-0">Winter Shadow Designs</p>
+            <p className="mx-10 sm:mx-0">{`${SITE_CONFIG.name}`}</p>
           </div>
         </div>
       </div>

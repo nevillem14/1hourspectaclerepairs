@@ -3,38 +3,39 @@
 import { motion } from "framer-motion";
 import { Check, Linkedin, Mail } from "lucide-react";
 import RotatingBlock from "~/components/RotatingBlock";
+import { SITE_CONFIG } from "~/lib/constants";
 
 export function meta() {
   return [
-    { title: "About Us — Winter Shadow Designs" },
+    { title: "About Us — Winter Shadow Designs XI" },
     {
       name: "description",
       content:
-        "Meet the team behind Winter Shadow Designs — passionate web designers committed to making website creation simple, affordable and effective for South African businesses.",
+        "Meet the team behind Winter Shadow Designs XI — passionate web designers committed to making website creation simple, affordable and effective for South African businesses.",
     },
     {
       name: "keywords",
       content:
-        "Winter Shadow Designs team, about Winter Shadow Designs, web agency South Africa, small business website support, web design studio ZA",
+        "Winter Shadow Designs XI team, about Winter Shadow Designs XI, web agency South Africa, small business website support, web design studio ZA",
     },
-    { name: "author", content: "Winter Shadow Designs" },
+    { name: "author", content: "Winter Shadow Designs XI" },
 
-    { property: "og:title", content: "About — Winter Shadow Designs" },
+    { property: "og:title", content: "About — Winter Shadow Designs Xi" },
     {
       property: "og:description",
       content:
-        "Learn how Winter Shadow Designs empowers small businesses to establish a professional online presence with custom websites and full-service support.",
+        "Learn how Winter Shadow Designs XI empowers small businesses to establish a professional online presence with custom websites and full-service support.",
     },
     { property: "og:url", content: "https://wsdxi.co.za/about" },
     { property: "og:type", content: "website" },
     { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
 
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "About — Winter Shadow Designs" },
+    { name: "twitter:title", content: "About — Winter Shadow Designs XI" },
     {
       name: "twitter:description",
       content:
-        "Get to know the founders of Winter Shadow Designs and how we make building websites easy for South African businesses.",
+        "Get to know the founders of Winter Shadow Designs XI and how we make building websites easy for South African businesses.",
     },
     { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
   ];
@@ -52,7 +53,7 @@ const team = [
   {
     name: "Neville M",
     role: "Founder & Lead Designer",
-    bio: "With years of turning ideas into stunning, high-converting websites, we started Winter Shadow Designs to make professional web presence accessible to every South African business.",
+    bio: "With years of turning ideas into stunning, high-converting websites, we started Winter Shadow Designs XI to make professional web presence accessible to every South African business.",
     linkedin: "https://linkedin.com/in/neville-moodley",
     email: "neville@wsdxi.co.za",
     image: "/images/team/neville.jpg", // replace with real photo
@@ -65,7 +66,7 @@ const About = () => {
       {/* Hero Section */}
       <div className="max-w-5xl mx-auto text-center mb-12 px-4">
         <h1 className="text-4xl font-bold text-gray-900">
-          About Winter Shadow Designs
+          About {`${SITE_CONFIG.name}`}
         </h1>
         <p className="mt-4 text-lg text-gray-600">
           We make getting your business online simple and stress-free.
@@ -77,7 +78,7 @@ const About = () => {
         <div className="bg-gray-100 rounded-lg p-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Who We Are</h2>
           <p className="text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            At Winter Shadow Designs, we're passionate about empowering small
+            At {`${SITE_CONFIG.name}`}, we're passionate about empowering small
             businesses and entrepreneurs in South Africa to establish a strong
             online presence. Founded with the belief that every business
             deserves a professional website without the hassle, we specialize in
@@ -150,7 +151,7 @@ const About = () => {
       </div>
 
       {/* Mission Section */}
-      <div className="max-w-5xl mx-auto px-4 py-16 animate-aws-gradient-aws-variantA rounded-lg">
+      <div className="max-w-5xl mx-auto px-4 py-16 animate-aws-gradient-aws-variantA rounded-lg shadow-lg">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-6">
           Our Mission
         </h2>
@@ -175,7 +176,7 @@ const About = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg animate-aws-gradient-aws-variantA">
+      <div className="max-w-5xl mx-auto my-16 px-4 py-16 rounded-lg animate-aws-gradient-aws-variantA shadow-lg">
         <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
           Ready to Build Your Online Presence?
         </h2>

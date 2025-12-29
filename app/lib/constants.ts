@@ -2,7 +2,7 @@
 export type SocialPlatform = "facebook"  | "linkedin" | "x" | "instagram" | "youtube";
 
 export const SITE_CONFIG = {
-  name: "Winter Shadow Designs",
+  name: "Winter Shadow Designs XI",
   shortName: "WSDXI",
   url: "https://wsdxi.co.za",
   emailHello: "hello@wsdxi.co.za",
