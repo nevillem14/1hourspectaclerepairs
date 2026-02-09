@@ -21,8 +21,6 @@ export async function action({ request }: ActionFunctionArgs) {
       data: {
         first_name: firstName,
         last_name: lastName,
-        // You can also send registered_from here if you want to use it in the trigger
-        registered_from: "wsdxi",
       },
     },
   });
@@ -35,10 +33,23 @@ export async function action({ request }: ActionFunctionArgs) {
     return { error: "No user returned after signup" };
   }
 
-  // ───────────────────────────────────────────────
-  // IMPORTANT: DO NOT insert or upsert into "users" here!
-  // The trigger `on_auth_user_created` already creates the row automatically
-  // ───────────────────────────────────────────────
+  // Create / update profile row
+  const { error: profileError } = await supabase.from("users").upsert({
+    id: user.id,
+    first_name: firstName,
+    last_name: lastName,
+    app_info: {
+      registered_from: "wsdxi",
+      used_apps: ["wsdxi"],
+    },
+  });
+
+  if (profileError) {
+    return { error: profileError.message };
+  }
+
+  // For better UX, you could sign the user in automatically here
+  // await supabase.auth.signInWithPassword({ email, password })
 
   return redirect("/login?message=Account created — please log in");
 }
