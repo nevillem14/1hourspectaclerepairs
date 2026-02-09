@@ -5,42 +5,63 @@ import { supabase } from "~/utils/supabaseClient";
 type ActionData = { error?: string };
 
 export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
-  const firstName = formData.get("firstName") as string;
-  const lastName = formData.get("lastName") as string;
+  try {
+    console.log("Signup action started");
 
-  const {
-    data: { user },
-    error: signUpError,
-  } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        first_name: firstName,
-        last_name: lastName,
-        // You can also send registered_from here if you want to use it in the trigger
-        registered_from: "wsdxi",
+    const formData = await request.formData();
+    console.log("Form data received");
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName");
+
+    if (!email || !password) {
+      return { error: "Email and password are required" };
+    }
+
+    console.log("Calling supabase.auth.signUp with:", { email });
+
+    const {
+      data: { user },
+      error: signUpError,
+    } = await supabase.auth.signUp({
+      email: email as string,
+      password: password as string,
+      options: {
+        data: {
+          first_name: firstName as string | undefined,
+          last_name: lastName as string | undefined,
+          registered_from: "wsdxi",
+        },
       },
-    },
-  });
+    });
 
-  if (signUpError) {
-    return { error: signUpError.message };
+    console.log("Signup response:", { userId: user?.id, error: signUpError });
+
+    if (signUpError) {
+      console.error("Supabase signup error:", signUpError);
+      return { error: signUpError.message };
+    }
+
+    if (!user) {
+      return { error: "No user returned after signup" };
+    }
+
+    console.log("Signup successful, redirecting");
+
+    // ───────────────────────────────────────────────
+    // IMPORTANT: DO NOT insert or upsert into "users" here!
+    // The trigger `on_auth_user_created` already creates the row automatically
+    // ───────────────────────────────────────────────
+
+    return redirect("/login?message=Account created — please log in");
+  } catch (err: any) {
+    console.error("CRASH in signup action:", err);
+    return {
+      error: err.message || "Internal server error during signup",
+    };
   }
-
-  if (!user) {
-    return { error: "No user returned after signup" };
-  }
-
-  // ───────────────────────────────────────────────
-  // IMPORTANT: DO NOT insert or upsert into "users" here!
-  // The trigger `on_auth_user_created` already creates the row automatically
-  // ───────────────────────────────────────────────
-
-  return redirect("/login?message=Account created — please log in");
 }
 
 export default function Signup() {
