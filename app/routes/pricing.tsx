@@ -65,6 +65,7 @@ const packages: PackageType[] = [
       "Basic SEO",
       "Email support",
       "1 Email account",
+      "Free SSL certificate",
     ],
     image: "/images/pearl-stone.webp",
     bgHeaderColor: "bg-gray-500",
@@ -82,6 +83,7 @@ const packages: PackageType[] = [
       "Standard SEO",
       "Email support",
       "1 Email account",
+      "Free SSL certificate",
     ],
     highlight: true,
     image: "/images/sapphire-stone.webp",
@@ -100,6 +102,7 @@ const packages: PackageType[] = [
       "Advanced SEO",
       "Email support",
       "1 Email account",
+      "Free SSL certificate",
     ],
     image: "/images/ruby-stone.webp",
     bgHeaderColor: "bg-black", // Ruby red
@@ -328,7 +331,7 @@ export default function Packages() {
                         </span>
                         {f}
                       </li>
-                    )
+                    ),
                   )}
                 </ul>
               </div>
