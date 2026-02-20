@@ -11,6 +11,8 @@ export default [
   //authentication
   route('signup', 'routes/signup.tsx'),
   route('login', 'routes/login.tsx'),
+  route('verified', 'routes/verified.tsx'),
+  
   // Add the catch-all route for 404 pages
   route("*", "components/notFound.tsx")
 ] satisfies RouteConfig;

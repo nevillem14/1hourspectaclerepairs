@@ -9,14 +9,30 @@ export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
     const email = formData.get("email")?.toString();
     const password = formData.get("password")?.toString();
+    const firstName = formData.get("firstName")?.toString(); // Get names from form
+    const lastName = formData.get("lastName")?.toString();
 
     if (!email || !password) return { error: "Missing fields" };
 
-    const result = await supabase.auth.signUp({ email, password });
-    console.log("signup result:", result);
+    const result = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        // 1. Pass the metadata for your public.users table trigger
+        data: {
+          first_name: firstName,
+          last_name: lastName,
+          app: "wsdxi", // Optional: helps identify where the user came from
+        },
+        // 2. Tell Supabase to send them to /verified after email confirmation
+        emailRedirectTo: `${new URL(request.url).origin}/verified`,
+      },
+    });
 
     if (result.error) return { error: result.error.message };
-    return redirect("/login?message=ok");
+
+    // Change the message to be more helpful
+    return redirect("/login?message=check-email to-verify");
   } catch (err) {
     console.error("signup crash:", err);
     return { error: String(err) };
