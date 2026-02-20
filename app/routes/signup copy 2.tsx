@@ -6,20 +6,63 @@ type ActionData = { error?: string };
 
 export async function action({ request }: ActionFunctionArgs) {
   try {
+    console.log("Signup action started");
+
     const formData = await request.formData();
-    const email = formData.get("email")?.toString();
-    const password = formData.get("password")?.toString();
+    console.log("Form data received");
 
-    if (!email || !password) return { error: "Missing fields" };
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName");
 
-    const result = await supabase.auth.signUp({ email, password });
-    console.log("signup result:", result);
+    if (!email || !password) {
+      return { error: "Email and password are required" };
+    }
 
-    if (result.error) return { error: result.error.message };
-    return redirect("/login?message=ok");
-  } catch (err) {
-    console.error("signup crash:", err);
-    return { error: String(err) };
+    console.log("Calling supabase.auth.signUp with:", { email });
+
+    console.log("Calling supabase.auth.signUp with:", { email });
+
+    const {
+      data: { user },
+      error: signUpError,
+    } = await supabase.auth.signUp({
+      email: email as string,
+      password: password as string,
+      options: {
+        data: {
+          first_name: firstName as string | undefined,
+          last_name: lastName as string | undefined,
+          registered_from: "wsdxi",
+        },
+      },
+    });
+
+    console.log("Signup response:", { userId: user?.id, error: signUpError });
+
+    if (signUpError) {
+      console.error("Supabase signup error:", signUpError);
+      return { error: signUpError.message };
+    }
+
+    if (!user) {
+      return { error: "No user returned after signup" };
+    }
+
+    console.log("Signup successful, redirecting");
+
+    // ───────────────────────────────────────────────
+    // IMPORTANT: DO NOT insert or upsert into "users" here!
+    // The trigger `on_auth_user_created` already creates the row automatically
+    // ───────────────────────────────────────────────
+
+    return redirect("/login?message=Account created — please log in");
+  } catch (err: any) {
+    console.error("CRASH in signup action:", err);
+    return {
+      error: err.message || "Internal server error during signup",
+    };
   }
 }
 
