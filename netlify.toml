@@ -24,6 +24,6 @@
 
 [[redirects]]
   from = "/webmail"
-  to = "https://webmail.mahoganycp.co.za"
+  to = "https://webmail.wsdxi.co.za"
   status = 301
   force = true # Ensures this rule is applied even if a file or folder named "webmail" exists
