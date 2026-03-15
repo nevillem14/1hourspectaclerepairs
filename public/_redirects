@@ -1,0 +1,17 @@
+# 1. Handle the subdomain specifically (Fix for Edge)
+
+# This forces Edge to go to your login page instead of the root domain
+
+https://webmail.wsdxi.co.za/* https://wsdxi.co.za/webmail 301!
+
+# 2. React Router Routing (Match the new 'webmail' path)
+
+/webmail /index.html 200
+
+# 3. Old path cleanup (Redirect any old bookmarks)
+
+/webmail-login /webmail 301
+
+# 4. Logout Redirect
+
+/signed-out /webmail 301

@@ -31,8 +31,9 @@ export async function action({ request }: ActionFunctionArgs) {
 
     if (result.error) return { error: result.error.message };
 
-    // Change the message to be more helpful
-    return redirect("/login?message=check-email to-verify");
+    // Redirect to the new success screen instead of login
+    // Pass the email in the URL so the next page can use it for resending
+    return redirect(`/verify-email?email=${encodeURIComponent(email)}`);
   } catch (err) {
     console.error("signup crash:", err);
     return { error: String(err) };

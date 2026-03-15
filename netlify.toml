@@ -21,3 +21,9 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/webmail"
+  to = "https://webmail.mahoganycp.co.za"
+  status = 301
+  force = true # Ensures this rule is applied even if a file or folder named "webmail" exists

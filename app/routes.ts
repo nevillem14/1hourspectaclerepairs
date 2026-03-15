@@ -11,8 +11,11 @@ export default [
   //authentication
   route('signup', 'routes/signup.tsx'),
   route('login', 'routes/login.tsx'),
+  route("verify-email", "routes/verify-email.tsx"),
   route('verified', 'routes/verified.tsx'),
-  
+  // Protected client dashboard
+  route('dashboard', 'routes/dashboard.tsx'),  // New protected dashboard
+  route('dashboard/email-reset', 'routes/email-reset.tsx'),  // Sub-route for resets (optional; could embed in dashboard)
   // Add the catch-all route for 404 pages
   route("*", "components/notFound.tsx")
 ] satisfies RouteConfig;
