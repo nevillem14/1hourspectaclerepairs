@@ -1,4 +1,3 @@
-import fetch from "node-fetch";
 import { createClient } from "@supabase/supabase-js";
 
 export const handler = async (event) => {
@@ -71,6 +70,7 @@ export const handler = async (event) => {
   const apiUrl = `https://${host}:2083/execute/Email/passwd_pop?${params.toString()}`;
 
   try {
+    // This 'fetch' is now the native Node.js version
     const response = await fetch(apiUrl, {
       method: "GET",
       headers: {
