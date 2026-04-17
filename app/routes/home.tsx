@@ -20,7 +20,7 @@ export function meta() {
     },
     { name: "author", content: "Winter Shadow Designs" },
 
-    // OpenGraph (Facebook, LinkedIn)
+    // OpenGraph (Facebook, LinkedIn, WhatsApp)
     {
       property: "og:title",
       content:
@@ -34,6 +34,11 @@ export function meta() {
     { property: "og:url", content: siteUrl },
     { property: "og:type", content: "website" },
     { property: "og:image", content: ogImageUrl },
+    { property: "og:image:secure_url", content: ogImageUrl }, // Important for WhatsApp/SSL
+    { property: "og:image:type", content: "image/jpeg" }, // Helps crawler identify the file
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:site_name", content: "Winter Shadow Designs" }, // Shown above the title in WhatsApp
 
     // Twitter Card
     { name: "twitter:card", content: "summary_large_image" },
