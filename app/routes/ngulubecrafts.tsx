@@ -43,6 +43,7 @@ const DemoPage = () => {
       <nav className="p-6 flex justify-between items-center bg-white shadow-sm">
         <h1 className="text-2xl font-bold tracking-tighter text-orange-900">
           NGULUBE <span className="font-light">CRAFTS</span>
+          <span className="font-light text-red-500">--FOR DEMO ONLY</span>
         </h1>
         <div className="hidden md:flex gap-8 text-sm font-medium uppercase tracking-widest">
           <a href="#about" className="hover:text-orange-700">
@@ -163,7 +164,7 @@ const DemoPage = () => {
             </div>
           </div>
           <p className="mt-12 text-stone-400 text-xs">
-            © 2026 Ngulube Crafts | Crafted by WSDXI
+            © 2026 Ngulube Crafts Demo Page | Design by WSDXI
           </p>
         </div>
       </footer>
