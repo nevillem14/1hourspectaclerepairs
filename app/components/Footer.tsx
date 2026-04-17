@@ -53,12 +53,14 @@ const Footer = () => {
         {/* Contact Info */}
         <div>
           <h3 className="text-lg font-extralight mb-2">Get In Touch</h3>
-          <p className="mt-2 text-lg font-extralight">Phone: </p>
+          <p className="mt-2 text-lg font-extralight">WhatsApp: </p>
           <a
             className="hover:text-yellow-400 block"
-            href={"tel:" + SITE_CONFIG.phoneNumber}
+            href={SITE_CONFIG.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {SITE_CONFIG.phoneString}
+            {SITE_CONFIG.whatsappString}
           </a>
 
           <p className="mt-2 text-lg font-extralight">Email: </p>
