@@ -161,7 +161,7 @@ export default function ContactForm() {
             </motion.div>
 
             {/* Phone Card */}
-            <motion.div
+            {/*<motion.div
               whileHover={{ translateY: -6 }}
               className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
             >
@@ -172,7 +172,7 @@ export default function ContactForm() {
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-gray-900">Call</h3>
 
-                  {/* Phone Number */}
+                  Phone Number 
                   <a
                     href={`tel:${SITE_CONFIG.phoneNumber}`}
                     target="_blank"
@@ -187,7 +187,7 @@ export default function ContactForm() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* WhatsApp Contact Card */}
             <motion.div
