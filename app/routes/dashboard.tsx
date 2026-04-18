@@ -49,7 +49,7 @@ export default function Dashboard() {
     } = await supabase.auth.getSession();
     if (!session) return;
 
-    const res = await fetch("/.netlify/functions/reset-client-email", {
+    const res = await fetch("/.netlify/functions/reset-email-password", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
