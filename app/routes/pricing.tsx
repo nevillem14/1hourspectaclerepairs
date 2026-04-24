@@ -364,9 +364,9 @@ export default function Packages() {
         <p className="text-2xl font-bold text-center text-gray-900 mt-10">
           5 Email Accounts for R100 per month
         </p>
-        <p className="text-sm font-bold text-center text-gray-900 mt-5">
-          Additional email accounts available for {emailMonthlyString} per month
-          each
+        <p className="text-sm text-center text-gray-900 mt-5">
+          <span className="font-bold align-top">+</span> Additional email
+          accounts available for {emailMonthlyString} per month each
           {/*<span className="block"> paid annually at {emailAnnualString}</span>*/}
         </p>
         <div className="max-w-2xl mx-auto mt-8">
