@@ -1,110 +1,118 @@
-import {
-  Form,
-  redirect,
-  useActionData,
-  useSearchParams,
-} from "react-router-dom";
-import type { ActionFunctionArgs } from "react-router";
+import { useState } from "react";
+import { useNavigate, useSearchParams, Link } from "react-router-dom";
 import { supabase } from "~/utils/supabaseClient";
-
-type ActionData = { error?: string };
-
-export async function action({ request }: ActionFunctionArgs) {
-  const formData = await request.formData();
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
-
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  if (!user) {
-    return { error: "Login failed" };
-  }
-
-  // Update used_apps
-  const { data: profile } = await supabase
-    .from("users")
-    .select("app_info")
-    .eq("id", user.id)
-    .single();
-
-  if (profile) {
-    const appInfo = profile.app_info ?? {};
-    const usedApps: string[] = appInfo.used_apps ?? [];
-    if (!usedApps.includes("wsdxi")) {
-      await supabase
-        .from("users")
-        .update({
-          app_info: {
-            ...appInfo,
-            used_apps: [...usedApps, "wsdxi"],
-          },
-        })
-        .eq("id", user.id);
-    }
-  }
-
-  return redirect("/dashboard"); // or wherever you want after login
-}
+import toast from "react-hot-toast";
 
 export default function Login() {
-  const actionData = useActionData() as ActionData | undefined;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
   const message = searchParams.get("message");
 
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // 1. Perform the sign-in on the CLIENT side
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      toast.error(error.message);
+      setLoading(false);
+      return;
+    }
+
+    if (data.user) {
+      // 2. Update used_apps (Optional logic)
+      const { data: profile } = await supabase
+        .from("users")
+        .select("app_info")
+        .eq("id", data.user.id)
+        .single();
+
+      if (profile) {
+        const appInfo = profile.app_info ?? {};
+        const usedApps: string[] = appInfo.used_apps ?? [];
+        if (!usedApps.includes("wsdxi")) {
+          await supabase
+            .from("users")
+            .update({
+              app_info: {
+                ...appInfo,
+                used_apps: [...usedApps, "wsdxi"],
+              },
+            })
+            .eq("id", data.user.id);
+        }
+      }
+
+      toast.success("Login successful!");
+
+      // 3. Redirect to dashboard
+      // We use a small timeout to ensure Supabase has persisted the session
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 100);
+    }
+  };
+
   return (
-    <div className="max-w-md mx-auto mt-12 px-4">
+    <div className="max-w-md mx-auto mt-24 px-4 pb-20">
       <h1 className="text-2xl font-bold mb-6">Log In</h1>
 
-      {message && <p className="mb-4 text-green-600">{message}</p>}
+      {message && (
+        <div className="mb-4 p-3 bg-blue-50 text-blue-700 rounded border border-blue-200">
+          {message}
+        </div>
+      )}
 
-      <Form method="post" className="space-y-5">
+      <form onSubmit={handleLogin} className="space-y-5">
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input
-            name="email"
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full border rounded px-3 py-2"
+            placeholder="your@email.com"
+            className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium mb-1">Password</label>
           <input
-            name="password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full border rounded px-3 py-2"
+            placeholder="••••••••"
+            className="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 
-        {actionData?.error && (
-          <div className="text-red-600 text-sm">{actionData.error}</div>
-        )}
-
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-3 rounded font-medium hover:bg-blue-700"
+          disabled={loading}
+          className={`w-full bg-blue-600 text-white py-3 rounded font-medium hover:bg-blue-700 transition-colors ${
+            loading ? "opacity-50 cursor-not-allowed" : ""
+          }`}
         >
-          Log In
+          {loading ? "Logging in..." : "Log In"}
         </button>
-      </Form>
+      </form>
 
       <p className="mt-6 text-center text-sm text-gray-600">
         Don't have an account?{" "}
-        <a href="/signup" className="text-blue-600 hover:underline">
+        <Link to="/signup" className="text-blue-600 hover:underline">
           Sign up
-        </a>
+        </Link>
       </p>
     </div>
   );
