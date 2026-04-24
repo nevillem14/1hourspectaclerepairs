@@ -133,11 +133,7 @@ const emailFeatures: EmailFeatureType[] = [
     description:
       "A professional email address, like yourname@yourbusiness.com, instantly elevates your company’s image. Unlike free email services (e.g., Gmail or Yahoo), a custom email shows customers you’re serious about your business. It builds trust, reinforces your brand, and makes every email you send feel polished and reliable—perfect for impressing clients and growing your reputation!",
   },
-  {
-    title: "3GB Mailbox",
-    description:
-      "Enjoy a spacious 3GB mailbox for each email account—plenty of room to store thousands of emails, attachments, and important client messages without worrying about running out of space. Keep your communications organized and accessible, so you can focus on running your business!",
-  },
+
   {
     title: "Access Email from Anywhere",
     description:
@@ -366,11 +362,12 @@ export default function Packages() {
           className="h-16 md:h-32 mx-auto mb-4 opacity-60"
         />
         <p className="text-2xl font-bold text-center text-gray-900 mt-10">
-          Get Additional Email Accounts
+          5 Email Accounts for R100 per month
         </p>
-        <p className="text-2xl font-bold text-center text-gray-900 mt-5">
-          {emailMonthlyString} per month each
-          <span className="block"> paid annually at {emailAnnualString}</span>
+        <p className="text-sm font-bold text-center text-gray-900 mt-5">
+          Additional email accounts available for {emailMonthlyString} per month
+          each
+          {/*<span className="block"> paid annually at {emailAnnualString}</span>*/}
         </p>
         <div className="max-w-2xl mx-auto mt-8">
           {emailFeatures.map((feature, index) => (
@@ -407,9 +404,9 @@ export default function Packages() {
           ))}
         </div>
         <div className="text-center mt-6">
-          <p className="text-gray-600">
+          {/*<p className="text-gray-600">
             * Email accounts can only be paid annually.
-          </p>
+          </p>*/}
         </div>
         <div className="flex justify-center mt-6">
           <a href="/contact">
