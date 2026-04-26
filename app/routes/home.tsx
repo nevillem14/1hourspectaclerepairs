@@ -62,7 +62,33 @@ export default function Home() {
         <Hero mx-0 my-0 p-0 />
       </section>
 
-      <section className="bg-gray-50 py-8 md:py-16">
+      <section className="max-w-5xl mx-auto bg-gray-100 py-8 md:py-8 rounded-lg shadow-md">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="md:w-3/5 mx-auto text-left"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-2xl p-4 md:text-3xl text-center md:text-left font-bold text-gray-900 mb-6"
+          >
+            Affordable Website Design for Small Businesses
+          </motion.h2>
+          <div className="p-6 pt-0 text-lg text-center md:text-left text-gray-600 leading-relaxed">
+            <p className="mb-4 ">
+              Getting your business online shouldn't be complicated or break the
+              bank. We build high-performance, custom websites designed to
+              showcase your brand, attract local customers, and give you the
+              professional edge you need to compete in today's digital market.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="py-8 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -125,7 +151,7 @@ export default function Home() {
                 store, booking system, menu or portfolio whenever you’re ready –
                 something social media pages can’t do properly.
               </li>
-              <li className=" mx-auto p-4 rounded-lg shadow-2xl font-medium border border-gray-300 border-l-4 border-l-red-600">
+              <li className=" mx-auto p-4 rounded-lg shadow-2xl font-medium border border-gray-300 border-l-4 border-l-yellow-400">
                 <strong>In short – </strong> Social media is great for staying
                 visible and chatting with customers, but a website is your real
                 online home and the foundation every serious business needs.

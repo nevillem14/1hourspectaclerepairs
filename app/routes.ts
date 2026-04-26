@@ -9,6 +9,7 @@ export default [
   route("pricing", "routes/pricing.tsx"),
   route("example", "routes/example.tsx"),
   route("ngulubecrafts", "routes/ngulubecrafts.tsx"),
+  route("advertisement", "routes/advertisement.tsx"),
   
   //authentication
   route('signup', 'routes/signup.tsx'),
