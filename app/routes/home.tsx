@@ -62,7 +62,7 @@ export default function Home() {
         <Hero mx-0 my-0 p-0 />
       </section>
 
-      <section className="max-w-5xl mx-auto bg-gray-100 py-8 md:py-8 rounded-lg shadow-md">
+      <section className="max-w-5xl mx-auto bg-gray-100 py-16 md:py-8 rounded-lg shadow-md">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
