@@ -73,7 +73,7 @@ const faqs: FAQType[] = [
   {
     question: "How does the email package work?",
     answer:
-      "The email package provides additional email accounts for R25/month each, billed annually at R300. Each account includes a 3GB mailbox, access from anywhere, device syncing, anti-virus, and anti-spam protection. These accounts are ideal for businesses needing professional email solutions.",
+      "When host with us, you get 5 email accounts included in your package. And additional email accounts can be added for R25/month each. Access from anywhere, device syncing, anti-virus, and anti-spam protection. These accounts are ideal for businesses needing professional email solutions.",
   },
   {
     question: "What does 'Mobile-friendly' mean?",
