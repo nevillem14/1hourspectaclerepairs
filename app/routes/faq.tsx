@@ -98,7 +98,7 @@ const faqs: FAQType[] = [
   {
     question: "Need to get your business online?",
     answer:
-      "buy a domain name, get world class hosting, access amazing web tools",
+      "Buy a domain name, get world class hosting, access our amazing web design services and get your business online in no time! We make it simple — you tell us what you need, and we handle the rest.",
   },
 ];
 
