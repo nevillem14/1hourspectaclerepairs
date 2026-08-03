@@ -43,7 +43,7 @@ export const handler = async (event) => {
     }
 
     const { name, company, email, phone, message, recaptchaToken } = JSON.parse(
-      event.body || "{}"
+      event.body || "{}",
     );
 
     if (!name || !email || !message || !recaptchaToken) {
@@ -73,7 +73,7 @@ export const handler = async (event) => {
           secret: recaptchaSecret,
           response: recaptchaToken,
         }),
-      }
+      },
     );
 
     const verifyData = await verifyRes.json();
@@ -89,14 +89,14 @@ export const handler = async (event) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.SMTP_USER, // e.g. wsdxi43@gmail.com
+        user: process.env.SMTP_USER, // e.g. 1hourspectaclerepairs43@gmail.com
         pass: process.env.SMTP_PASS, // Gmail App Password
       },
     });
 
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: "hello@wsdxi.co.za",
+      to: "hello@1hourspectaclerepairs.co.za",
       subject: `Contact Form: ${name}${company ? ` - ${company}` : ""}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>

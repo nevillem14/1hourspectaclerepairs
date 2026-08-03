@@ -1,115 +1,163 @@
-// File: app/components/Footer.tsx
-import { Link } from "react-router-dom";
-
-import { MapPin } from "lucide-react";
+import { Link } from "react-router";
+import {
+  Phone,
+  MessageCircle,
+  MapPin,
+  Clock,
+  Facebook,
+  Instagram,
+  ShieldCheck,
+  Glasses,
+  Watch,
+} from "lucide-react";
 import { SITE_CONFIG } from "~/lib/constants";
-import SocialBar from "~/components/Social/SocialBar";
-import RecaptchaNotice from "~/components/recaptcha/RecaptchaNotice";
 
-const contactNumber = "+27718185904";
-const contactNumberDisplay = "+27 71 818 5904";
+export function Footer() {
+  const currentYear = new Date().getFullYear();
 
-const Footer = () => {
   return (
-    <footer className="bg-black text-gray-100 mt-2 md:mt-12 w-full">
-      {/* Top Section */}
-      <div className="max-w-7xl mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {/* Contact Info */}
-        <div className="flex items-start">
-          <img
-            src="/images/wsdxi-logo-white.svg"
-            alt="Winter Shadow Designs Logo"
-            className="w-full h-18 object-scale-down rounded-lg"
-          />
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-lg font-extralight mb-2">Quick Links</h3>
-          <ul className="space-y-1">
-            <li>
-              <Link to="/" className="hover:text-yellow-400">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="hover:text-yellow-400">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="/contact" className="hover:text-yellow-400">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link to="/pricing" className="hover:text-yellow-400">
-                Pricing
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h3 className="text-lg font-extralight mb-2">Get In Touch</h3>
-          <p className="mt-2 text-lg font-extralight">WhatsApp: </p>
-          <a
-            className="hover:text-yellow-400 block"
-            href={SITE_CONFIG.whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {SITE_CONFIG.whatsappString}
-          </a>
-
-          <p className="mt-2 text-lg font-extralight">Email: </p>
-          <a
-            className="mt-2 font-normal hover:text-yellow-400 block"
-            href={`mailto:${SITE_CONFIG.emailHello}`}
-          >
-            hello@wsdxi.co.za{" "}
-          </a>
-          <a
-            className="mt-2 font-normal hover:text-yellow-400 block"
-            href={`mailto:${SITE_CONFIG.emailSupport}`}
-          >
-            support@wsdxi.co.za{" "}
-          </a>
-        </div>
-
-        {/* Social Media */}
-        <div>
-          <h3 className="text-lg font-extralight mb-2">Follow Us</h3>
-
-          <div className="flex space-x-4 text-xl">
-            <SocialBar />
+    <footer className="bg-slate-950 text-slate-300 border-t border-slate-800/80">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {/* Column 1: Brand & About */}
+          <div className="space-y-4">
+            <h3 className="text-white font-extrabold text-lg tracking-tight flex items-center space-x-2">
+              <span className="text-cyan-400">1 Hour</span>
+              <span>Spectacle & Watch Repairs</span>
+            </h3>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              KwaZulu-Natal's exclusive 1-hour repair specialists. Backed by 19
+              years of optical expertise, we deliver fast, guaranteed quality
+              repairs for all makes of spectacles, sunglasses, wristwatches, and
+              grandfather clocks.
+            </p>
+            {/* Social Links */}
+            <div className="pt-2 flex items-center space-x-3">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition duration-200"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition duration-200"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
           </div>
-          <div className="items-start mt-4">
-            <RecaptchaNotice />
+
+          {/* Column 2: Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm">
+              <li>
+                <Link
+                  to="/"
+                  className="hover:text-cyan-400 transition duration-150"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-cyan-400 transition duration-150"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/know-your-glasses"
+                  className="hover:text-cyan-400 transition duration-150"
+                >
+                  Know Your Glasses
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="hover:text-cyan-400 transition duration-150"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Contact & Direct Channels (No public email) */}
+          <div className="space-y-4">
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider">
+              Get in Touch
+            </h4>
+            <div className="space-y-3 text-xs sm:text-sm text-slate-400 mt-0.5">
+              <div className="flex items-center space-x-3">
+                <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
+                <a
+                  href={`tel:${SITE_CONFIG.phoneNumber_1}`}
+                  className="hover:text-white transition duration-150"
+                >
+                  {SITE_CONFIG.phoneString_1}
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
+                <a
+                  href={`tel:${SITE_CONFIG.phoneNumber_2}`}
+                  className="hover:text-white transition duration-150"
+                >
+                  {SITE_CONFIG.phoneString_2}
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MessageCircle className="w-4 h-4 text-cyan-400 shrink-0" />
+                <a
+                  href={SITE_CONFIG.whatsappLink_1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150"
+                >
+                  Chat on WhatsApp
+                </a>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <span>
+                  Shop 102/3 Fragrance Street Market, Croftdene, Chatsworth,
+                  Durban, KwaZulu-Natal, South Africa (Walk-ins Welcome)
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="text-white/30 text-sm mx-auto px-4 py-4 border-t border-gray-900">
-        <div className="flex flex-col items-center text-center sm:flex-row sm:justify-center sm:text-left">
-          {/* Copyright */}
-          <div className="flex items-center mb-2 sm:mb-0">
-            <p className="mx-10 sm:mx-0">
-              © {new Date().getFullYear()} All Rights Reserved.
-            </p>
-          </div>
-          <div>
-            <span className="h-5 hidden sm:inline mx-2">|</span>
-          </div>
-          <div className="flex items-center mb-2 sm:mb-0">
-            <p className="mx-10 sm:mx-0">{`${SITE_CONFIG.name}`}</p>
+      {/* Bottom Bar */}
+      <div className="border-t border-slate-900 bg-slate-950/60 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-3 sm:space-y-0">
+          <p>
+            © {currentYear} 1 Hour Spectacle & Watch Repairs. All rights
+            reserved.
+          </p>
+          <div className="flex space-x-6">
+            <span className="hover:text-slate-400 transition">
+              KZN's Exclusive 1-Hour Turnaround Specialists
+            </span>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

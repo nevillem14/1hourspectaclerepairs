@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="ml-4 mt-4">
           <Link to="/" className="inline-block">
             <img
-              src="/images/wsdxi-logo-2.webp"
+              src="/images/1hourspectaclerepairs-logo-2.webp"
               alt="Waterfall Software Development 11 logo"
               className="h-8 sm:h-8 origin-top-left hover:scale-250 transition-transform duration-300 ease-in-out"
             />
@@ -52,7 +52,7 @@ export default function Navbar() {
                 {label}
               </Link>
             );
-          }
+          },
         )}
       </div>
     </nav>

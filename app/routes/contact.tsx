@@ -1,387 +1,262 @@
-import React, { useEffect, useState } from "react";
+// File: app/routes/contact.tsx
 import { motion } from "framer-motion";
-import { Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
+import { Phone, Clock, MapPin, ExternalLink } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SITE_CONFIG } from "~/lib/constants";
 
 export function meta() {
   return [
-    { title: "Contact — Winter Shadow Designs" },
+    { title: "Contact Us — 1 Hour Spectacle & Watch Repairs" },
     {
       name: "description",
       content:
-        "Get in touch with Winter Shadow Designs to start building your website — contact via email, WhatsApp or phone for a fast response.",
+        "Visit our shop in Durban or contact us via WhatsApp and phone for fast, direct repairs on spectacles and watches. Open Monday to Sunday.",
     },
     {
       name: "keywords",
       content:
-        "Winter Shadow Designs contact, web design contact ZA, request quote website design, get in touch web agency South Africa",
+        "spectacle repairs address Durban, watch repair shop Chatsworth, walk-in spectacle fixes, WhatsApp repair quote South Africa",
     },
-    { name: "author", content: "Winter Shadow Designs" },
+    { name: "author", content: "1 Hour Spectacle & Watch Repairs" },
 
-    { property: "og:title", content: "Contact — Winter Shadow Designs" },
+    {
+      property: "og:title",
+      content: "Contact Us — 1 Hour Spectacle & Watch Repairs",
+    },
     {
       property: "og:description",
       content:
-        "Ready to launch your website? Contact Winter Shadow Designs today — we reply fast to quotes, questions and support requests.",
+        "Visit our store or get in touch instantly via WhatsApp or phone call. Open Mon–Sun from 09h00 to 17h00.",
     },
-    { property: "og:url", content: "https://wsdxi.co.za/contact" },
+    {
+      property: "og:url",
+      content: "https://1hourspectaclerepairs.co.za/contact",
+    },
     { property: "og:type", content: "website" },
-    { property: "og:image", content: "https://wsdxi.co.za/og-image.jpg" },
+    {
+      property: "og:image",
+      content: "https://1hourspectaclerepairs.co.za/og-image.jpg",
+    },
 
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Contact — Winter Shadow Designs" },
     {
-      name: "twitter:description",
-      content:
-        "Have questions or ready to start your project? Reach out to Winter Shadow Designs via email, phone or WhatsApp.",
+      name: "twitter:title",
+      content: "Contact Us — 1 Hour Spectacle & Watch Repairs",
     },
-    { name: "twitter:image", content: "https://wsdxi.co.za/og-image.jpg" },
+    {
+      property: "twitter:description",
+      content:
+        "Visit our Durban shop or reach out via WhatsApp or phone for immediate assistance.",
+    },
+    {
+      property: "twitter:image",
+      content: "https://1hourspectaclerepairs.co.za/og-image.jpg",
+    },
   ];
 }
 
-export default function ContactForm() {
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
-  const [recaptchaReady, setRecaptchaReady] = useState(false);
-
-  const [mounted, setMounted] = useState(false); // <-- NEW STATE
-
-  const isBrowser = typeof window !== "undefined";
-
-  useEffect(() => {
-    // Only run this once on the client
-    setMounted(true); // <-- Set mounted to true when the component mounts
-
-    if (!isBrowser) return;
-
-    const script = document.createElement("script");
-    script.src = `https://www.google.com/recaptcha/api.js?render=${import.meta.env.VITE_RECAPTCHA_SITE_KEY}`;
-    script.async = true;
-    script.onload = () => setRecaptchaReady(true);
-    document.body.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
-  }, [isBrowser]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!isBrowser || !recaptchaReady) return;
-
-    setStatus("sending");
-
-    try {
-      const form = e.target as HTMLFormElement;
-      if (!form || form.tagName !== "FORM") throw new Error("Form not found");
-
-      const formData = new FormData(form);
-
-      const recaptchaToken = await new Promise<string>((resolve, reject) => {
-        window.grecaptcha.ready(() => {
-          window.grecaptcha
-            .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
-              action: "contact_form",
-            })
-            .then(resolve)
-            .catch(reject);
-        });
-      });
-
-      const payload = {
-        name: formData.get("name")?.toString() ?? "",
-        company: formData.get("company")?.toString() ?? "",
-        email: formData.get("email")?.toString() ?? "",
-        phone: formData.get("phone")?.toString() ?? "",
-        message: formData.get("message")?.toString() ?? "",
-        recaptchaToken,
-      };
-
-      const res = await fetch("/.netlify/functions/send-contact-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) throw new Error("Failed to send message");
-
-      setStatus("success");
-      form.reset();
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
+export default function Contact() {
+  const addressString = "12 Fragrance Street, Chatsworth, Durban, 4092";
+  const mapsQueryUrl =
+    "https://www.google.com/maps/search/?api=1&query=12+Fragrance+Street+Croftdene+Chatsworth+Durban";
 
   return (
-    <main className="pt-16 pb-24 bg-white">
-      {/* Hero */}
-      <div className="max-w-5xl mx-auto text-center px-4 mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Get in Touch
+    <main className="pt-24 pb-24 bg-slate-50 min-h-screen">
+      {/* Hero Header */}
+      <div className="max-w-4xl mx-auto text-center px-4 mb-14">
+        <div className="inline-flex items-center space-x-2 bg-green-50 text-green-700 px-3.5 py-1.5 rounded-full font-semibold mb-4 border border-green-200">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <span>Open Mon – Sun (09h00 – 17h00)</span>
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+          Get in Touch & Visit Us
         </h1>
-        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-          Have a question or ready to start your project? We’re here to help —
-          fast, friendly replies guaranteed.
+        <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
+          We prefer direct communication! Reach out via WhatsApp or phone call
+          for immediate assistance, or walk straight into our shop for
+          while-you-wait repairs.
         </p>
       </div>
 
-      {/* Contact Info + Form Section */}
+      {/* Main Content Layout */}
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left: Contact Details */}
-          <div className="space-y-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Direct Contact & Hours Cards (Span 5) */}
+          <div className="lg:col-span-5 space-y-6">
+            {/* WhatsApp Card */}
             <motion.div
-              whileHover={{ translateY: -6 }}
-              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
+              whileHover={{ translateY: -4 }}
+              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md"
             >
-              <div className="flex items-start space-x-5">
-                <div className="bg-blue-100 p-4 rounded-full">
-                  <Mail className="w-7 h-7 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    Email Us
-                  </h3>
-                  <p className="text-gray-600 mt-2">
-                    <a
-                      className="mt-2 font-normal hover:text-black block"
-                      href={`mailto:${SITE_CONFIG.emailHello}`}
-                    >
-                      hello@wsdxi.co.za{" "}
-                    </a>
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    We reply asap on email during business days
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Phone Card */}
-            {/*<motion.div
-              whileHover={{ translateY: -6 }}
-              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
-            >
-              <div className="flex items-start space-x-5">
-                <div className="bg-green-100 p-4 rounded-full flex-shrink-0">
-                  <Phone className="w-7 h-7 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Call</h3>
-
-                  Phone Number 
-                  <a
-                    href={`tel:${SITE_CONFIG.phoneNumber}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-gray-700 font-medium mt-3 text-lg"
-                  >
-                    {SITE_CONFIG.phoneString}
-                  </a>
-
-                  <p className="text-sm text-gray-500 mt-4">
-                    Mon–Fri: 8am – 4pm
-                  </p>
-                </div>
-              </div>
-            </motion.div> */}
-
-            {/* WhatsApp Contact Card */}
-            <motion.div
-              whileHover={{ translateY: -6 }}
-              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
-            >
-              <div className="flex items-start space-x-5">
-                <div className="bg-green-100 p-4 rounded-full flex-shrink-0">
+              <div className="flex items-start space-x-4">
+                <div className="bg-green-100 p-3.5 rounded-xl flex-shrink-0">
                   <FaWhatsapp className="w-7 h-7 text-green-600" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    WhatsApp
+                  <h3 className="text-lg font-bold text-slate-900">
+                    WhatsApp Us
                   </h3>
-
-                  {/* Whatsapp Number */}
+                  <p className="md:text-xs text-slate-500 mt-0.5">
+                    Send photos of your broken glasses or watch for a quick
+                    quote.
+                  </p>
                   <a
-                    href={SITE_CONFIG.whatsappLink}
+                    href={SITE_CONFIG.whatsappLink_1}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-gray-700 font-medium mt-3 text-lg"
+                    className="block text-slate-900 font-extrabold mt-3 text-lg hover:text-green-600 transition"
                   >
-                    {SITE_CONFIG.whatsappString}
+                    {SITE_CONFIG.whatsappString_1}
                   </a>
+                  <span className="inline-block mt-3 bg-green-50 text-green-700 md:text-xs font-semibold px-2.5 py-1 rounded-md border border-green-200">
+                    Preferred Method
+                  </span>
+                </div>
+              </div>
+            </motion.div>
 
-                  <p className="text-sm text-gray-500 mt-4">
-                    Mon–Fri: 8am – 4pm
+            {/* Phone Call Card */}
+            <motion.div
+              whileHover={{ translateY: -4 }}
+              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="bg-blue-100 p-3.5 rounded-xl flex-shrink-0">
+                  <Phone className="w-7 h-7 text-blue-600" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Call Us Directly
+                  </h3>
+                  <p className="md:text-xs text-slate-500 mt-0.5">
+                    Speak directly with a technician.
                   </p>
-                  <p className="text-sm text-gray-500">
-                    We reply asap on WhatsApp during business days
+                  <a
+                    href={`tel:${SITE_CONFIG.phoneNumber_1}`}
+                    className="block text-slate-900 font-extrabold mt-3 text-lg hover:text-blue-600 transition"
+                  >
+                    {SITE_CONFIG.phoneString_1}
+                  </a>
+                  <p className="md:text-xs text-slate-500 mt-0.5">
+                    Primary Number
+                  </p>
+                  <a
+                    href={`tel:${SITE_CONFIG.phoneNumber_2}`}
+                    className="block text-slate-900 font-extrabold mt-3 text-lg hover:text-blue-600 transition"
+                  >
+                    {SITE_CONFIG.phoneString_2}
+                  </a>
+                  <p className="md:text-xs text-slate-500 mt-0.5">
+                    Alternative Number
                   </p>
                 </div>
               </div>
             </motion.div>
 
+            {/* Operating Hours Card */}
             <motion.div
-              whileHover={{ translateY: -6 }}
-              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
+              whileHover={{ translateY: -4 }}
+              className="bg-white border border-slate-200 rounded-2xl p-6 shadow-md"
             >
-              <div className="flex items-start space-x-5">
-                <div className="bg-purple-100 p-4 rounded-full">
+              <div className="flex items-start space-x-4">
+                <div className="bg-purple-100 p-3.5 rounded-xl flex-shrink-0">
                   <Clock className="w-7 h-7 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    Working Hours
+                  <h3 className="text-lg font-bold text-slate-900">
+                    Operating Hours
                   </h3>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Mon–Fri: 8am – 4pm
+                  <p className="text-sm font-semibold text-slate-800 mt-1">
+                    Monday – Sunday: 9h00 – 17h00
                   </p>
-                  <p className="text-sm text-gray-500">
-                    Closed on Sat, Sun & Public holidays
+                  <p className="md:text-xs text-slate-500 mt-1">
+                    Open 7 days a week, including weekends.
+                  </p>
+                  <p className="md:text-xs text-slate-500 mt-1">
+                    Public holidays - Call to confirm.
                   </p>
                 </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right: Contact Form */}
-          <div className="animate-aws-gradient-aws-variantA rounded-2xl p-8 lg:p-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Send Us a Message
-            </h2>
-            {mounted ? (
-              <form className="space-y-6" onSubmit={handleSubmit}>
-                <div>
-                  <label className="block text-gray-800 font-medium mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                    placeholder="First and Last Name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-800 font-medium mb-2">
-                    Company Name (optional)
-                  </label>
-                  <input
-                    name="company"
-                    type="text"
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                    placeholder="Company Name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-800 font-medium mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-800 font-medium mb-2">
-                    Phone (optional)
-                  </label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
-                    placeholder="+27 82 123 4567"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-gray-800 font-medium mb-2">
-                    Your Message
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={5}
-                    required
-                    maxLength={5000}
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
-                    placeholder="Tell us about your project or question..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg flex items-center justify-center gap-3 transition"
-                  disabled={status === "sending"}
-                >
-                  <Send className="w-5 h-5" />
-                  {status === "sending" ? "Sending..." : "Send Message"}
-                </button>
-
-                <p className="text-center text-gray-700 text-sm flex items-center justify-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  We reply to all messages asap during business days
-                </p>
-
-                {status === "success" && (
-                  <p
-                    className="text-center text-green-600 flex items-center justify-center gap-2 mt-4"
-                    aria-live="polite"
-                  >
-                    <CheckCircle className="w-5 h-5" />
-                    Your message was sent! We’ll get back to you during business
-                    hours.
-                  </p>
-                )}
-
-                {status === "error" && (
-                  <p className="text-center text-red-600 mt-4">
-                    Oops! Something went wrong. Please try again later.
-                  </p>
-                )}
-              </form>
-            ) : (
-              // Render a placeholder on the server and during initial hydration
-              <div className="h-[500px] w-full bg-gray-50 animate-pulse rounded-lg flex items-center justify-center text-gray-400">
-                Loading form...
+          {/* Right Column: Physical Location & Interactive Map Embed (Span 7) */}
+          <div className="lg:col-span-7 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+            <div className="flex items-start space-x-4">
+              <div className="bg-rose-100 p-3.5 rounded-xl flex-shrink-0">
+                <MapPin className="w-7 h-7 text-rose-600" />
               </div>
-            )}
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-slate-900">
+                  Visit Our Shop (Walk-Ins Welcome)
+                </h3>
+                <p className="text-sm text-slate-600 mt-1">{addressString}</p>
+                <a
+                  href={mapsQueryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 mt-2 bg-blue-50 px-3 py-1.5 rounded-lg border border-blue-100 transition"
+                >
+                  <span>Open Directions in Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Google Maps Embedded iframe */}
+            <div className="w-full h-[380px] rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100 relative">
+              <iframe
+                title="1 Hour Spectacle & Watch Repairs Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216.14019239453827!2d30.88512821787419!3d-29.91490346513538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef655286f268105%3A0x1ba71482d3606f34!2s12%20Fragrance%20St%2C%20Croftdene%2C%20Chatsworth%2C%204092!5e0!3m2!1sen!2sza!4v1785779754649!5m2!1sen!2sza"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 md:text-xs text-amber-800 leading-relaxed">
+              <strong className="font-bold block mb-1">
+                Quick Tip for Visitors:
+              </strong>
+              Most spectacle repairs (such as soldering frames, hinge
+              replacements, or nose pad adjustments) are completed in around an
+              hour while you wait or browse the market!
+            </div>
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="max-w-5xl mx-auto mt-20 px-4 py-8 md:rounded-2xl text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Ready to Launch Your Website?
-        </h2>
-        <p className="text-lg text-gray-700 mb-8">
-          Let’s get your business online in days, not weeks.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/pricing">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition">
-              View Packages
-            </button>
-          </a>
-
-          <a
-            href={`${SITE_CONFIG.whatsappLink}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-lg font-medium transition flex items-center gap-2 mx-auto sm:mx-0">
-              <span>Chat on WhatsApp</span>
-            </button>
-          </a>
+      {/* Bottom CTA Banner */}
+      <div className="max-w-4xl mx-auto mt-20 px-4 text-center">
+        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-2xl space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
+            Have a question right now?
+          </h2>
+          <p className="text-slate-300 max-w-xl mx-auto">
+            Skip the delay and chat directly with a technician on WhatsApp for
+            instant answers and quotes.
+          </p>
+          <div className="pt-2 flex flex-wrap justify-center gap-4">
+            <a
+              href={SITE_CONFIG.whatsappLink_1}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 px-8 rounded-xl transition shadow-lg text-sm"
+            >
+              <FaWhatsapp className="w-5 h-5 mr-2" />
+              Chat on WhatsApp
+            </a>
+            <a
+              href={`tel:${SITE_CONFIG.phoneNumber_1}`}
+              className="inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 px-8 rounded-xl transition border border-slate-700 text-sm"
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              Call {SITE_CONFIG.phoneString_1}
+            </a>
+          </div>
         </div>
       </div>
     </main>

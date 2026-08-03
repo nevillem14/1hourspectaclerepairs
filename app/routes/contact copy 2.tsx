@@ -1,29 +1,33 @@
+// File: app/routes/contact.tsx
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
+import { Mail, Clock, Send, CheckCircle } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { SITE_CONFIG } from "~/lib/constants";
 
 export function meta() {
   return [
-    { title: "Contact — Winter Shadow Designs" },
+    { title: "Contact Us — 1 Hour Spectacle & Watch Repairs" },
     {
       name: "description",
       content:
-        "Get in touch with Winter Shadow Designs to start building your website — contact via email, WhatsApp or phone for a fast response.",
+        "Get in touch with 1 Hour Spectacle & Watch Repairs — visit our store or reach out via email or WhatsApp for fast, professional repairs.",
     },
     {
       name: "keywords",
       content:
-        "Winter Shadow Designs contact, web design contact ZA, request quote website design, get in touch web agency South Africa",
+        "spectacle repairs contact, watch repair shop South Africa, eyewear fixes, fast watch battery replacement, get in touch",
     },
-    { name: "author", content: "Winter Shadow Designs" },
+    { name: "author", content: "1 Hour Spectacle & Watch Repairs" },
 
-    { property: "og:title", content: "Contact — Winter Shadow Designs" },
+    {
+      property: "og:title",
+      content: "Contact Us — 1 Hour Spectacle & Watch Repairs",
+    },
     {
       property: "og:description",
       content:
-        "Ready to launch your website? Contact Winter Shadow Designs today — we reply fast to quotes, questions and support requests.",
+        "Need a quick frame repair or watch service? Contact us today for fast turnarounds and professional care.",
     },
     {
       property: "og:url",
@@ -36,11 +40,14 @@ export function meta() {
     },
 
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Contact — Winter Shadow Designs" },
     {
-      name: "twitter:description",
+      name: "twitter:title",
+      content: "Contact Us — 1 Hour Spectacle & Watch Repairs",
+    },
+    {
+      property: "twitter:description",
       content:
-        "Have questions or ready to start your project? Reach out to Winter Shadow Designs via email, phone or WhatsApp.",
+        "Have questions about repairs or need directions? Reach out to us via email, phone or WhatsApp.",
     },
     {
       name: "twitter:image",
@@ -54,14 +61,12 @@ export default function ContactForm() {
     "idle" | "sending" | "success" | "error"
   >("idle");
   const [recaptchaReady, setRecaptchaReady] = useState(false);
-
-  const [mounted, setMounted] = useState(false); // <-- NEW STATE
+  const [mounted, setMounted] = useState(false);
 
   const isBrowser = typeof window !== "undefined";
 
   useEffect(() => {
-    // Only run this once on the client
-    setMounted(true); // <-- Set mounted to true when the component mounts
+    setMounted(true);
 
     if (!isBrowser) return;
 
@@ -132,8 +137,8 @@ export default function ContactForm() {
           Get in Touch
         </h1>
         <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-          Have a question or ready to start your project? We’re here to help —
-          fast, friendly replies guaranteed.
+          Need a rapid spectacle repair or watch servicing? Reach out today —
+          we’re here to get your essentials back in working order fast.
         </p>
       </div>
 
@@ -142,6 +147,7 @@ export default function ContactForm() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left: Contact Details */}
           <div className="space-y-10">
+            {/* Email Card */}
             <motion.div
               whileHover={{ translateY: -6 }}
               className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
@@ -159,44 +165,16 @@ export default function ContactForm() {
                       className="mt-2 font-normal hover:text-black block"
                       href={`mailto:${SITE_CONFIG.emailHello}`}
                     >
-                      hello@1hourspectaclerepairs.co.za{" "}
+                      {SITE_CONFIG.emailHello ||
+                        "hello@1hourspectaclerepairs.co.za"}
                     </a>
                   </p>
                   <p className="text-sm text-gray-500">
-                    We reply asap on email during business days
+                    We reply as soon as possible on business days
                   </p>
                 </div>
               </div>
             </motion.div>
-
-            {/* Phone Card */}
-            {/*<motion.div
-              whileHover={{ translateY: -6 }}
-              className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
-            >
-              <div className="flex items-start space-x-5">
-                <div className="bg-green-100 p-4 rounded-full flex-shrink-0">
-                  <Phone className="w-7 h-7 text-green-600" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-gray-900">Call</h3>
-
-                  Phone Number 
-                  <a
-                    href={`tel:${SITE_CONFIG.phoneNumber}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-gray-700 font-medium mt-3 text-lg"
-                  >
-                    {SITE_CONFIG.phoneString}
-                  </a>
-
-                  <p className="text-sm text-gray-500 mt-4">
-                    Mon–Fri: 8am – 4pm
-                  </p>
-                </div>
-              </div>
-            </motion.div> */}
 
             {/* WhatsApp Contact Card */}
             <motion.div
@@ -209,29 +187,27 @@ export default function ContactForm() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-gray-900">
-                    WhatsApp
+                    WhatsApp Us
                   </h3>
-
-                  {/* Whatsapp Number */}
                   <a
                     href={SITE_CONFIG.whatsappLink_1}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-gray-700 font-medium mt-3 text-lg"
+                    className="block text-gray-700 font-medium mt-3 text-lg hover:text-green-600 transition"
                   >
                     {SITE_CONFIG.whatsappString_1}
                   </a>
-
                   <p className="text-sm text-gray-500 mt-4">
                     Mon–Fri: 8am – 4pm
                   </p>
                   <p className="text-sm text-gray-500">
-                    We reply asap on WhatsApp during business days
+                    Quick response for repair queries & quotes
                   </p>
                 </div>
               </div>
             </motion.div>
 
+            {/* Working Hours Card */}
             <motion.div
               whileHover={{ translateY: -6 }}
               className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg"
@@ -248,7 +224,7 @@ export default function ContactForm() {
                     Mon–Fri: 8am – 4pm
                   </p>
                   <p className="text-sm text-gray-500">
-                    Closed on Sat, Sun & Public holidays
+                    Closed on Sat, Sun & Public Holidays
                   </p>
                 </div>
               </div>
@@ -256,7 +232,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right: Contact Form */}
-          <div className="animate-aws-gradient-aws-variantA rounded-2xl p-8 lg:p-12">
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 lg:p-12 shadow-sm">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
               Send Us a Message
             </h2>
@@ -270,7 +246,7 @@ export default function ContactForm() {
                     name="name"
                     type="text"
                     required
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    className="w-full px-5 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 transition"
                     placeholder="First and Last Name"
                   />
                 </div>
@@ -282,7 +258,7 @@ export default function ContactForm() {
                   <input
                     name="company"
                     type="text"
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    className="w-full px-5 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 transition"
                     placeholder="Company Name"
                   />
                 </div>
@@ -295,19 +271,19 @@ export default function ContactForm() {
                     name="email"
                     type="email"
                     required
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    className="w-full px-5 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 transition"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
                   <label className="block text-gray-800 font-medium mb-2">
-                    Phone (optional)
+                    Phone Number (optional)
                   </label>
                   <input
                     name="phone"
                     type="tel"
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    className="w-full px-5 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 transition"
                     placeholder="+27 82 123 4567"
                   />
                 </div>
@@ -321,14 +297,14 @@ export default function ContactForm() {
                     rows={5}
                     required
                     maxLength={5000}
-                    className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
-                    placeholder="Tell us about your project or question..."
+                    className="w-full px-5 py-3 border border-gray-300 bg-white rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
+                    placeholder="Tell us about your spectacle frame issue or watch repair requirements..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg flex items-center justify-center gap-3 transition"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 rounded-lg flex items-center justify-center gap-3 transition cursor-pointer"
                   disabled={status === "sending"}
                 >
                   <Send className="w-5 h-5" />
@@ -337,7 +313,7 @@ export default function ContactForm() {
 
                 <p className="text-center text-gray-700 text-sm flex items-center justify-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  We reply to all messages asap during business days
+                  We reply to all messages promptly during business hours
                 </p>
 
                 {status === "success" && (
@@ -346,20 +322,20 @@ export default function ContactForm() {
                     aria-live="polite"
                   >
                     <CheckCircle className="w-5 h-5" />
-                    Your message was sent! We’ll get back to you during business
-                    hours.
+                    Your message was sent successfully! We’ll get back to you
+                    shortly.
                   </p>
                 )}
 
                 {status === "error" && (
                   <p className="text-center text-red-600 mt-4">
-                    Oops! Something went wrong. Please try again later.
+                    Oops! Something went wrong. Please try again or reach out
+                    via WhatsApp.
                   </p>
                 )}
               </form>
             ) : (
-              // Render a placeholder on the server and during initial hydration
-              <div className="h-[500px] w-full bg-gray-50 animate-pulse rounded-lg flex items-center justify-center text-gray-400">
+              <div className="h-[500px] w-full bg-gray-100 animate-pulse rounded-lg flex items-center justify-center text-gray-400">
                 Loading form...
               </div>
             )}
@@ -367,27 +343,29 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="max-w-5xl mx-auto mt-20 px-4 py-8 md:rounded-2xl text-center">
+      {/* Bottom CTA Section */}
+      <div className="max-w-5xl mx-auto mt-20 px-4 py-8 md:rounded-2xl text-center bg-gray-50 border border-gray-100">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">
-          Ready to Launch Your Website?
+          Need Immediate Assistance?
         </h2>
         <p className="text-lg text-gray-700 mb-8">
-          Let’s get your business online in days, not weeks.
+          Skip the queue and chat with our repair specialists directly on
+          WhatsApp.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/pricing">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition">
-              View Packages
+          <a href="/services">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition cursor-pointer">
+              View Our Services
             </button>
           </a>
 
           <a
-            href={`${SITE_CONFIG.whatsappLink_1}`}
+            href={SITE_CONFIG.whatsappLink_1}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-lg font-medium transition flex items-center gap-2 mx-auto sm:mx-0">
+            <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-lg font-medium transition flex items-center gap-2 mx-auto sm:mx-0 cursor-pointer">
+              <FaWhatsapp className="w-5 h-5" />
               <span>Chat on WhatsApp</span>
             </button>
           </a>

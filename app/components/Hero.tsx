@@ -1,97 +1,115 @@
 import { Link } from "react-router";
-import RotatingBlock from "./RotatingBlock";
 import { motion } from "framer-motion";
+import {
+  Clock,
+  ShieldCheck,
+  MapPin,
+  ArrowRight,
+  PhoneCall,
+} from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative py-16 overflow-hidden text-center md:py-20 bg-white">
-      {" "}
-      {/* Add a background color to the section itself */}
-      {/* Background Image Container (z-index: 0) */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/abstract-design-landing-background.jpg"
-          alt="abstract design background"
-          className="w-full h-full object-cover opacity-20" // Keep original image opacity here
-        />
-        {/* GRADIENT OVERLAY */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 70%, rgba(255,255,255,1) 100%)",
-          }}
-        ></div>
-        {/* Adjust the rgba values to match your background color (e.g., if bg-gray-100, use rgba(243,244,246,...)) */}
+    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white">
+      {/* Background Glow Accents */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column: Copywriting & CTAs */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 text-center lg:text-left space-y-6"
+          >
+            {/* Exclusive Badge */}
+            <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full text-cyan-400 text-xs font-semibold tracking-wide uppercase">
+              <Clock className="w-4 h-4" />
+              <span>KwaZulu-Natal's Only 1-Hour Specialists</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight leading-[1.1]">
+              Precision Repairs. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-300">
+                Done in 1 Hour.
+              </span>
+            </h1>
+
+            {/* Subtext */}
+            <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
+              Backed by{" "}
+              <strong className="text-white font-semibold">
+                19 years of optical expertise
+              </strong>
+              . We repair all makes of sunglasses, spectacles, wristwatches, and
+              grandfather clocks with guaranteed quality.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold transition duration-200 shadow-lg shadow-cyan-500/20 text-sm group"
+              >
+                <PhoneCall className="w-4 h-4 mr-2" />
+                Get in Touch
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <div className="flex items-center space-x-2 text-slate-400 text-xs font-medium px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-xl">
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span>Serving KwaZulu-Natal</span>
+              </div>
+            </div>
+
+            {/* Mini Trust Highlights */}
+            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+              <div>
+                <p className="text-xl font-bold text-white">19</p>
+                <p className="text-xs text-slate-400">Years Experience</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-white">1 Hour</p>
+                <p className="text-xs text-slate-400">Fast Turnaround</p>
+              </div>
+              <div>
+                <p className="text-xl font-bold text-white">100%</p>
+                <p className="text-xs text-slate-400">Guaranteed Work</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Hero Visual Frame */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent z-10 pointer-events-none" />
+              <img
+                src="/images/broken-pair-of-sunglasses.png"
+                alt="Spectacle and Watch Repair Workshop"
+                className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
+              />
+              <div className="absolute bottom-4 left-4 right-4 z-20 bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-xl border border-slate-700/80 flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <ShieldCheck className="w-5 h-5 text-cyan-400" />
+                  <span className="text-xs font-semibold text-white">
+                    All Brands & Makes Serviced
+                  </span>
+                </div>
+                <span className="text-xs text-cyan-400 font-bold">
+                  Walk-ins Welcome
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-      {/* Hero Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 max-w-3xl mx-auto px-8 text-black "
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-[clamp(2.5rem,10vw,6rem)] font-extrabold mb-4"
-        >
-          Ready to Launch Your Website?
-        </motion.h1>
-        <p className="text-[clamp(1rem,2vw,1.25rem)] leading-relaxed mt-4 text-gray-700">
-          We make it simple — you tell us what you need, and we handle the rest.
-        </p>
-        <Link
-          to="/pricing"
-          className="inline-block mt-12 px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-lg rounded hover:bg-blue-900 transition"
-          role="button"
-        >
-          Let's Get Started
-        </Link>
-      </motion.div>
     </section>
   );
 }
-
-const resources = [
-  {
-    href: "https://reactrouter.com/docs",
-    text: "React Router Docs",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        className="stroke-gray-600 group-hover:stroke-current dark:stroke-gray-300"
-      >
-        <path
-          d="M9.99981 10.0751V9.99992M17.4688 17.4688C15.889 19.0485 11.2645 16.9853 7.13958 12.8604C3.01467 8.73546 0.951405 4.11091 2.53116 2.53116C4.11091 0.951405 8.73546 3.01467 12.8604 7.13958C16.9853 11.2645 19.0485 15.889 17.4688 17.4688ZM2.53132 17.4688C0.951566 15.8891 3.01483 11.2645 7.13974 7.13963C11.2647 3.01471 15.8892 0.951453 17.469 2.53121C19.0487 4.11096 16.9854 8.73551 12.8605 12.8604C8.73562 16.9853 4.11107 19.0486 2.53132 17.4688Z"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
-  },
-  {
-    href: "https://rmx.as/discord",
-    text: "Join Discord",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="20"
-        viewBox="0 0 24 20"
-        fill="none"
-        className="stroke-gray-600 group-hover:stroke-current dark:stroke-gray-300"
-      >
-        <path
-          d="M15.0686 1.25995L14.5477 1.17423L14.2913 1.63578C14.1754 1.84439 14.0545 2.08275 13.9422 2.31963C12.6461 2.16488 11.3406 2.16505 10.0445 2.32014C9.92822 2.08178 9.80478 1.84975 9.67412 1.62413L9.41449 1.17584L8.90333 1.25995C7.33547 1.51794 5.80717 1.99419 4.37748 2.66939L4.19 2.75793L4.07461 2.93019C1.23864 7.16437 0.46302 11.3053 0.838165 15.3924L0.868838 15.7266L1.13844 15.9264C2.81818 17.1714 4.68053 18.1233 6.68582 18.719L7.18892 18.8684L7.50166 18.4469C7.96179 17.8268 8.36504 17.1824 8.709 16.4944L8.71099 16.4904C10.8645 17.0471 13.128 17.0485 15.2821 16.4947C15.6261 17.1826 16.0293 17.8269 16.4892 18.4469L16.805 18.8725L17.3116 18.717C19.3056 18.105 21.1876 17.1751 22.8559 15.9238L23.1224 15.724L23.1528 15.3923C23.5873 10.6524 22.3579 6.53306 19.8947 2.90714L19.7759 2.73227L19.5833 2.64518C18.1437 1.99439 16.6386 1.51826 15.0686 1.25995ZM16.6074 10.7755L16.6074 10.7756C16.5934 11.6409 16.0212 12.1444 15.4783 12.1444C14.9297 12.1444 14.3493 11.6173 14.3493 10.7877C14.3493 9.94885 14.9378 9.41192 15.4783 9.41192C16.0471 9.41192 16.6209 9.93851 16.6074 10.7755ZM8.49373 12.1444C7.94513 12.1444 7.36471 11.6173 7.36471 10.7877C7.36471 9.94885 7.95323 9.41192 8.49373 9.41192C9.06038 9.41192 9.63892 9.93712 9.6417 10.7815C9.62517 11.6239 9.05462 12.1444 8.49373 12.1444Z"
-          strokeWidth="1.5"
-        />
-      </svg>
-    ),
-  },
-];

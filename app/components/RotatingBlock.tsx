@@ -50,7 +50,7 @@ const RotatingBlock: React.FC = () => {
             backfaceVisibility: "hidden",
           }}
         >
-          <div className="animate-pulse">wsdxi</div>
+          <div className="animate-pulse">1hourspectaclerepairs</div>
         </div>
 
         {/* LEFT FACE */}
@@ -84,7 +84,7 @@ const RotatingBlock: React.FC = () => {
             backfaceVisibility: "hidden",
           }}
         >
-          wsdxi
+          1hourspectaclerepairs
         </div>
 
         {/* RIGHT FACE */}

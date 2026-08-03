@@ -35,7 +35,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/images/wsdxi-logo-black.svg"
+              src="/images/1hourspectaclerepairs-logo-black.svg"
               alt={SITE_CONFIG.name + "logo"}
               className="h-16 md:h-20 w-auto p-2"
             />

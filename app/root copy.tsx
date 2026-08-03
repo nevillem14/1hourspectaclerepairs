@@ -10,7 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "~/components/Navbar";
-import { Footer } from "~/components/Footer";
+import Footer from "~/components/Footer";
 import { Toaster } from "react-hot-toast";
 
 export function meta() {
@@ -42,14 +42,14 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="overflow-x-hidden">
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className="flex flex-col min-h-screen pt-20 overflow-x-hidden bg-slate-50 text-slate-900 antialiased">
+      <body className="flex flex-col min-h-screen pt-20">
         {/* Navbar pinned at top */}
         <Navbar />
 

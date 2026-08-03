@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import { Menu, X, ChevronLeft, User, LogOut } from "lucide-react";
+import { NavLink, Link, useNavigate } from "react-router";
+import { Menu, X, Phone, MapPin, User, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SITE_CONFIG } from "~/lib/constants";
 import { supabase } from "~/utils/supabaseClient";
 
-const Navbar = () => {
+export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [session, setSession] = useState<any>(null);
   const navigate = useNavigate();
@@ -33,24 +33,55 @@ const Navbar = () => {
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     isActive
-      ? "text-black font-semibold border-b-2 border-blue-600 pb-1"
-      : "text-gray-600 hover:text-black transition-colors pb-1";
+      ? "text-cyan-600 font-semibold border-b-2 border-cyan-600 pb-1"
+      : "text-slate-600 hover:text-slate-900 transition-colors pb-1";
 
   return (
     <nav className="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4">
+      {/* Top Announcement Bar - Location & Contact Details */}
+      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+          <div className="flex items-center space-x-2">
+            <MapPin className="hidden md:block w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            <span className="hidden md:block truncate">
+              Shop 102/3 Fragrance Street Market, Croftdene, Chatsworth, Durban
+            </span>
+          </div>
+
+          {/* Added w-full so justify-end pushes the contents to the far right on mobile */}
+          <div className="flex items-center justify-end md:justify-start space-x-2 w-full sm:w-auto">
+            <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            <a
+              href="tel:0743769563"
+              className="hover:text-white transition duration-150 font-medium whitespace-nowrap"
+            >
+              074 376 9563
+            </a>
+            <span className="text-slate-600">|</span>
+            <a
+              href="tel:0742788261"
+              className="hover:text-white transition duration-150 font-medium whitespace-nowrap"
+            >
+              074 278 8261
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navbar Bar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/images/wsdxi-logo-black.svg"
+              src="/images/1-hour-spectacle-repairs-logo.svg"
               alt={SITE_CONFIG.name + " logo"}
-              className="h-16 md:h-20 w-auto p-2"
+              className="h-12 md:h-10 w-auto object-contain"
             />
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex space-x-6 font-medium items-center">
+          <ul className="hidden lg:flex space-x-8 font-medium items-center text-sm">
             <li>
               <NavLink to="/" className={navLinkClass}>
                 Home
@@ -58,22 +89,12 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/about" className={navLinkClass}>
-                About
+                About Us
               </NavLink>
             </li>
             <li>
-              <NavLink to="/pricing" className={navLinkClass}>
-                Pricing
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/domainlookup" className={navLinkClass}>
-                Domain Lookup
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/faq" className={navLinkClass}>
-                FAQ
+              <NavLink to="/know-your-glasses" className={navLinkClass}>
+                Know Your Glasses
               </NavLink>
             </li>
             <li>
@@ -81,49 +102,46 @@ const Navbar = () => {
                 Contact
               </NavLink>
             </li>
-
-            {/* Auth Buttons */}
-            <li className="pl-4 border-l border-gray-200 flex items-center space-x-4">
-              {session ? (
-                <>
-                  <NavLink
-                    to="/dashboard"
-                    className="text-blue-600 hover:text-blue-800 flex items-center gap-1"
-                  >
-                    <User size={18} /> Dashboard
-                  </NavLink>
-                  <button
-                    onClick={handleLogout}
-                    className="text-gray-500 hover:text-red-600 flex items-center gap-1"
-                  >
-                    <LogOut size={18} /> Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <NavLink
-                    to="/login"
-                    className="text-gray-600 hover:text-black"
-                  >
-                    Login
-                  </NavLink>
-                  <Link
-                    to="/signup"
-                    className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Sign Up
-                  </Link>
-                </>
-              )}
-            </li>
           </ul>
 
-          {/* Mobile Hamburger */}
+          {/* Desktop Right Actions (Auth / Dashboard) */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {session ? (
+              <div className="flex items-center space-x-3">
+                <Link
+                  to="/dashboard"
+                  className="flex items-center space-x-1.5 text-sm font-semibold text-slate-700 hover:text-cyan-600 transition"
+                >
+                  <User className="w-4 h-4" />
+                  <span>Dashboard</span>
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center space-x-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Logout</span>
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-3">
+                <Link
+                  to="/contact"
+                  className="text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-4 py-2.5 rounded-xl shadow-sm transition"
+                >
+                  Book Repair
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Hamburger Toggle */}
           <button
-            className="lg:hidden text-black"
+            className="lg:hidden p-2 rounded-xl text-slate-800 hover:bg-slate-100 transition"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle mobile menu"
           >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
@@ -135,75 +153,67 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-gray-100 px-4 pb-8"
+            className="lg:hidden bg-white border-t border-slate-100 px-6 py-6 shadow-xl"
           >
-            <ul className="flex flex-col space-y-4 pt-4">
+            <ul className="flex flex-col space-y-4 font-medium">
               {[
-                "Home",
-                "About",
-                "Pricing",
-                "Domain Lookup",
-                "FAQ",
-                "Contact",
+                { name: "Home", path: "/" },
+                { name: "About Us", path: "/about" },
+                { name: "Know Your Glasses", path: "/services" },
+                { name: "Contact & Location", path: "/contact" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <NavLink
-                    to={
-                      item === "Home"
-                        ? "/"
-                        : `/${item.toLowerCase().replace(" ", "")}`
-                    }
-                    className="block text-lg py-2"
+                    to={item.path}
+                    className="block text-base py-1.5 text-slate-700 hover:text-cyan-600 transition"
                     onClick={() => setMobileOpen(false)}
                   >
-                    {item}
+                    {item.name}
                   </NavLink>
                 </li>
               ))}
 
-              <hr className="border-gray-100" />
+              <hr className="border-slate-100 my-2" />
 
               {session ? (
                 <>
                   <li>
                     <NavLink
                       to="/dashboard"
-                      className="block text-lg py-2 text-blue-600 font-semibold"
+                      className="flex items-center space-x-2 text-base py-2 text-cyan-600 font-semibold"
                       onClick={() => setMobileOpen(false)}
                     >
-                      My Dashboard
+                      <User className="w-5 h-5" />
+                      <span>My Dashboard</span>
                     </NavLink>
                   </li>
                   <li>
                     <button
                       onClick={handleLogout}
-                      className="block w-full text-left text-lg py-2 text-red-500 font-semibold"
+                      className="flex items-center space-x-2 w-full text-left text-base py-2 text-red-500 font-semibold"
                     >
-                      Logout
+                      <LogOut className="w-5 h-5" />
+                      <span>Logout</span>
                     </button>
                   </li>
                 </>
               ) : (
-                <>
-                  <li>
-                    <NavLink
-                      to="/login"
-                      className="block text-lg py-2"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Login
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/signup"
-                      className="block w-full text-center bg-blue-600 text-white py-3 rounded-xl font-bold"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      Sign Up Now
-                    </NavLink>
-                  </li>
-                </>
+                <div className="flex flex-col space-y-3 pt-2">
+                  <Link
+                    to="/login"
+                    className="block text-center py-2.5 rounded-xl border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="block text-center py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition shadow-md"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Book a Repair
+                  </Link>
+                </div>
               )}
             </ul>
           </motion.div>
@@ -211,6 +221,4 @@ const Navbar = () => {
       </AnimatePresence>
     </nav>
   );
-};
-
-export default Navbar;
+}

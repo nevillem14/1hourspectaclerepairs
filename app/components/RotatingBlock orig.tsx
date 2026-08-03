@@ -48,7 +48,7 @@ const RotatingBlock: React.FC = () => {
           transformOrigin: "center center",
         }}
       >
-        {/* FACE 1: Initial Front Face ("wsdxi") */}
+        {/* FACE 1: Initial Front Face ("1hourspectaclerepairs") */}
         <div
           className={`${faceClass} bg-gradient-to-br from-blue-700/80 to-blue-900/80 border-4 border-blue-400`}
           style={{
@@ -59,7 +59,7 @@ const RotatingBlock: React.FC = () => {
             boxShadow: "0 0 30px rgba(74, 144, 226, 0.7)",
           }}
         >
-          wsdxi
+          1hourspectaclerepairs
         </div>
 
         {/* FACE 2: Left Face (Rotates into view next) */}
@@ -84,7 +84,7 @@ const RotatingBlock: React.FC = () => {
             backfaceVisibility: "hidden",
           }}
         >
-          wsdxi
+          1hourspectaclerepairs
         </div>
 
         {/* FACE 4: Right Face (Hidden, but necessary for the loop) */}

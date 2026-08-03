@@ -2,7 +2,7 @@
 
 # This forces Edge to go to your login page instead of the root domain
 
-https://webmail.wsdxi.co.za/* https://wsdxi.co.za/webmail 301!
+https://webmail.1hourspectaclerepairs.co.za/* https://1hourspectaclerepairs.co.za/webmail 301!
 
 # 2. React Router Routing (Match the new 'webmail' path)
 

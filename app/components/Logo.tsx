@@ -9,7 +9,7 @@ const Logo: React.FC<LogoProps> = ({ className }) => {
     <div className={`md:flex-grow md:text-center ${className ?? ""}`}>
       <Link to="/" className="inline-block">
         <img
-          src="/images/wsdxi-logo-2-white.webp"
+          src="/images/1-hour-spectacle-repairs-logo.png"
           alt="Logo"
           className="h-5 md:h-10 transition-transform duration-300 ease-in-out hover:scale-110"
         />
