@@ -137,10 +137,10 @@ export default function Home() {
           {/* Spectacle Repairs Card */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col justify-between">
             <div>
-              <h2 className="p-6 text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              <h2 className="p-6 text-xl sm:text-2xl text-center font-bold text-slate-900 tracking-tight">
                 Spectacle & Sunglasses Repairs
               </h2>
-              <div className="relative overflow-hidden">
+              <div className="relative justify-center flex overflow-hidden">
                 <img
                   src="/images/image-of-broken-eyeglasses.jpg"
                   alt="Broken eyeglasses repair"
@@ -148,7 +148,7 @@ export default function Home() {
                 />
               </div>
               {/* Badge positioned cleanly above/outside the image container */}
-              <div className="px-6 pt-4">
+              <div className="px-6 pt-4 justify-center flex">
                 <div className="bg-slate-900 text-white px-3 py-1.5 rounded-full text-xs font-semibold inline-flex items-center space-x-1 shadow-sm">
                   <Glasses className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
                   <span>Optical Specialists</span>
@@ -186,13 +186,36 @@ export default function Home() {
           {/* Products & Retail Card */}
           <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 flex flex-col justify-between h-full">
             <div>
-              <div className="p-3 bg-cyan-50 text-cyan-600 rounded-xl inline-block mb-4">
-                <Sparkles className="w-6 h-6" />
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
+              <h2 className="text-xl sm:text-2xl text-center font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
+                <span className="p-2 bg-cyan-50 text-cyan-600 rounded-xl inline-flex items-center align-middle mr-2">
+                  <Sparkles className="w-5 h-5" />
+                </span>
                 Quality Products & Accessories
               </h2>
-              <p className="text-slate-600 mb-5 sm:mb-6 text-sm">
+              <div className="flex flex-wrap justify-center gap-4 mb-4">
+                <img
+                  src="/images/products/rayban-aviator-sunglasses.jpg"
+                  alt="rayban aviator sunglasses"
+                  className="h-10 transform hover:scale-105 transition duration-500"
+                />
+                <img
+                  src="/images/products/watch-chronological.jpg"
+                  alt="watch chronological"
+                  className="h-10 transform hover:scale-105 transition duration-500"
+                />
+                <img
+                  src="/images/products/diving-mask.jpg"
+                  alt="diving mask"
+                  className="h-10 transform hover:scale-105 transition duration-500"
+                />
+                <img
+                  src="/images/products/contact-lense.jpg"
+                  alt="contact lenses"
+                  className="h-10 transform hover:scale-105 transition duration-500"
+                />
+              </div>
+
+              <p className="text-slate-600 mt-5 mb-5 sm:mb-6 text-sm">
                 Explore our curated range of optical wear, watch utilities, and
                 essential replacement items.
               </p>
@@ -231,11 +254,11 @@ export default function Home() {
             {/* Watches */}
             <div className="p-6 sm:p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-slate-200 flex flex-col justify-between">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
+                <h2 className="text-xl sm:text-2xl text-center font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
                   Precision Watch Repairs
                 </h2>
                 {/* Badge placed cleanly below the image box */}
-                <div className="mb-5">
+                <div className="mb-5 justify-center flex">
                   <div className="bg-slate-900 text-white px-3 py-1.5 rounded-full text-xs font-semibold inline-flex items-center space-x-1 shadow-sm">
                     <Watch className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
                     <span>Master Watchmaker</span>
@@ -275,11 +298,11 @@ export default function Home() {
             {/* Grandfather Clocks */}
             <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-between bg-slate-50/50">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
+                <h2 className="text-xl sm:text-2xl text-center font-bold text-slate-900 mb-3 sm:mb-4 tracking-tight">
                   Grandfather Clocks & Heavy Timepieces
                 </h2>
                 {/* Badge placed cleanly below the image box */}
-                <div className="mb-5">
+                <div className="mb-5 justify-center flex">
                   <div className="bg-slate-900 text-white px-3 py-1.5 rounded-full text-xs font-semibold inline-flex items-center space-x-1 shadow-sm">
                     <Wrench className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400" />
                     <span>Specialised Restoration</span>

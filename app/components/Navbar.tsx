@@ -76,7 +76,7 @@ export default function Navbar() {
             <img
               src="/images/1-hour-spectacle-repairs-logo.svg"
               alt={SITE_CONFIG.name + " logo"}
-              className="h-12 md:h-10 w-auto object-contain"
+              className="h-7 md:h-10 w-auto object-contain"
             />
           </Link>
 

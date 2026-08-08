@@ -29,7 +29,7 @@ export function Hero() {
             {/* Exclusive Badge */}
             <div className="inline-flex items-center space-x-2 bg-cyan-500/10 border border-cyan-500/20 px-3.5 py-1.5 rounded-full text-cyan-400 text-xs font-semibold tracking-wide uppercase">
               <Clock className="w-4 h-4" />
-              <span>KwaZulu-Natal's Only 1-Hour Specialists</span>
+              <span>KwaZulu-Natal's Only 1-Hour Spectacle Repairs</span>
             </div>
 
             {/* Main Headline */}
@@ -60,11 +60,6 @@ export function Hero() {
                 Get in Touch
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-
-              <div className="flex items-center space-x-2 text-slate-400 text-xs font-medium px-4 py-3 bg-slate-800/50 border border-slate-700/50 rounded-xl">
-                <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span>Serving KwaZulu-Natal</span>
-              </div>
             </div>
 
             {/* Mini Trust Highlights */}

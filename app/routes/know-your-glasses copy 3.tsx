@@ -1,7 +1,7 @@
 // File: app/routes/know-your-glasses.tsx
 
 import { motion } from "framer-motion";
-import { Eye, PhoneCall, HelpCircle, ArrowUp } from "lucide-react";
+import { Eye, PhoneCall, HelpCircle } from "lucide-react";
 
 export function meta() {
   const siteUrl = "https://1hourspectaclerepairs.co.za";
@@ -94,10 +94,7 @@ export default function KnowYourGlasses() {
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16"
       >
         {/* Quick Jump Navigation */}
-        <div
-          id="frame-categories"
-          className="bg-white rounded-2xl shadow-md border border-slate-200 p-6 scroll-mt-28"
-        >
+        <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-6">
           <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">
             Jump to Frame Category
           </h3>
@@ -197,18 +194,6 @@ export default function KnowYourGlasses() {
                 or warped temple arms causing uneven fitting behind the ears.
               </p>
             </div>
-
-            {/* Back to Frame Types */}
-            <div className="flex justify-end pt-2">
-              <a
-                href="#frame-categories"
-                aria-label="Back to frame types"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-600 text-xs sm:text-sm font-medium transition"
-              >
-                <ArrowUp className="w-4 h-4" />
-                Back to Frame Types
-              </a>
-            </div>
           </div>
         </div>
 
@@ -259,18 +244,6 @@ export default function KnowYourGlasses() {
                 Broken solder joints at the bridge or eye wire, snapped nose pad
                 arms, stripped screw threads, or bent temple tips.
               </p>
-            </div>
-
-            {/* Back to Frame Types */}
-            <div className="flex justify-end pt-2">
-              <a
-                href="#frame-categories"
-                aria-label="Back to frame types"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-600 text-xs sm:text-sm font-medium transition"
-              >
-                <ArrowUp className="w-4 h-4" />
-                Back to Frame Types
-              </a>
             </div>
           </div>
         </div>
@@ -331,18 +304,6 @@ export default function KnowYourGlasses() {
                 chipping around the cord slot.
               </p>
             </div>
-
-            {/* Back to Frame Types */}
-            <div className="flex justify-end pt-2">
-              <a
-                href="#frame-categories"
-                aria-label="Back to frame types"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-600 text-xs sm:text-sm font-medium transition"
-              >
-                <ArrowUp className="w-4 h-4" />
-                Back to Frame Types
-              </a>
-            </div>
           </div>
         </div>
 
@@ -394,18 +355,6 @@ export default function KnowYourGlasses() {
                 or wobbling temple attachments.
               </p>
             </div>
-
-            {/* Back to Frame Types */}
-            <div className="flex justify-end pt-2">
-              <a
-                href="#frame-categories"
-                aria-label="Back to frame types"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-600 text-xs sm:text-sm font-medium transition"
-              >
-                <ArrowUp className="w-4 h-4" />
-                Back to Frame Types
-              </a>
-            </div>
           </div>
         </div>
 
@@ -455,18 +404,6 @@ export default function KnowYourGlasses() {
                 Surface scratch peeling, delamination of the polarization filter
                 layer, or deep abrasions affecting clarity.
               </p>
-            </div>
-
-            {/* Back to Frame Types */}
-            <div className="flex justify-end pt-2">
-              <a
-                href="#frame-categories"
-                aria-label="Back to frame types"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-600 text-xs sm:text-sm font-medium transition"
-              >
-                <ArrowUp className="w-4 h-4" />
-                Back to Frame Types
-              </a>
             </div>
           </div>
         </div>
@@ -544,12 +481,12 @@ export default function KnowYourGlasses() {
         <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl text-white p-6 sm:p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
           <div className="space-y-2 sm:space-y-3">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
-              Ready to fix your glasses?
+              Ready to fix your glasses while you wait?
             </h3>
 
             <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto md:mx-0">
-              Visit our shop today for fast, professional repairs completed in
-              around an hour.
+              Visit our Durban workshop today for fast, professional repairs
+              completed in around an hour.
             </p>
           </div>
 

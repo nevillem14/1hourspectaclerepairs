@@ -66,15 +66,14 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto text-center px-4 mb-14">
         <div className="inline-flex items-center space-x-2 bg-green-50 text-green-700 px-3.5 py-1.5 rounded-full font-semibold mb-4 border border-green-200">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span>Open Mon – Sun (09h00 – 17h00)</span>
+          <span className="text-sm">Open Mon – Sun (09h00 – 17h00)</span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+        <h1 className="text-2xl md:text-5xl font-bold text-slate-900 tracking-tight">
           Get in Touch & Visit Us
         </h1>
         <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
-          We prefer direct communication! Reach out via WhatsApp or phone call
-          for immediate assistance, or walk straight into our shop for
-          while-you-wait repairs.
+          Reach out via WhatsApp or phone call for immediate assistance, or walk
+          straight into our shop for while-you-wait repairs.
         </p>
       </div>
 
@@ -219,15 +218,6 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 md:text-xs text-amber-800 leading-relaxed">
-              <strong className="font-bold block mb-1">
-                Quick Tip for Visitors:
-              </strong>
-              Most spectacle repairs (such as soldering frames, hinge
-              replacements, or nose pad adjustments) are completed in around an
-              hour while you wait or browse the market!
-            </div>
           </div>
         </div>
       </div>
@@ -239,8 +229,7 @@ export default function Contact() {
             Have a question right now?
           </h2>
           <p className="text-slate-300 max-w-xl mx-auto">
-            Skip the delay and chat directly with a technician on WhatsApp for
-            instant answers and quotes.
+            Chat directly with us on WhatsApp for instant answers and quotes.
           </p>
           <div className="pt-2 flex flex-wrap justify-center gap-4">
             <a
