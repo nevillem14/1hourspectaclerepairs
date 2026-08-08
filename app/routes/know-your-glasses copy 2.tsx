@@ -1,7 +1,14 @@
 // File: app/routes/know-your-glasses.tsx
 
 import { motion } from "framer-motion";
-import { Eye, PhoneCall, HelpCircle } from "lucide-react";
+import {
+  Eye,
+  ShieldCheck,
+  Wrench,
+  Sparkles,
+  PhoneCall,
+  HelpCircle,
+} from "lucide-react";
 
 export function meta() {
   const siteUrl = "https://1hourspectaclerepairs.co.za";
@@ -73,11 +80,9 @@ export default function KnowYourGlasses() {
             <Eye className="w-4 h-4" />
             <span>Eyewear Anatomy & Guide</span>
           </div>
-
           <h1 className="text-3xl sm:text-4xl md:text-5xl text-slate-100 font-bold tracking-tight mb-4">
             Know Your Glasses
           </h1>
-
           <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
             Understand your frame styles and key components so you can easily
             identify and describe any damage or faults to our workshop
@@ -98,7 +103,6 @@ export default function KnowYourGlasses() {
           <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">
             Jump to Frame Category
           </h3>
-
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
             <a
               href="#plastic-frames"
@@ -106,28 +110,24 @@ export default function KnowYourGlasses() {
             >
               Plastic (Zyl)
             </a>
-
             <a
               href="#metal-frames"
               className="px-4 py-2 bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-700 rounded-xl text-xs sm:text-sm font-medium transition"
             >
               Metal Frames
             </a>
-
             <a
               href="#semi-rimless"
               className="px-4 py-2 bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-700 rounded-xl text-xs sm:text-sm font-medium transition"
             >
               Semi-Rimless
             </a>
-
             <a
               href="#three-piece-rimless"
               className="px-4 py-2 bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-700 rounded-xl text-xs sm:text-sm font-medium transition"
             >
               Three-Piece Rimless
             </a>
-
             <a
               href="#polarised-lenses"
               className="px-4 py-2 bg-slate-100 hover:bg-cyan-50 hover:text-cyan-600 text-slate-700 rounded-xl text-xs sm:text-sm font-medium transition"
@@ -137,292 +137,231 @@ export default function KnowYourGlasses() {
           </div>
         </div>
 
-        {/* ========================================================= */}
         {/* Section 1: Plastic Frame (Zyl) */}
-        {/* ========================================================= */}
 
         <div
           id="plastic-frames"
           className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden scroll-mt-28"
         >
-          <div className="p-6 sm:p-8 md:p-12 space-y-8">
-            {/* Heading */}
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+            <div className="lg:col-span-5 bg-slate-100 p-6 sm:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-l border-slate-200 order-1 lg:order-2">
+              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold">
                 <span>Category 01</span>
               </div>
-
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Plastic Frames (Zyl)
               </h2>
-            </div>
-
-            {/* Images */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
                 <img
                   src="/images/plastic3.jpg"
                   alt="Plastic Frames breakdown and parts"
-                  className=""
+                  className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
-
               <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
                 <img
                   src="/images/plastic4.jpg"
                   alt="Plastic Frames breakdown and parts"
-                  className=""
+                  className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
             </div>
 
-            {/* Description */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl">
-              Classic acetate and plastic frames offer versatile styling. Key
-              fault areas include bridge stress fractures, hinge looseness, and
-              temple arm warping.
-            </p>
-
-            {/* Common Faults */}
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
-                Common Faults to Describe:
-              </h4>
-
-              <p className="text-xs sm:text-sm text-slate-600">
-                Hinge pulls loose from plastic, snapped bridge across the nose,
-                or warped temple arms causing uneven fitting behind the ears.
+            <div className="lg:col-span-7 p-6 sm:p-8 md:p-12 space-y-6 order-2 lg:order-1">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Classic acetate and plastic frames offer versatile styling. Key
+                fault areas include bridge stress fractures, hinge looseness,
+                and temple arm warping.
               </p>
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
+                  Common Faults to Describe:
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  Hinge pulls loose from plastic, snapped bridge across the
+                  nose, or warped temple arms causing uneven fitting behind the
+                  ears.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* ========================================================= */}
         {/* Section 2: Metal Frames */}
-        {/* ========================================================= */}
-
         <div
           id="metal-frames"
           className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden scroll-mt-28"
         >
-          <div className="p-6 sm:p-8 md:p-12 space-y-8">
-            {/* Heading */}
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+            <div className="lg:col-span-5 p-6 sm:p-8 md:p-12 space-y-6 order-2 lg:order-1">
+              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold">
                 <span>Category 02</span>
               </div>
-
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Metal Frames
               </h2>
-            </div>
 
-            {/* Images */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
                 <img
                   src="/images/metal-frame.jpg"
                   alt="Metal Frames breakdown and parts"
-                  className=""
+                  className="h-auto rounded-lg"
                 />
               </div>
             </div>
-
-            {/* Description */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl">
-              Sturdy metal frames feature adjustable nose pads, brow bars, and
-              delicate hinge assemblies (single or double barrel designs).
-            </p>
-
-            {/* Common Faults */}
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
-                Common Faults to Describe:
-              </h4>
-
-              <p className="text-xs sm:text-sm text-slate-600">
-                Broken solder joints at the bridge or eye wire, snapped nose pad
-                arms, stripped screw threads, or bent temple tips.
+            <div className="lg:col-span-5 bg-slate-100 p-6 sm:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-l border-slate-200 order-1 lg:order-2">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Sturdy metal frames feature adjustable nose pads, brow bars, and
+                delicate hinge assemblies (single or double barrel designs).
               </p>
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
+                  Common Faults to Describe:
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  Broken solder joints at the bridge or eye wire, snapped nose
+                  pad arms, stripped screw threads, or bent temple tips.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* ========================================================= */}
-        {/* Section 3: Semi-Rimless */}
-        {/* ========================================================= */}
-
+        {/* Section 3: Semi-Rimless & Three-Piece Rimless */}
         <div
           id="semi-rimless"
           className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden scroll-mt-28"
         >
-          <div className="p-6 sm:p-8 md:p-12 space-y-8">
-            {/* Heading */}
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
-                <span>Category 03</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+            <div className="lg:col-span-7 p-6 sm:p-8 md:p-12 space-y-6 order-2 lg:order-1">
+              <div className="space-y-4">
+                <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold">
+                  <span>Category 03</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">
+                  Semi-Rimless
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Frames where the upper structure holds the lens with a nylon
+                  cord (supra wire) running along the lower edge groove of the
+                  lens.
+                </p>
               </div>
-
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Semi-Rimless
-              </h2>
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
+                  Common Faults:
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600">
+                  Nylon cord snapping, lens slipping out of the bottom groove,
+                  or chipping around the cord slot.
+                </p>
+              </div>
             </div>
 
-            {/* Images */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="lg:col-span-5 bg-slate-100 p-6 sm:p-8 flex flex-col justify-center border-b lg:border-b-0 lg:border-l border-slate-200 order-1 lg:order-2">
               <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
                 <img
                   src="/images/plastic3.jpg"
-                  alt="Semi-Rimless Frames breakdown and parts"
-                  className=""
+                  alt="Plastic Frames breakdown and parts"
+                  className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
-
               <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
                 <img
                   src="/images/plastic4.jpg"
-                  alt="Semi-Rimless Frames breakdown and parts"
-                  className=""
+                  alt="Plastic Frames breakdown and parts"
+                  className="w-full h-auto object-cover rounded-lg"
                 />
               </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl">
-              Frames where the upper structure holds the lens with a nylon cord
-              (supra wire) running along the lower edge groove of the lens.
-            </p>
-
-            {/* Common Faults */}
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
-                Common Faults:
-              </h4>
-
-              <p className="text-xs sm:text-sm text-slate-600">
-                Nylon cord snapping, lens slipping out of the bottom groove, or
-                chipping around the cord slot.
-              </p>
             </div>
           </div>
         </div>
 
-        {/* ========================================================= */}
-        {/* Section 4: Three-Piece Rimless */}
-        {/* ========================================================= */}
-
+        {/* Three-Piece Rimless */}
         <div
           id="three-piece-rimless"
-          className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden scroll-mt-28"
+          className="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 space-y-6 scroll-mt-28 flex flex-col justify-between"
         >
-          <div className="p-6 sm:p-8 md:p-12 space-y-8">
-            {/* Heading */}
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+            <div className="lg:col-span-7 p-6 sm:p-8 md:p-12 space-y-6 order-2 lg:order-1"></div>
+            <div className="space-y-4">
+              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold">
                 <span>Category 04</span>
               </div>
-
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              <h3 className="text-xl font-bold text-slate-900">
                 Three-Piece Rimless
-              </h2>
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Minimalist frames consisting of a central bridge and two temples
+                mounted directly to the lenses via screws, bushings, or plugs.
+              </p>
             </div>
-
-            {/* Images */}
-            <div className="grid grid-cols-1 gap-6">
-              <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
-                <img
-                  src="/images/three-piece-rimless-frame-1024x157.jpg"
-                  alt="Three piece rimless frame breakdown and parts"
-                  className=""
-                />
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl">
-              Minimalist frames consisting of a central bridge and two temples
-              mounted directly to the lenses via screws, bushings, or plugs.
-            </p>
-
-            {/* Common Faults */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-2">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
+              <h3 className="font-bold text-xs uppercase tracking-wider text-cyan-600">
                 Common Faults:
-              </h4>
-
+              </h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 Loose mount screws, cracked lens holes around mounting points,
                 or wobbling temple attachments.
               </p>
             </div>
           </div>
+
+          <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
+            <img
+              src="/images/three-piece-rimless-frame-1024x157.jpg"
+              alt="three piece rimless frame breakdown and parts"
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
         </div>
 
-        {/* ========================================================= */}
-        {/* Section 5: Polarised Lenses */}
-        {/* ========================================================= */}
-
+        {/* Section 4: Polarised Lenses */}
         <div
           id="polarised-lenses"
-          className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden scroll-mt-28"
+          className="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 md:p-12 space-y-6 scroll-mt-28"
         >
-          <div className="p-6 sm:p-8 md:p-12 space-y-8">
-            {/* Heading */}
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
-                <span>Specialty Optics</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Polarised Lenses
-              </h2>
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center space-x-2 bg-cyan-50 text-cyan-700 px-3 py-1 rounded-full text-xs font-semibold">
+              <span>Specialty Optics</span>
             </div>
-
-            {/* Image */}
+            <h3 className="text-2xl font-bold text-slate-900">
+              Polarised Lenses
+            </h3>
             <div className="relative rounded-xl overflow-hidden shadow-md bg-white p-2">
               <img
                 src="/images/polarised-lens-1024x208.jpg"
-                alt="Polarised lens"
-                className=""
+                alt="three piece rimless frame breakdown and parts"
+                className="w-full h-auto object-cover rounded-lg"
               />
             </div>
-
-            {/* Description */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
               Designed to eliminate harsh glare from water, snow, and roads.
               Essential for driving, fishing, and outdoor sports in
               KwaZulu-Natal's bright climate.
             </p>
-
-            {/* Common Faults */}
-            <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600 mb-2">
-                Lens Damage to Watch For:
-              </h4>
-
-              <p className="text-xs sm:text-sm text-slate-600">
-                Surface scratch peeling, delamination of the polarization filter
-                layer, or deep abrasions affecting clarity.
-              </p>
-            </div>
+          </div>
+          <div className="bg-slate-50 p-4 sm:p-6 rounded-xl border border-slate-100">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-cyan-600 mb-2">
+              Lens Damage to Watch For:
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600">
+              Surface scratch peeling, delamination of the polarization filter
+              layer, or deep abrasions affecting clarity.
+            </p>
           </div>
         </div>
 
-        {/* ========================================================= */}
         {/* Breakdown of Key Spectacle Parts */}
-        {/* ========================================================= */}
-
         <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <div className="inline-flex items-center space-x-2 bg-cyan-500/10 text-cyan-400 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-cyan-500/20">
               <HelpCircle className="w-4 h-4" />
               <span>Fault Reporting Guide</span>
             </div>
-
             <h3 className="text-2xl sm:text-3xl font-bold tracking-tight">
               How to Describe Your Fault to Us
             </h3>
-
             <p className="text-slate-400 text-xs sm:text-sm">
               Use these exact terms when contacting our workshop to help us
               diagnose and quote your repair instantly:
@@ -434,38 +373,31 @@ export default function KnowYourGlasses() {
               <span className="text-cyan-400 font-bold text-sm">
                 Hinges & Temples
               </span>
-
               <p className="text-xs text-slate-300">
                 "The arm snapped off at the hinge barrel" or "The screw fell out
                 of the side."
               </p>
             </div>
-
             <div className="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 space-y-2">
               <span className="text-cyan-400 font-bold text-sm">
                 Bridge & Solder
               </span>
-
               <p className="text-xs text-slate-300">
                 "The metal bridge across my nose snapped in half" or "The solder
                 joint broke."
               </p>
             </div>
-
             <div className="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 space-y-2">
               <span className="text-cyan-400 font-bold text-sm">Nose Pads</span>
-
               <p className="text-xs text-slate-300">
                 "The plastic nose pad broke off" or "The metal arm holding the
                 pad is bent."
               </p>
             </div>
-
             <div className="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 space-y-2">
               <span className="text-cyan-400 font-bold text-sm">
                 Rimless / Supra
               </span>
-
               <p className="text-xs text-slate-300">
                 "The nylon string broke at the bottom of the lens" or "The
                 mounting screw came loose."
@@ -474,22 +406,17 @@ export default function KnowYourGlasses() {
           </div>
         </div>
 
-        {/* ========================================================= */}
         {/* Call to Action Banner */}
-        {/* ========================================================= */}
-
         <div className="bg-gradient-to-r from-slate-900 to-slate-800 rounded-3xl text-white p-6 sm:p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-6">
           <div className="space-y-2 sm:space-y-3">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
               Ready to fix your glasses while you wait?
             </h3>
-
             <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto md:mx-0">
               Visit our Durban workshop today for fast, professional repairs
               completed in around an hour.
             </p>
           </div>
-
           <div className="w-full md:w-auto shrink-0">
             <a
               href="/contact"
