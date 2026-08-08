@@ -7,8 +7,11 @@ import {
   ArrowRight,
   PhoneCall,
 } from "lucide-react";
+import { SITE_CONFIG, getYearsInBusiness } from "~/lib/constants";
 
 export function Hero() {
+  const businessYears = getYearsInBusiness();
+
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white">
       {/* Background Glow Accents */}
@@ -41,7 +44,7 @@ export function Hero() {
             <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
               Backed by{" "}
               <strong className="text-white font-semibold">
-                19 years of optical expertise
+                {businessYears} years of optical expertise
               </strong>
               . We repair all makes of sunglasses, spectacles, wristwatches, and
               grandfather clocks with guaranteed quality.
@@ -67,7 +70,7 @@ export function Hero() {
             {/* Mini Trust Highlights */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
               <div>
-                <p className="text-xl font-bold text-white">19</p>
+                <p className="text-xl font-bold text-white">{businessYears}</p>
                 <p className="text-xs text-slate-400">Years Experience</p>
               </div>
               <div>
@@ -88,21 +91,21 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 group">
+            <div className="relative rounded-lg overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 group">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent z-10 pointer-events-none" />
               <img
                 src="/images/broken-pair-of-sunglasses.png"
                 alt="Spectacle and Watch Repair Workshop"
                 className="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
               />
-              <div className="absolute bottom-4 left-4 right-4 z-20 bg-slate-900/90 backdrop-blur-md px-4 py-3 rounded-xl border border-slate-700/80 flex items-center justify-between">
-                <div className="flex items-center space-x-2">
+              <div className=" bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md px-4 py-3 border border-slate-700/80 flex items-center justify-between">
+                <div className="my-4 flex items-center space-x-2">
                   <ShieldCheck className="w-5 h-5 text-cyan-400" />
                   <span className="text-xs font-semibold text-white">
                     All Brands & Makes Serviced
                   </span>
                 </div>
-                <span className="text-xs text-cyan-400 font-bold">
+                <span className="my-4 text-xs text-cyan-400 font-bold">
                   Walk-ins Welcome
                 </span>
               </div>

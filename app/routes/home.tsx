@@ -11,8 +11,10 @@ import {
   CheckCircle2,
   PhoneCall,
 } from "lucide-react";
+import { SITE_CONFIG, getYearsInBusiness } from "~/lib/constants";
 
 export function meta() {
+  const businessYears = getYearsInBusiness();
   const siteUrl = "https://1hourspectaclerepairs.co.za";
   const ogImageUrl = `${siteUrl}/images/1hourspectaclerepairs-og-facebook-1200x630.jpg`;
 
@@ -23,8 +25,7 @@ export function meta() {
     },
     {
       name: "description",
-      content:
-        "KwaZulu-Natal's exclusive 1-hour spectacle and watch repair specialists. 19 years of experience. We fix all makes of frames, watches, and grandfather clocks.",
+      content: `KwaZulu-Natal's exclusive 1-hour spectacle and watch repair specialists. ${businessYears} years of experience. We fix all makes of frames, watches, and grandfather clocks.`,
     },
     {
       name: "keywords",
@@ -41,8 +42,7 @@ export function meta() {
     },
     {
       property: "og:description",
-      content:
-        "KwaZulu-Natal's exclusive 1-hour spectacle and watch repair specialists. 19 years of expertise. Fast, guaranteed quality repairs.",
+      content: `KwaZulu-Natal's exclusive 1-hour spectacle and watch repair specialists. ${businessYears} years of expertise. Fast, guaranteed quality repairs.`,
     },
     { property: "og:url", content: siteUrl },
     { property: "og:type", content: "website" },
@@ -62,14 +62,15 @@ export function meta() {
     },
     {
       name: "twitter:description",
-      content:
-        "KwaZulu-Natal's exclusive 1-hour spectacle and watch repair specialists. 19 years of experience.",
+      content: `KwaZulu-Natal's exclusive 1-hour spectacle and watch repair specialists. ${businessYears} years of experience.`,
     },
     { name: "twitter:image", content: ogImageUrl },
   ];
 }
 
 export default function Home() {
+  const businessYears = getYearsInBusiness();
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-cyan-500 selection:text-white overflow-x-hidden">
       {/* Hero Section */}
@@ -87,7 +88,7 @@ export default function Home() {
               </div>
               <div>
                 <h4 className="font-bold text-base sm:text-lg">
-                  19 Years Strong
+                  {businessYears} Years Strong
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-400">
                   Trusted craftsmanship

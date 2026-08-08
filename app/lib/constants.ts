@@ -22,7 +22,7 @@ export const SITE_CONFIG = {
   whatsappLink_2: "https://wa.me/27742788261",
   address: "Shop 102/3 Fragrance Street Market, Croftdene, Chatsworth, Durban",
   workingHours: "Mon–Sun: 8am–5pm",
-
+  startYearOfBusiness: 2004,
   // ✅ Social links grouped
   socialLinks: {
     facebook: {
@@ -44,3 +44,8 @@ export const SITE_CONFIG = {
     },
   } as const,
 } as const;
+
+// ✅ Reusable function
+export function getYearsInBusiness(): number {
+  return new Date().getFullYear() - SITE_CONFIG.startYearOfBusiness;
+}

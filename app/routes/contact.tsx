@@ -190,6 +190,9 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-slate-900">
                   Visit Our Shop (Walk-Ins Welcome)
                 </h3>
+                <p className="text-sm text-slate-600 mt-1">
+                  Shop 102/3 (Lower Level of Fragrance Street Market),
+                </p>
                 <p className="text-sm text-slate-600 mt-1">{addressString}</p>
                 <a
                   href={mapsQueryUrl}

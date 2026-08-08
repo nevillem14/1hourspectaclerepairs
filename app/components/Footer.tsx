@@ -27,10 +27,10 @@ export function Footer() {
               <span>Spectacle & Watch Repairs</span>
             </h3>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              KwaZulu-Natal's exclusive 1-hour repair specialists. Backed by 19
-              years of optical expertise, we deliver fast, guaranteed quality
-              repairs for all makes of spectacles, sunglasses, wristwatches, and
-              grandfather clocks.
+              We strive to provide the best possible service when repairing your
+              spectacles or your watch. Our technicians are very experienced and
+              are trained in both precision utilizing hand craftsmanship and the
+              latest technology.
             </p>
             {/* Social Links */}
             <div className="pt-2 flex items-center space-x-3">
@@ -135,8 +135,9 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <span>
-                  Shop 102/3 Fragrance Street Market, Croftdene, Chatsworth,
-                  Durban, KwaZulu-Natal, South Africa (Walk-ins Welcome)
+                  Shop 102/3 Fragrance Street Market, 12 Fragrance Street,
+                  Croftdene, Chatsworth, Durban, KwaZulu-Natal, South Africa
+                  (Walk-ins Welcome)
                 </span>
               </div>
             </div>

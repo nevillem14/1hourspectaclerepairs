@@ -8,9 +8,10 @@ import {
   MapPin,
   PhoneCall,
 } from "lucide-react";
-import { SITE_CONFIG } from "~/lib/constants";
+import { SITE_CONFIG, getYearsInBusiness } from "~/lib/constants";
 
 export function meta() {
+  const businessYears = getYearsInBusiness();
   const siteUrl = "https://1hourspectaclerepairs.co.za";
   const ogImageUrl = `${siteUrl}/images/1hourspectaclerepairs-og-facebook-1200x630.jpg`;
 
@@ -21,13 +22,11 @@ export function meta() {
     },
     {
       name: "description",
-      content:
-        "Learn about KwaZulu-Natal's only 1-hour spectacle and watch repair specialists. With 19 years of dedicated experience, we provide fast, high-quality, and affordable repairs.",
+      content: `Learn about KwaZulu-Natal's only 1-hour spectacle and watch repair specialists. With ${businessYears} years of dedicated experience, we provide fast, high-quality, and affordable repairs.`,
     },
     {
       name: "keywords",
-      content:
-        "About 1 Hour Spectacle & Watch Repairs, spectacle repair history, watch repair KwaZulu-Natal, optical experts Chatsworth Durban, 19 years experience",
+      content: `About 1 Hour Spectacle & Watch Repairs, spectacle repair history, watch repair KwaZulu-Natal, optical experts Chatsworth Durban, ${businessYears} years experience`,
     },
     { name: "author", content: "1 Hour Spectacle & Watch Repairs" },
 
@@ -39,8 +38,7 @@ export function meta() {
     },
     {
       property: "og:description",
-      content:
-        "With 19 years of experience, we are KwaZulu-Natal's exclusive 1-hour spectacle and watch repair experts. Discover our story and commitment to excellence.",
+      content: `With ${businessYears} years of experience, we are KwaZulu-Natal's exclusive 1-hour spectacle and watch repair experts. Discover our story and commitment to excellence.`,
     },
     { property: "og:url", content: siteUrl },
     { property: "og:type", content: "website" },
@@ -60,20 +58,21 @@ export function meta() {
     },
     {
       name: "twitter:description",
-      content:
-        "With 19 years of experience, we are KwaZulu-Natal's exclusive 1-hour spectacle and watch repair experts.",
+      content: `With ${businessYears} years of experience, we are KwaZulu-Natal's exclusive 1-hour spectacle and watch repair experts.`,
     },
     { name: "twitter:image", content: ogImageUrl },
   ];
 }
 
 export default function About() {
+  const businessYears = getYearsInBusiness();
+
   return (
     <div className="bg-slate-50 text-slate-900 selection:bg-cyan-500 selection:text-white overflow-x-hidden">
       <div className="flex flex-col items-center justify-center text-center mx-auto px-4 md:px-8 py-20 bg-gradient-to-r from-slate-900 to-slate-800">
         <div className="inline-flex items-center space-x-2 bg-cyan-500/10 text-cyan-400 px-3.5 py-1.5 rounded-full text-xs font-semibold mb-4 border border-cyan-500/20">
           <Clock className="w-4 h-4" />
-          <span>19 Years of Excellence</span>
+          <span>{businessYears} Years of Excellence</span>
         </div>
         <h1 className="text-3xl sm:text-4xl md:text-5xl text-slate-300 font-bold tracking-tight mb-4">
           About Us
@@ -119,13 +118,15 @@ export default function About() {
             <div className="lg:col-span-7 p-6 sm:p-8 md:p-12 flex flex-col justify-items-start space-y-6">
               <div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-4">
-                  Crafting Perfection in KZN for 19 Years
+                  Crafting Perfection in KZN for {businessYears} Years
                 </h2>
                 <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                   <p>
                     My business has been operating for the past{" "}
-                    <strong className="text-slate-900">19 years</strong> and
-                    it’s growing day by day, driven by customer trust and
+                    <strong className="text-slate-900">
+                      {businessYears} years
+                    </strong>{" "}
+                    and it’s growing day by day, driven by customer trust and
                     meticulous precision work.
                   </p>
                   <p>
@@ -203,7 +204,7 @@ export default function About() {
 
             <p className="text-sm text-slate-600">
               Visit our store conveniently situated at Shop 102/3 Fragrance
-              Street Market, Croftdene, Chatsworth, Durban.
+              Street Market, 12 Fragrance Street, Croftdene, Chatsworth, Durban.
             </p>
           </div>
         </div>
