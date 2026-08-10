@@ -160,7 +160,6 @@ export default function Navbar() {
                 { name: "Home", path: "/" },
                 { name: "About Us", path: "/about" },
                 { name: "Know Your Glasses", path: "/services" },
-                { name: "Contact & Location", path: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
                   <NavLink
@@ -176,42 +175,15 @@ export default function Navbar() {
               <hr className="border-slate-100 my-2" />
 
               {session ? (
-                <>
-                  <li>
-                    <NavLink
-                      to="/dashboard"
-                      className="flex items-center space-x-2 text-base py-2 text-cyan-600 font-semibold"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <User className="w-5 h-5" />
-                      <span>My Dashboard</span>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <button
-                      onClick={handleLogout}
-                      className="flex items-center space-x-2 w-full text-left text-base py-2 text-red-500 font-semibold"
-                    >
-                      <LogOut className="w-5 h-5" />
-                      <span>Logout</span>
-                    </button>
-                  </li>
-                </>
+                <></>
               ) : (
                 <div className="flex flex-col space-y-3 pt-2">
-                  <Link
-                    to="/login"
-                    className="block text-center py-2.5 rounded-xl border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Login
-                  </Link>
                   <Link
                     to="/contact"
                     className="block text-center py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition shadow-md"
                     onClick={() => setMobileOpen(false)}
                   >
-                    Book a Repair
+                    Contact Us
                   </Link>
                 </div>
               )}
