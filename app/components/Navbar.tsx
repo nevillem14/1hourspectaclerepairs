@@ -74,9 +74,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/images/1-hour-spectacle-repairs-logo.svg"
+              src="/images/1-hour-spectacle-repairs-logo.png"
               alt={SITE_CONFIG.name + " logo"}
-              className="h-7 md:h-10 w-auto object-contain"
+              className="h-10 md:h-12 w-auto object-contain"
             />
           </Link>
 
