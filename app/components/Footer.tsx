@@ -22,10 +22,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Column 1: Brand & About */}
           <div className="space-y-4">
-            <h3 className="text-white font-extrabold text-lg tracking-tight flex items-center space-x-2">
-              <span className="text-cyan-400">1 Hour</span>
-              <span>Spectacle & Watch Repairs</span>
-            </h3>
+            <img
+              src="/images/1-hour-spectacle-repairs-logo_white.png"
+              alt={SITE_CONFIG.extendedName + " logo"}
+              className="w-full h-10 md:h-12 object-left object-scale-down rounded-lg"
+            />
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               We strive to provide the best possible service when repairing your
               spectacles or your watch. Our technicians are very experienced and
@@ -145,18 +146,27 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-slate-900 bg-slate-950/60 py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-3 sm:space-y-0">
-          <p>
-            © {currentYear} 1 Hour Spectacle & Watch Repairs. All rights
-            reserved.
-          </p>
-          <div className="flex space-x-6">
-            <span className="hover:text-slate-400 transition">
-              KZN's Exclusive 1-Hour Turnaround Specialists
-            </span>
+      {/* Bottom Section */}
+      <div className="text-xs mx-auto px-4  border-t border-gray-900 bg-slate-950/60 py-6">
+        <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-center sm:justify-between">
+          {/* Left / centre: copyright + name */}
+          <div className="flex flex-col items-center sm:flex-row sm:items-center gap-1 sm:gap-0">
+            <p>Copyright © {new Date().getFullYear()} All Rights Reserved.</p>
+
+            <p className="ml-1">{SITE_CONFIG.extendedName}</p>
           </div>
+
+          {/* Right: Designed Credit */}
+          <p className="sm:text-right pt-10">
+            <a
+              href="https://wsdxi.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Design Credits
+            </a>
+          </p>
         </div>
       </div>
     </footer>

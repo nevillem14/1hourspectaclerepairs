@@ -8,6 +8,7 @@ export type SocialPlatform =
 
 export const SITE_CONFIG = {
   name: "1 Hour Spectacle Repairs",
+  extendedName: "1 Hour Spectacle & Watch Repairs (Pty) Ltd",
   shortName: "1 Hour Spectacle Repairs",
   url: "https://1hourspectaclerepairs.co.za",
   emailHello: "hello@1hourspectaclerepairs.co.za",
