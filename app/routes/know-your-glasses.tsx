@@ -61,9 +61,9 @@ export function meta() {
 
 export default function KnowYourGlasses() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-cyan-500 selection:text-white overflow-x-hidden pt-20">
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-cyan-500 selection:text-white overflow-x-hidden">
       {/* Page Hero Banner */}
-      <div className="flex flex-col items-center justify-center text-center mx-auto px-4 md:px-8 py-12 md:py-16 bg-gradient-to-r from-slate-900 to-slate-800 text-white border-b border-slate-800">
+      <div className="flex flex-col items-center justify-center text-center mx-auto px-4 md:px-8 py-18 md:py-28 bg-gradient-to-r from-slate-900 to-slate-800 text-white border-b border-slate-800">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
