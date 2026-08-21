@@ -7,5 +7,6 @@ export default [
   route("know-your-glasses", "routes/know-your-glasses.tsx"),
   
   // Add the catch-all route for 404 pages
-  route("*", "components/notFound.tsx")
+  route("*", "components/notFound.tsx")
 ] satisfies RouteConfig;
+//

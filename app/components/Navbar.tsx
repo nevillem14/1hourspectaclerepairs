@@ -159,7 +159,7 @@ export default function Navbar() {
               {[
                 { name: "Home", path: "/" },
                 { name: "About Us", path: "/about" },
-                { name: "Know Your Glasses", path: "/services" },
+                { name: "Know Your Glasses", path: "/know-your-glasses" },
               ].map((item) => (
                 <li key={item.name}>
                   <NavLink
