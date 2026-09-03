@@ -1,5 +1,5 @@
 // File: app/components/Footer.tsx
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 import { MapPin } from "lucide-react";
 import { SITE_CONFIG } from "~/lib/constants";
